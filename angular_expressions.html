@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <title>AngularJS Expressions</title>
+</head>
+<body>
+
+  <div class="contenedor-principal">
+    <div class="top-menu">
+      <button class="button-menu">Menu</button>
+      <div class="menu" id="menu">
+        <!-- Los enlaces se agregan mediante codigo.js -->
+      </div>
+    </div>
+    
+    <h1>AngularJS Expressions</h1>
+      <p>AngularJS binds data to HTML using <b>Expressions</b>.</p>
+
+    <section id="titulo1"><h2>AngularJS Expressions</h2>
+      <p>AngularJS expressions can be written inside double braces: <code class="res">{{ expression }}</code>.</p>
+      <p>AngularJS expressions can also be written inside a directive: <code class="res">ng-bind="<i>expression</i>"</code>.</p>
+      <p>AngularJS will resolve the expression, and return the result exactly where the expression is written.</p>
+
+      <p><b>AngularJS expressions</b> are much like <b>JavaScript expressions:</b> They can contain literals, operators, and variables.</p>
+      <p>Example {{ 5 + 5 }} or {{ firstName + " " + lastName }}</p>
+
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>!DOCTYPE html>
+  <span><</span>html>
+  <span><</span>script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"><span><</span>/script>
+  <span><</span>body>
+
+  <span><</span>div ng-app="">
+    <span><</span>p>My first expression: {{ 5 + 5 }}<span><</span>/p>
+  <span><</span>/div>
+
+  <span><</span>/body>
+  <span><</span>/html>
+        </code></pre>
+      </div>
+
+      <p>If you remove the <code class="res">ng-app</code> directive, HTML will display the expression as it is, without solving it:</p>
+
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>!DOCTYPE html>
+  <span><</span>html>
+  <span><</span>script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"><span><</span>/script>
+  <span><</span>body>
+
+  <span><</span>div>
+    <span><</span>p>My first expression: {{ 5 + 5 }}<span><</span>/p>
+  <span><</span>/div>
+
+  <span><</span>/body>
+  <span><</span>/html>
+        </code></pre>
+      </div>
+
+      <p>You can write expressions wherever you like, AngularJS will simply resolve the expression and return the result.</p>
+      <p>Example: Let AngularJS change the value of CSS properties.</p>
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>div ng-app="" ng-init="myCol='lightblue'">
+    <span><</span>input style="background-color:{{myCol}}" ng-model="myCol">
+  <span><</span>/div>
+        </code></pre>
+      </div>
+
+    </section>
+    
+    <section id="titulo2"><h2>AngularJS Numbers</h2>
+      <p>AngularJS numbers are like JavaScript numbers:</p>
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>div ng-app="" ng-init="quantity=1;cost=5">
+    <span><</span>p>Total in dollar: {{ quantity * cost }}<span><</span>/p>
+  <span><</span>/div>
+        </code></pre>
+      </div>
+
+      <p>Same example using <code class="res">ng-bind</code>:</p>
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>div ng-app="" ng-init="quantity=1;cost=5">
+    <span><</span>p>Total in dollar: <span><</span>span ng-bind="quantity * cost"></span><span><</span>/p>
+  <span><</span>/div>
+        </code></pre>
+      </div>
+
+      <div class="nota">
+        Using <code class="res">ng-init</code> is not very common. You will learn a better way to initialize data in the chapter about controllers.
+      </div>
+
+    </section>
+    
+    <section id="titulo3"><h2>AngularJS Strings</h2>
+      <p>AngularJS strings are like JavaScript strings:</p>
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>div ng-app="" ng-init="firstName='John';lastName='Doe'">
+    <span><</span>p>The name is {{ firstName + " " + lastName }}<span><</span>/p>
+  <span><</span>/div>
+        </code></pre>
+        <p>Same example using <code class="res">ng-bind</code> :</p>
+        <pre><code>
+  <span><</span>div ng-app="" ng-init="firstName='John';lastName='Doe'">
+    <span><</span>p>The name is <span><</span>span ng-bind="firstName + ' ' + lastName"><span><</span>/span><span><</span>/p>
+  <span><</span>/div>
+        </code></pre>
+      </div>
+    </section>
+    
+    <section id="titulo4"><h2>AngularJS Objects</h2>
+      <p>AngularJS objects are like JavaScript objects:</p>
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>div ng-app="" ng-init="person={firstName:'John',lastName:'Doe'}">
+    <span><</span>p>The name is {{ person.lastName }}<span><</span>/p>
+  <span><</span>/div>        
+        </code></pre>
+        <p>Same example using <code class="res">ng-bind</code>:</p>
+        <pre><code>
+  <span><</span>div ng-app="" ng-init="person={firstName:'John',lastName:'Doe'}">
+    <span><</span>p>The name is <span><</span>span ng-bind="person.lastName"><span><</span>/span><span><</span>/p>
+  <span><</span>/div>
+        </code></pre>
+      </div>
+    </section>
+
+    <section id="titulo5"><h2>AngularJS Arrays</h2>
+      <p>AngularJS arrays are like JavaScript arrays:</p>
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>div ng-app="" ng-init="points=[1,15,19,2,40]">
+    <span><</span>p>The third result is {{ points[2] }}<span><</span>/p>
+  <span><</span>/div>
+        </code></pre>
+        <p>Same example using <code class="res">ng-bind</code>:</p>
+        <pre><code>
+  <span><</span>div ng-app="" ng-init="points=[1,15,19,2,40]">
+    <span><</span>p>The third result is <span><</span>span ng-bind="points[2]"><span><</span>/span><span><</span>/p>
+  <span><</span>/div>
+        </code></pre>
+      </div>
+    </section>
+
+    <section id="titulo6"><h2>AngularJS Expressions vs. JavaScript Expressions</h2>
+      <p>Like JavaScript expressions, AngularJS expressions can contain literals, operators and variables.</p>
+      <p>Unlike JavaScript expressions, AngularJS expressions can be written inside HTML.</p>
+      <p>AngularJS expressions do not support conditionals, loops and exceptions, while JavaScript expressions do.</p>
+      <p>AngularJS expressions support filters, while JavaScript expressions do not.</p>
+    </section>
+
+    <hr>
+    <footer>
+      
+      <div class="footer-iconos">
+        <a href="https://twitter.com/" target="_blank"><i class="bi bi-twitter"></i></a>
+        <a href="https://www.instagram.com/" target="_blank"><i class="bi bi-instagram"></i></a>
+        <a href="https://es-es.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a>
+        <a href="https://github.com/" target="_blank"><i class="bi bi-github"></i></a>
+        <a href="https://ar.linkedin.com/" target="_blank"><i class="bi bi-linkedin"></i></a>
+      </div>
+      
+      <p>AngularJS Tutorial.</p>
+      <p>Copyright 2023 by Lucas. All Rights Reserved.</p>
+      <p>Author: Lucas</p>
+
+    </footer>
+
+  </div>
+
+  <script src="./codigo.js"></script>
+</body>
+</html>

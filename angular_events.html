@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <title>AngularJS HTML Events</title>
+</head>
+<body>
+
+  <div class="contenedor-principal">
+    <div class="top-menu">
+      <button class="button-menu">Menu</button>
+      <div class="menu" id="menu">
+        <!-- Los enlaces se agregan mediante codigo.js -->
+      </div>
+    </div>
+
+    <h1>AngularJS Events</h1>
+    <p>AngularJS has its own HTML events directives.</p>
+
+    <section id="titulo"><h2>AngularJS Events</h2>
+      <p>You can add AngularJS event listeners to your HTML elements by using one or more of these directives:</p>
+      <li><code class="res">ng-blur</code></li>
+      <li><code class="res">ng-change</code></li>
+      <li><code class="res">ng-click</code></li>
+      <li><code class="res">ng-copy</code></li>
+      <li><code class="res">ng-cut</code></li>
+      <li><code class="res">ng-dblclick</code></li>
+      <li><code class="res">ng-focus</code></li>
+      <li><code class="res">ng-keydown</code></li>
+      <li><code class="res">ng-keypress</code></li>
+      <li><code class="res">ng-keyup</code></li>
+      <li><code class="res">ng-mousedown</code></li>
+      <li><code class="res">ng-mouseenter</code></li>
+      <li><code class="res">ng-mouseleave</code></li>
+      <li><code class="res">ng-mousemove</code></li>
+      <li><code class="res">ng-mouseover</code></li>
+      <li><code class="res">ng-mouseup</code></li>
+      <li><code class="res">ng-paste</code></li>
+
+      <p>The event directives allows us to run AngularJS functions at certain user events.</p>
+      <p>An AngularJS event will not overwrite an HTML event, both events will be executed.</p>
+    </section>
+
+    <section id="titulo"><h2>Mouse Events</h2>
+      <p>Mouse events occur when the cursor moves over an element, in this order:</p>
+      <ol>
+        <li>ng-mouseover</li>
+        <li>ng-mouseenter</li>
+        <li>ng-mousemove</li>
+        <li>ng-mouseleave</li>
+      </ol>
+
+      <p>Or when a mouse button is clicked on an element, in this order:</p>
+      <ol>
+        <li>ng-mousedown</li>
+        <li>ng-mouseup</li>
+        <li>ng-click</li>
+      </ol>
+      <p>You can add mouse events on any HTML element.</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <p>Increase the count variable when the mouse moves over the H1 element:</p>
+        <pre><code>
+  <span><</span>div ng-app="myApp" ng-controller="myCtrl">
+
+  <span><</span>h1 ng-mousemove="count = count + 1">Mouse over me!<span><</span>/h1>
+
+  <span><</span>h2>{{ count }}<span><</span>/h2>
+
+  <span><</span>/div>
+  <span><</span>script>
+  var app = angular.module('myApp', []);
+  app.controller('myCtrl', function($scope) {
+    $scope.count = 0;
+  });
+  <span><</span>/script>  
+        </code></pre>
+      </div>
+    </section>
+    
+    <section id="titulo"><h2>The ng-click Directive</h2>
+      <p>The <code class="res">ng-click</code> directive defines AngularJS code that will be executed when the element is being clicked.</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>div ng-app="myApp" ng-controller="myCtrl">
+
+  <span><</span>button ng-click="count = count + 1">Click me!<span><</span>/button>
+
+  <span><</span>p>{{ count }}<span><</span>/p>
+
+  <span><</span>/div>
+  <span><</span>script>
+  var app = angular.module('myApp', []);
+  app.controller('myCtrl', function($scope) {
+    $scope.count = 0;
+  });
+  <span><</span>/script>
+        </code></pre>
+      </div>
+      <p>You can also refer to a function:</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>div ng-app="myApp" ng-controller="myCtrl">
+
+  <span><</span>button ng-click="myFunction()">Click me!<span><</span>/button>
+
+  <span><</span>p>{{ count }}<span><</span>/p>
+
+  <span><</span>/div>
+  <span><</span>script>
+  var app = angular.module('myApp', []);
+  app.controller('myCtrl', function($scope) {
+    $scope.count = 0;
+    $scope.myFunction = function() {
+      $scope.count++;
+    }
+  });
+  <span><</span>/script>
+        </code></pre>
+      </div>
+    </section>
+    
+    <section id="titulo"><h2>Toogle, True/False</h2>
+      <p>If you want to show a section of HTML code when a button is clicked, and hide when the button is clicked again, like a dropdown menu, make the button behave like a toggle switch.</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>div ng-app="myApp" ng-controller="myCtrl">
+
+  <span><</span>button ng-click="myFunc()">Click Me!<span><</span>/button>
+
+  <span><</span>div ng-show="showMe">
+    <span><</span>h1>Menu:<span><</span>/h1>
+    <span><</span>div>Pizza<span><</span>/div>
+    <span><</span>div>Pasta<span><</span>/div>
+    <span><</span>div>Pesce<span><</span>/div>
+  <span><</span>/div>
+
+  <span><</span>/div>
+  <span><</span>script>
+  var app = angular.module('myApp', []);
+  app.controller('myCtrl', function($scope) {
+    $scope.showMe = false;
+    $scope.myFunc = function() {
+      $scope.showMe = !$scope.showMe;
+    }
+  });
+  <span><</span>/script>
+        </code></pre>
+      </div>
+      <p>The <code class="res">showMe</code> variable starts out as the Boolean value <code class="res">false</code>.</p>
+      <p>The <code class="res">myFunc</code> function sets the <code class="res">showMe</code> variable to the opposite of what it is, by using the <code class="res">!</code> (not) operator.</p>
+    </section>
+    
+    <section id="titulo"><h2>$even Object</h2>
+      <p>You can pass the <code class="res">$event</code> object as an argument when calling the function.</p>
+      <p>The <code class="res">$event</code> object contains the browser's event object:</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>div ng-app="myApp" ng-controller="myCtrl">
+
+  <span><</span>h1 ng-mousemove="myFunc($event)">Mouse Over Me!<span><</span>/h1>
+
+  <span><</span>p>Coordinates: {{x + ', ' + y}}<span><</span>/p>
+
+  <span><</span>/div>
+  <span><</span>script>
+  var app = angular.module('myApp', []);
+  app.controller('myCtrl', function($scope) {
+    $scope.myFunc = function(myE) {
+      $scope.x = myE.clientX;
+      $scope.y = myE.clientY;
+    }
+  });
+  <span><</span>/script>
+        </code></pre>
+      </div>
+    </section>
+        
+    <hr>
+    <footer>
+      
+      <div class="footer-iconos">
+        <a href="https://twitter.com/" target="_blank"><i class="bi bi-twitter"></i></a>
+        <a href="https://www.instagram.com/" target="_blank"><i class="bi bi-instagram"></i></a>
+        <a href="https://es-es.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a>
+        <a href="https://github.com/" target="_blank"><i class="bi bi-github"></i></a>
+        <a href="https://ar.linkedin.com/" target="_blank"><i class="bi bi-linkedin"></i></a>
+      </div>
+      
+      <p>AngularJS Tutorial.</p>
+      <p>Copyright 2023 by Lucas. All Rights Reserved.</p>
+      <p>Author: Lucas</p>
+
+    </footer>
+
+  </div>
+<script src="./codigo.js"></script>
+</body>
+</html>

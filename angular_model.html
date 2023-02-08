@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+  <title>AngularJS Tutorial</title>
+</head>
+<body>
+
+  <div class="contenedor-principal">
+    <div class="top-menu">
+      <button class="button-menu">Menu</button>
+      <div class="menu" id="menu">
+        <!-- Los enlaces se agregan mediante codigo.js -->
+      </div>
+    </div>
+
+    <h1>AngularJS ng-model Directive</h1>
+    <p>The ng-model directive binds the value of HTML controls (input, select, textarea) to application data.</p>
+
+    <section id="titulo"><h2>The ng-model Directive</h2>
+      <p>With the <code class="res">ng-model</code> directive you can bind the value of an input field to a variable created in AngularJS.</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>div ng-app="myApp" ng-controller="myCtrl">
+    Name: <span><</span>input ng-model="name">
+  <span><</span>/div>
+  
+  <span><</span>script>
+  var app = angular.module('myApp', []);
+  app.controller('myCtrl', function($scope) {
+    $scope.name = "John Doe";
+  });
+  <span><</span>/script>
+        </code></pre>
+      </div>
+
+    </section>
+
+    <section id="titulo"><h2>Two-Way Binding</h2>
+      <p>The binding goes both ways. If the user changes the value inside the input field, the AngularJS property will also change its value:</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>div ng-app="myApp" ng-controller="myCtrl">
+    Name: <span><</span>input ng-model="name">
+    <span><</span>h1>You entered: {{name}}<span><</span>/h1>
+  <span><</span>/div>
+        </code></pre>
+      </div>
+    </section>
+
+    <section id="titulo"><h2>Validate User Input</h2>
+      <p>The <code class="res">ng-model</code> directive can provide type validation for application data (number, e-mail, required):</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>form ng-app="" name="myForm">
+    Email:
+    <span><</span>input type="email" name="myAddress" ng-model="text">
+    <span><</span>span ng-show="myForm.myAddress.$error.email">Not a valid e-mail address<span><</span>/span>
+  <span><</span>/form>  
+        </code></pre>
+      </div>
+
+      <p>In the example above, the span will be displayed only if the expression in the <code class="res">ng-show</code> attribute returns <code class="res">true</code>.</p>
+      <div class="nota">If the property in the <code class="res">ng-model</code> attribute does not exist, AngularJS will create one for you.</div>
+
+    </section>
+
+    <section id="titulo"><h2>Application Status</h2>
+      <p>The <code class="res">ng-model</code> directive can provide status for application data (valid, dirty, touched, error):</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>form ng-app="" name="myForm" ng-init="myText = 'post@myweb.com'">
+    Email:
+    <span><</span>input type="email" name="myAddress" ng-model="myText" required>
+    <span><</span>h1>Status<span><</span>/h1>
+    {{myForm.myAddress.$valid}}
+    {{myForm.myAddress.$dirty}}
+    {{myForm.myAddress.$touched}}
+  <span><</span>/form> 
+        </code></pre>
+      </div>
+
+    </section>
+
+    <section id="titulo"><h2>CSS Classes</h2>
+      <p>The <code class="res">ng-model</code> directive provides CSS classes for HTML elements, depending on their status:</p>
+      <!-- code -->
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>style>
+  input.ng-invalid {
+    background-color: lightblue;
+  }
+  <span><</span>/style>
+  <span><</span>body>
+  
+  <span><</span>form ng-app="" name="myForm">
+    Enter your name:
+    <span><</span>input name="myName" ng-model="myText" required>
+  <span><</span>/form>
+  <span><</span>/body>
+        </code></pre>
+      </div>
+
+      <p>The <code class="res">ng-model</code> directive adds/removes the following classes, according to the status of the form field:</p>
+      <li>ng-empty</li>
+      <li>ng-not-empty</li>
+      <li>ng-touched</li>
+      <li>ng-untouched</li>
+      <li>ng-valid</li>
+      <li>ng-invalid</li>
+      <li>ng-dirty</li>
+      <li>ng-pending</li>
+      <li>ng-pristine</li>
+    </section>
+
+    <hr>
+    <footer>
+      
+      <div class="footer-iconos">
+        <a href="https://twitter.com/" target="_blank"><i class="bi bi-twitter"></i></a>
+        <a href="https://www.instagram.com/" target="_blank"><i class="bi bi-instagram"></i></a>
+        <a href="https://es-es.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a>
+        <a href="https://github.com/" target="_blank"><i class="bi bi-github"></i></a>
+        <a href="https://ar.linkedin.com/" target="_blank"><i class="bi bi-linkedin"></i></a>
+      </div>
+      
+      <p>AngularJS Tutorial.</p>
+      <p>Copyright 2023 by Lucas. All Rights Reserved.</p>
+      <p>Author: Lucas</p>
+
+    </footer>
+
+  </div>
+  <script src="./codigo.js"></script>
+</body>
+</html>

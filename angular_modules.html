@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <title>AngularJS Modules</title>
+</head>
+<body>
+
+  <div class="contenedor-principal">
+    <div class="top-menu">
+      <button class="button-menu">Menu</button>
+      <div class="menu" id="menu">
+        <!-- Los enlaces se agregan mediante codigo.js -->
+      </div>
+    </div>
+    
+    <h1>Angular Modules</h1>
+    <p>An AngularJS module defines an application.</p>
+    <p>The module is a container for the different parts of an application.</p>
+    <p>The module is a container for the application controllers.</p>
+    <p>Controllers always belong to a module.</p>
+
+    <section id="titulo"><h2>Creating a Module</h2>
+      <p>A module is created by using the AngularJS function <code class="res">angular.module</code></p>
+      
+      <pre><code>
+  <span><</span>div ng-app="myApp">...<span><</span>/div>
+
+  <span><</span>script>
+  
+  var app = angular.module("myApp", []);
+  
+  <span><</span>/script>
+      </code></pre>
+
+      <p>The "myApp" parameter refers to an HTML element in which the application will run.</p>
+      <p>Now you can add controllers, directives, filters, and more, to your AngularJS application.</p>
+
+    </section>
+
+    <section id="titulo"><h2>Adding a Controller</h2>
+      <p>Add a controller to your application and refer to the controller with the <code class="res">ng-controller</code> directive:</p>
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+    <span><</span>div ng-app="myApp" ng-controller="myCtrl">
+    {{ firstName + " " + lastName }}
+    <span><</span>/div>
+    
+    <span><</span>script>
+    
+    var app = angular.module("myApp", []);
+    
+    app.controller("myCtrl", function($scope) {
+      $scope.firstName = "John";
+      $scope.lastName = "Doe";
+    });
+    
+    <span><</span>/script>
+        </code></pre>
+      </div>
+    </section>
+
+    <section id="titulo"><h2>Add a Directive</h2>
+      <p>AngularJS has a set of built-in directives which you can use to add functionality to your application.</p>
+      <p>For a full reference, visit a W3Schools <u>AngularJS directive reference</u>.</p>
+      <p>In addition you can use the module to add your own directives to your applications:</p>
+
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>div ng-app="myApp" w3-test-directive><span><</span>/div>
+
+  <span><</span>script>
+    var app = angular.module("myApp", []);
+
+    app.directive("w3TestDirective", function() {
+      return {
+        template : "I was made in a directive constructor!"
+      };
+    });
+  <span><</span>/script>
+        </code></pre>
+      </div>
+
+    </section>
+
+    <section id="titulo"><h2>Modules and Controllers in Files</h2>
+      <p>It is common in AngularJS applications to put the module and the controllers in JavaScript files.</p>
+      <p>In this example, "myApp.js" contains an application module definition, while "myCtrl.js" contains the controller:</p>
+
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>!DOCTYPE html>
+  <span><</span>html>
+  <span><</span>script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"><span><</span>/script>
+  <span><</span>body>
+
+  <span><</span>div ng-app="myApp" ng-controller="myCtrl">
+  {{ firstName + " " + lastName }}
+  <span><</span>/div>
+
+  <span><</span>script src="myApp.js"><span><</span>/script>
+  <span><</span>script src="myCtrl.js"><span><</span>/script>
+
+  <span><</span>/body>
+  <span><</span>/html>
+        </code></pre>
+
+        <p><code class="res">myApp.js</code></p>
+        <pre><code>
+  var app = angular.module("myApp", []);
+        </code></pre>
+
+        <p><code class="res">myCtrl.js</code></p>
+        <pre><code>
+  app.controller("myCtrl", function($scope) {
+    $scope.firstName = "John";
+    $scope.lastName= "Doe";
+  });
+        </code></pre>
+      </div>
+
+      <div class="nota">
+        The [ ] parameter in the module definition can be used to define dependent modules. <br>
+        Without the [ ] parameter, you are not <i>creating</i> a new module, but <i>retrieving</i> an existing one.
+      </div>
+
+    </section>
+
+    <section id="titulo"><h2>Functions can Pollute the Global Namespace</h2>
+      <p>Global functions should be avoided in JavaScript. They can easily be overwritten or destroyed by other scripts.</p>
+      <p>AngularJS modules reduces this problem, by keeping all functions local to the module.</p>
+    </section>
+
+    <section id="titulo"><h2>When to Load the Library</h2>
+      <p>While it is common in HTML applications to place scripts at the end of the <code class="res"><span><</span>body></code> element, it is recommended that you load the AngularJS library either in the <code class="res"><span><</span>head></code> or at the start of the <code class="res"><span><</span>body></code>.</p>
+      <p>This is because calls to <code class="res">angular.module</code> can only be compiled after the library has been loaded.</p>
+
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>!DOCTYPE html>
+  <span><</span>html>
+  <span><</span>body>
+  <span><</span>script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"><span><</span>/script>
+
+  <span><</span>div ng-app="myApp" ng-controller="myCtrl">
+  {{ firstName + " " + lastName }}
+  <span><</span>/div>
+
+  <span><</span>script>
+  var app = angular.module("myApp", []);
+  app.controller("myCtrl", function($scope) {
+    $scope.firstName = "John";
+    $scope.lastName = "Doe";
+  });
+  <span><</span>/script>
+
+  <span><</span>/body>
+  <span><</span>/html>
+        </code></pre>
+      </div>
+
+    </section>
+
+    <hr>
+    <footer>
+      
+      <div class="footer-iconos">
+        <a href="https://twitter.com/" target="_blank"><i class="bi bi-twitter"></i></a>
+        <a href="https://www.instagram.com/" target="_blank"><i class="bi bi-instagram"></i></a>
+        <a href="https://es-es.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a>
+        <a href="https://github.com/" target="_blank"><i class="bi bi-github"></i></a>
+        <a href="https://ar.linkedin.com/" target="_blank"><i class="bi bi-linkedin"></i></a>
+      </div>
+      
+      <p>AngularJS Tutorial.</p>
+      <p>Copyright 2023 by Lucas. All Rights Reserved.</p>
+      <p>Author: Lucas</p>
+
+    </footer>
+
+  </div>
+
+  <script src="./codigo.js"></script>
+  
+</body>
+</html>

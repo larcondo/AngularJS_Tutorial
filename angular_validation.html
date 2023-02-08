@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <title>AngularJS Validation</title>
+</head>
+<body>
+
+  <div class="contenedor-principal">
+    <div class="top-menu">
+      <button class="button-menu">Menu</button>
+      <div class="menu" id="menu">
+        <!-- Los enlaces se agregan mediante codigo.js -->
+      </div>
+    </div>
+
+    <h1>AngularJS Form Validation</h1>
+    <p>AngularJS can validate input data.</p>
+    
+    <section id="titulo"><h2>Form Validation</h2>
+      <p>AngularJS offers client-side form validation.</p>
+      <p>AngularJS monitors the state of the form and input fields (input, textarea, select), and lets you notify the user about the current state.</p>
+      <p>AngularJS also holds information about whether they have been touched, or modified, or not.</p>
+      <p>You can use standard HTML5 attributes to validate input, or you can make your own validation functions.</p>
+
+      <div class="nota">Client-side validation cannot alone secure user input. Server side validation is also necessary.</div>
+    </section>
+    
+    <section id="titulo"><h2>Required</h2>
+      <p>Use the HTML5 attribute <code class="res">required</code> to specify that the input field must be filled out:</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <p>The input field is required:</p>
+        <pre><code>
+  <span><</span>form name="myForm">
+    <span><</span>input name="myInput" ng-model="myInput" required>
+  <span><</span>/form>
+  
+  <span><</span>p>The input's valid state is:<span><</span>/p>
+  <span><</span>h1>{{myForm.myInput.$valid}}<span><</span>/h1>
+        </code></pre>
+      </div>
+    </section>
+    
+    <section id="titulo"><h2>E-mail</h2>
+      <p>Use the HTML5 type <code class="res">email</code> to specify that the value must be an e-mail:</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <p>The input field has to be an e-mail:</p>
+        <pre><code>
+  <span><</span>form name="myForm">
+    <span><</span>input name="myInput" ng-model="myInput" type="email">
+  <span><</span>/form>
+  
+  <span><</span>p>The input's valid state is:<span><</span>/p>
+  <span><</span>h1>{{myForm.myInput.$valid}}<span><</span>/h1>
+        </code></pre>
+      </div>
+    </section>
+    
+    <section id="titulo"><h2>Form State and Input State</h2>
+      <p>AngularJS is constantly updating the state of both the form and the input fields.</p>
+      <p>Input fields have the following states:</p>
+      <li><code class="res">$untouched</code>The field has not been touched yet</li>
+      <li><code class="res">$touched</code>The field has been touched</li>
+      <li><code class="res">$pristine</code>The field has not been modified yet</li>
+      <li><code class="res">$dirty</code>The field has been modified</li>
+      <li><code class="res">$invalid</code>The field content is not valid</li>
+      <li><code class="res">$valid</code>The field content is valid</li>
+
+      <p>They are all properties of the input field, and are either <code class="res">true</code> or <code class="res">false</code>.</p>
+      <p>Forms have the following states:</p>
+      <li><code class="res">$pristine</code> No fields have been modified yet</li>
+      <li><code class="res">$dirty</code> One or more have been modified</li>
+      <li><code class="res">$invalid</code> The form content is not valid</li>
+      <li><code class="res">$valid</code> The form content is valid</li>
+      <li><code class="res">$submitted</code> The form is submitted</li>
+
+      <p>They are all properties of the form, and are either <code class="res">true</code> or <code class="res">false</code>.</p>
+
+      <p>You can use these states to show meaningful messages to the user. Example, if a field is required, and the user leaves it blank, you should give the user a warning:</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <p>Show an error message if the field has been touched AND is empty:</p>
+        <pre><code>
+  <span><</span>input name="myName" ng-model="myName" required>
+  <span><</span>span ng-show="myForm.myName.$touched && myForm.myName.$invalid">
+    The name is required.
+  <span><</span>/span>
+        </code></pre>
+      </div>
+
+    </section>
+    
+    <section id="titulo"><h2>CSS Classes</h2>
+      <p>AngularJS adds CSS classes to forms and input fields depending on their states.</p>
+      <p>The following classes are added to, or removed from, input fields:</p>
+      <li><code class="res">ng-untouched</code> The field has not been touched yet</li>
+      <li><code class="res">ng-touched</code> The field has been touched</li>
+      <li><code class="res">ng-pristine</code> The field has not been modified yet</li>
+      <li><code class="res">ng-dirty</code> The field has been modified</li>
+      <li><code class="res">ng-valid</code> The field content is valid</li>
+      <li><code class="res">ng-invalid</code> The field content is not valid</li>
+      <li><code class="res">ng-valid-<i>key</i></code> One <i>key</i> for each validation. Example: <code class="res">ng-valid-required</code>, useful when there are more than one thing that must be validated</li>
+      <li><code class="res">ng-invalid-<i>key</i></code> Example: <code class="res">ng-invalid-required</code></li>
+
+      <p>The following classes are added to, or removed from, forms:</p>
+      <li><code class="res">ng-pristine</code> No fields has not been modified yet</li>
+      <li><code class="res">ng-dirty</code> One or more fields has been modified</li>
+      <li><code class="res">ng-valid</code> The form content is valid</li>
+      <li><code class="res">ng-invalid</code> The form content is not valid</li>
+      <li><code class="res">ng-valid-<i>key</i></code> One <i>key</i> for each validation. Example: <code class="res">ng-valid-required</code>, useful when there are more than one thing that must be validated</li>
+      <li><code class="res">ng-invalid-key</code> Example: <code class="res">ng-invalid-required</code></li>
+
+      <p>The classes are removed if the value they represent is <code class="res">false</code>.</p>
+      <p>Add styles for these classes to give your application a better and more intuitive user interface.</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <p>Apply styles, using standard CSS:</p>
+        <pre><code>
+  <span><</span>style>
+  input.ng-invalid {
+    background-color: pink;
+  }
+  input.ng-valid {
+    background-color: lightgreen;
+  }
+  <span><</span>/style>
+        </code></pre>
+      </div>
+      <p>Forms can also be styled:</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <p>Apply styles for unmodified (pristine) forms, and for modified forms:</p>
+        <pre><code>
+  <span><</span>style>
+  form.ng-pristine {
+    background-color: lightblue;
+  }
+  form.ng-dirty {
+    background-color: pink;
+  }
+  <span><</span>/style>
+        </code></pre>
+      </div>
+
+    </section>
+    
+    <section id="titulo"><h2>Custom Validation</h2>
+      <p>To create your own validation function is a bit more tricky; You have to add a new directive to your application, and deal with the validation inside a function with certain specified arguments.</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <p>Create your own directive, containing a custom validation function, and refer to it by using <code class="res">my-directive</code>.</p>
+        <p>The field will only be valid if the value contains the character "e":</p>
+        <pre><code>
+  <span><</span>form name="myForm">
+  <span><</span>input name="myInput" ng-model="myInput" required my-directive>
+  <span><</span>/form>
+
+  <span><</span>script>
+  var app = angular.module('myApp', []);
+  app.directive('myDirective', function() {
+    return {
+      require: 'ngModel',
+      link: function(scope, element, attr, mCtrl) {
+        function myValidation(value) {
+          if (value.indexOf("e") > -1) {
+            mCtrl.$setValidity('charE', true);
+          } else {
+            mCtrl.$setValidity('charE', false);
+          }
+          return value;
+        }
+        mCtrl.$parsers.push(myValidation);
+      }
+    };
+  });
+  <span><</span>/script>
+        </code></pre>
+      </div>
+
+      <h3>Example Explained:</h3>
+      <p>In HTML, the new directive will be referred to by using the attribute <code class="res">my-directive</code>.</p>
+      <p>In the JavaScript we start by adding a new directive named <code class="res">myDirective</code>.</p>
+      <p>Remember, when naming a directive, you must use a camel case name, <code class="res">myDirective</code>, but when invoking it, you must use <code class="res">-</code> separated name, <code class="res">my-directive</code>.</p>
+      <p>Then, return an object where you specify that we require <code class="res">ngModel</code>, which is the ngModelController.</p>
+      <p>Make a linking function which takes some arguments, where the fourth argument, <code class="res">mCtrl</code>, is the <code class="res">ngModelController</code>.</p>
+      <p>Then specify a function, in this case named <code class="res">myValidation</code>, which takes one argument, this argument is the value of the input element.</p>
+      <p>Test if the value contains the letter "e", and set the validity of the model controller to either <code class="res">true</code> or <code class="res">false</code>.</p>
+      <p>At last, <code class="res">mCtrl.$parsers.push(myValidation);</code> will add the <code class="res">myValidation</code> function to an array of other functions, which will be executed every time the input value changes.</p>
+    </section>
+    
+    <section id="titulo"><h2>Validation Example</h2>
+      
+      <button class="accordion"><h3>Code</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>!DOCTYPE html>
+  <span><</span>html>
+  <span><</span>script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"><span><</span>/script>
+  <span><</span>body>
+
+  <span><</span>h2>Validation Example<span><</span>/h2>
+
+  <span><</span>form  ng-app="myApp"  ng-controller="validateCtrl" name="myForm" novalidate>
+
+  <span><</span>p>Username:<span><</span>br>
+    <span><</span>input type="text" name="user" ng-model="user" required>
+    <span><</span>span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+    <span><</span>span ng-show="myForm.user.$error.required">Username is required.<span><</span>/span>
+    <span><</span>/span>
+  <span><</span>/p>
+
+  <span><</span>p>Email:<span><</span>br>
+    <span><</span>input type="email" name="email" ng-model="email" required>
+    <span><</span>span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+    <span><</span>span ng-show="myForm.email.$error.required">Email is required.<span><</span>/span>
+    <span><</span>span ng-show="myForm.email.$error.email">Invalid email address.<span><</span>/span>
+    <span><</span>/span>
+  <span><</span>/p>
+
+  <span><</span>p>
+    <span><</span>input type="submit"
+    ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||
+    myForm.email.$dirty && myForm.email.$invalid">
+  <span><</span>/p>
+
+  <span><</span>/form>
+
+  <span><</span>script>
+  var app = angular.module('myApp', []);
+  app.controller('validateCtrl', function($scope) {
+    $scope.user = 'John Doe';
+    $scope.email = 'john.doe@gmail.com';
+  });
+  <span><</span>/script>
+
+  <span><</span>/body>
+  <span><</span>/html>
+        </code></pre>
+      </div>
+      <div class="nota">
+        The HTML form attribute <b>novalidate</b> is used to disable default browser validation.
+      </div>
+
+      <h3>Example Explained</h3>
+      <p>The AngularJS directive <b>ng-model</b> binds the input elements to the model.</p>
+      <p>The model object has two properties: <b>user</b> and <b>email</b>.</p>
+      <p>Because of <b>ng-show</b>, the spans with color:red are displayed only when user or email is <b>$dirty</b> and <b>$invalid</b>.</p>
+    </section>
+
+    <hr>
+    <footer>
+      
+      <div class="footer-iconos">
+        <a href="https://twitter.com/" target="_blank"><i class="bi bi-twitter"></i></a>
+        <a href="https://www.instagram.com/" target="_blank"><i class="bi bi-instagram"></i></a>
+        <a href="https://es-es.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a>
+        <a href="https://github.com/" target="_blank"><i class="bi bi-github"></i></a>
+        <a href="https://ar.linkedin.com/" target="_blank"><i class="bi bi-linkedin"></i></a>
+      </div>
+      
+      <p>AngularJS Tutorial.</p>
+      <p>Copyright 2023 by Lucas. All Rights Reserved.</p>
+      <p>Author: Lucas</p>
+
+    </footer>
+
+  </div>
+<script src="./codigo.js"></script>
+</body>
+</html>

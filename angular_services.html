@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <title>AngularJS Services</title>
+</head>
+<body>
+
+  <div class="contenedor-principal">
+    <div class="top-menu">
+      <button class="button-menu">Menu</button>
+      <div class="menu" id="menu">
+        <!-- Los enlaces se agregan mediante codigo.js -->
+      </div>
+    </div>
+    <h1>AngularJS Services</h1>
+    <p>In AngularJS you can make your own service or use one of the many built-in services.</p>
+
+    <section id="titulo"><h2>What is a Service?</h2>
+      <p>In AngularJS, a service is a function or object that is available for, and limited to, your AngularJS application.</p>
+      <p>AngularJS has about 30 built-in services. One of them is the <code class="res">$location</code> service.</p>
+      <p>The <code class="res">$location</code> service has methods which return information about the location of the current web page:</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <p>Use the <code class="res">$location</code> service in a controller:</p>
+        <pre><code>
+  var app = angular.module('myApp', []);
+  app.controller('customersCtrl', function($scope, $location) {
+      $scope.myUrl = $location.absUrl();
+  });
+        </code></pre>
+      </div>
+      <p>Note that the <code class="res">$location</code> service is passed in to the controller as an argument. In order to use the service in the controller, it must be defined as a dependency.</p>
+    </section>
+    
+    <section id="titulo"><h2>Why use Services?</h2>
+      <p>For many services, like the <code class="res">$location</code> service, it seems like you could use objects that are already in the DOM, like the <code class="res">window.location</code> object, and you could, but it would have some limitations, at least for your AngularJS application.</p>
+      <p>AngularJS constantly supervises your application, and for it to handle changes and events properly, AngularJS prefers that you use the <code class="res">$location</code> service instead of the <code class="res">window.location</code> object.</p>
+    </section>
+    
+    <section id="titulo"><h2>The $http Service</h2>
+      <p>The <code class="res">$http</code> service is one of the most common used services in AngularJS applications. The service makes a request to the server, and lets your application handle the response.</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <p>Use the <code class="res">$http</code> service to request data from the server:</p>
+        <pre><code>
+  var app = angular.module('myApp', []);
+  app.controller('myCtrl', function($scope, $http) {
+    $http.get("welcome.htm").then(function (response) {
+      $scope.myWelcome = response.data;
+    });
+  });
+        </code></pre>
+      </div>
+      <p>This example demonstrates a very simple use of the <code class="res">$http</code> service.</p>
+    </section>
+    
+    <section id="titulo"><h2>The $timeout Service</h2>
+      <p>The <code class="res">$timeout</code> service is AngularJS' version of the <code class="res">window.setTimeout</code> function.</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <p>Display a new message after two seconds:</p>
+        <pre><code>
+  var app = angular.module('myApp', []);
+  app.controller('myCtrl', function($scope, $timeout) {
+    $scope.myHeader = "Hello World!";
+    $timeout(function () {
+      $scope.myHeader = "How are you today?";
+    }, 2000);
+  });
+        </code></pre>
+      </div>
+    </section>
+    
+    <section id="titulo"><h2>The $internal Service</h2>
+      <p>The <code class="res">$interval</code> service is AngularJS' version of the <code class="res">window.setInterval</code> function.</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <p>Display the time every second:</p>
+        <pre><code>
+  var app = angular.module('myApp', []);
+  app.controller('myCtrl', function($scope, $interval) {
+    $scope.theTime = new Date().toLocaleTimeString();
+    $interval(function () {
+      $scope.theTime = new Date().toLocaleTimeString();
+    }, 1000);
+  }); 
+        </code></pre>
+      </div>
+    </section>
+    
+    <section id="titulo"><h2>Create Your Own Service</h2>
+      <p>To create your own service, connect your service to the module:</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <p>Create a service named <code class="res">hexafy</code>:</p>
+        <pre><code>
+  app.service('hexafy', function() {
+    this.myFunc = function (x) {
+      return x.toString(16);
+    }
+  });
+        </code></pre>
+      </div>
+      <p>To use your custom made service, add it as a dependency when defining the controller:</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <p>Use the custom made service named <code class="res">hexafy</code> to convert a number into a hexadecimal number:</p>
+        <pre><code>
+  app.controller('myCtrl', function($scope, <b>hexafy</b>) {
+    $scope.hex = <b>hexafy</b>.myFunc(255);
+  });
+        </code></pre>
+      </div>
+    </section>
+    
+    <section id="titulo"><h2>Use a Custom Service Inside a Filter</h2>
+      <p>Once you have created a service, and connected it to your application, you can use the service in any controller, directive, filter, or even inside other services.</p>
+      <p>To use the service inside a filter, add it as a dependency when defining the filter:</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <p>The service <code class="res">hexafy</code> used in the filter <code class="res">myFormat</code>:</p>
+        <pre><code>
+  app.filter('myFormat',['hexafy', function(hexafy) {
+    return function(x) {
+      return hexafy.myFunc(x);
+    };
+  }]);
+        </code></pre>
+      </div>
+
+      <p>You can use the filter when displaying values from an object, or an array:</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>ul>
+    <span><</span>li ng-repeat="x in counts">{{x | myFormat}}<span><</span>/li>
+  <span><</span>/ul>
+        </code></pre>
+      </div>
+    
+    </section>
+        
+    <hr>
+    <footer>
+      
+      <div class="footer-iconos">
+        <a href="https://twitter.com/" target="_blank"><i class="bi bi-twitter"></i></a>
+        <a href="https://www.instagram.com/" target="_blank"><i class="bi bi-instagram"></i></a>
+        <a href="https://es-es.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a>
+        <a href="https://github.com/" target="_blank"><i class="bi bi-github"></i></a>
+        <a href="https://ar.linkedin.com/" target="_blank"><i class="bi bi-linkedin"></i></a>
+      </div>
+      
+      <p>AngularJS Tutorial.</p>
+      <p>Copyright 2023 by Lucas. All Rights Reserved.</p>
+      <p>Author: Lucas</p>
+
+    </footer>
+
+  </div>
+<script src="./codigo.js"></script>
+</body>
+</html>

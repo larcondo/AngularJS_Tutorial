@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <title>AngularJS Directives</title>
+</head>
+<body>
+
+  <div class="contenedor-principal">
+    <div class="top-menu">
+      <button class="button-menu">Menu</button>
+      <div class="menu" id="menu">
+        <!-- Los enlaces se agregan mediante codigo.js -->
+      </div>
+    </div>   
+    
+    <h1>AngularJS Directives</h1>
+    <p>AngularJS lets you extend HTML with new attributes called <code class="res">Directives</code>.</p>
+    <p>AngularJS has a set of built-in directives which offers functionality to your applications.</p>
+    <p>AngularJS also lets you define your own directives.</p>
+
+    <section id="titulo"><h2>AngularJS Directives</h2>
+      <p>AngularJS directives are extended HTML attributes with the prefix <code class="res">ng-</code>.</p>
+      <p>The <code class="res">ng-app</code> directive initializes an AngularJS application.</p>
+      <p>The <code class="res">ng-init</code> directive initializes application data.</p>
+      <p>The <code class="res">ng-model</code> directive binds the value of HTML controls (input, select, textarea) to application data.</p>
+
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>div ng-app="" ng-init="firstName='John'">
+
+    <span><</span>p>Name: <span><</span>input type="text" ng-model="firstName"><span><</span>/p>
+    <span><</span>p>You wrote: {{ firstName }}<span><</span>/p>
+    
+  <span><</span>/div> 
+        </code></pre>
+      </div>
+
+      <p>The <code class="res">ng-app</code> directive also tells AngularJS that the <span><</span>div> element is the "owner" of the AngualrJS application.</p>
+      
+    </section>
+     
+    <section id="titulo"><h2>Data Binding</h2>
+      <p>The <code class="res">{{ firstName }}</code> expression, in the example above, is an AngularJS data binding expression.</p>
+      <p>Data binding in AngularJS binds AngualrJS expressions with AngularJS data.</p>
+      <p><code class="res">{{ firstName}}</code> is bound with <code class="res">ng-model="firstName"</code>.</p>
+      <p>In the next example two text fields are bound together with two ng-model directives:</p>
+    
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>div ng-app="" ng-init="quantity=1;price=5">
+
+    Quantity: <span><</span>input type="number" ng-model="quantity">
+    Costs:    <span><</span>input type="number" ng-model="price">
+    
+    Total in dollar: {{ quantity * price }}
+    
+  <span><</span>/div>
+        </code></pre>
+      </div>
+
+      <div class="nota">
+        Using <code class="res">ng-init</code> is not a very common. You will learn how to initialize data in the chapter about controllers.
+      </div>
+
+    </section>
+    
+    <section id="titulo"><h2>Repeating HTML Elements</h2>
+      <p>The <code class="res">ng-repeat</code> directive repeats an HTML element:</p>
+
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>div ng-app="" ng-init="names=['Jani','Hege','Kai']">
+    <span><</span>ul>
+      <span><</span>li ng-repeat="x in names">
+        {{ x }}
+      <span><</span>/li>
+    <span><</span>/ul>
+  <span><</span>/div>
+        </code></pre>
+      </div>
+
+      <p>The <code class="res">ng-repeat</code> directive actually <b>clones HTML elements</b> once for each item in a collection.</p>
+      <p>The <code class="res">ng-repeat</code> directive used on an array of objects:</p>
+
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>div ng-app="" ng-init="names=[
+  {name:'Jani',country:'Norway'},
+  {name:'Hege',country:'Sweden'},
+  {name:'Kai',country:'Denmark'}]">
+  
+  <span><</span>ul>
+    <span><</span>li ng-repeat="x in names">
+      {{ x.name + ', ' + x.country }}
+    <span><</span>/li>
+  <span><</span>/ul>
+  
+  <span><</span>/div> 
+        </code></pre>
+      </div>
+
+      <div class="nota">
+        AngualrJS is perfect for database CRUD (Create Read Update Delete) applications. <br>
+        Just imagine if these objects were records from a database.
+      </div>
+
+    </section>
+    
+    <section id="titulo"><h2>The ng-app Directive</h2>
+      <p>The <code class="res">ng-app</code> directive defines the <b>root element</b> of an AngularJS application.</p>
+      <p>The <code class="res">ng-app</code> directive will <b>auto-bootstrap</b> (automatically initialize) the application when a web page is loaded.</p>
+    </section>
+
+    <section id="titulo"><h2>The ng-init Directive</h2>
+      <p>The <code class="res">ng-init</code> directive defines <b>initial values</b> for an AngularJS application.</p>
+      <p>Normally, you will not use ng-init. You will use a controller or module instead.</p>
+    </section>
+    
+    <section id="titulo"><h2>The ng-model Directive</h2>
+      <p>The <code class="res">ng-model</code> directive binds the value of HTML controls (input, select, textarea) to application data.</p>
+      <p>The <code class="res">ng-model</code> directive can also:</p>
+        <li>Provide type validation for application data (number, email, required).</li>
+        <li>Provide status for application data (invalid, dirty, touched, error).</li>
+        <li>Provide CSS classes for HTML elements.</li>
+        <li>Bind HTML elements to HTML forms.</li>
+      
+    </section>
+
+    <section id="titulo"><h2>Create New Directives</h2>
+      <p>In addition to all the built-in AngualrJS directives, you can create your own directives.</p>
+      <p>New directives are created by using the <code class="res">.directive</code> function.</p>
+      <p>To invoke the new directive, make an HTML element with the same tag name as the new directive.</p>
+      <p>When naming a directive, you must use a camel case name, <code class="res">w3TestDirective</code>, but when invoking it, you must use <code class="res">-</code> separated name, <code class="res">w3-Test-Directive</code> :</p>
+
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>body ng-app="myApp">
+
+    <span><</span>w3-test-directive><span><</span>/w3-test-directive>
+    
+    <span><</span>script>
+    var app = angular.module("myApp", []);
+    app.directive("w3TestDirective", function() {
+      return {
+        template : "<span><</span>h1>Made by a directive!<span><</span>/h1>"
+      };
+    });
+    <span><</span>/script>
+    
+  <span><</span>/body>
+        </code></pre>
+      </div>
+
+      <p>You can invoke a directive by using:</p>
+      <li>Element name</li>
+      <li>Attribute</li>
+      <li>Class</li>
+      <li>Comment</li>
+
+      <p>The examples below will all produce the same result:</p>
+
+      <button class="accordion"><h3>Examples</h3></button>
+      <div class="panel">
+        <p>Element name</p>
+        <pre><code>
+  <span><</span>w3-test-directive><span><</span>/w3-test-directive>
+        </code></pre>
+        <div class="enlace""><a href="https://www.w3schools.com/angular/tryit.asp?filename=try_ng_directive_element" target="_blank">Click here to full example</a></div>
+
+        <p>Attribute</p>
+        <pre><code>
+  <span><</span>div w3-test-directive><span><</span>/div>
+        </code></pre>
+        <div class="enlace"><a href="https://www.w3schools.com/angular/tryit.asp?filename=try_ng_directive_attribute" target="_blank">Click here to full example</a></div>
+        
+        <p>Class</p>
+        <pre><code>
+  <span><</span>div class="w3-test-directive"><span><</span>/div>
+        </code></pre>
+        <div class="enlace"><a href="https://www.w3schools.com/angular/tryit.asp?filename=try_ng_directive_class" target="_blank">Click here to full example</a></div>
+        
+        <p>Comment</p>
+        <pre><code>
+  <span><</span>!-- directive: w3-test-directive -->
+        </code></pre>
+        <div class="enlace"><a href="https://www.w3schools.com/angular/tryit.asp?filename=try_ng_directive_comment" target="_blank">Click here to full example</a></div>
+
+      </div>
+
+    </section>
+    
+    <section id="titulo"><h2>Restrictions</h2>
+      <p>You can restrict your directives to only be invoked by some of the methods.</p>  
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <p>By adding a <code class="res">restrict</code> property with the value <code class="res">"A"</code>, the directive can only be invoked by attributes:</p>
+        <pre><code>
+  var app = angular.module("myApp", []);
+  app.directive("w3TestDirective", function() {
+    return {
+      restrict : "A",
+      template : "<span><</span>h1>Made by a directive!<span><</span>/h1>"
+    };
+  });          
+        </code></pre>
+      </div>
+
+      <p>The legal restrict values are:</p>
+      <li><code class="res">E</code> for Element name</li>
+      <li><code class="res">A</code> for Attribute</li>
+      <li><code class="res">C</code> for Class</li>
+      <li><code class="res">M</code> for Comment</li>
+      
+      <p>By default the value is <code class="res">EA</code>, meaning that both Element names and attribute names can invoke the directive.</p>
+
+    </section>
+
+    <hr>
+    <footer>
+      
+      <div class="footer-iconos">
+        <a href="https://twitter.com/" target="_blank"><i class="bi bi-twitter"></i></a>
+        <a href="https://www.instagram.com/" target="_blank"><i class="bi bi-instagram"></i></a>
+        <a href="https://es-es.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a>
+        <a href="https://github.com/" target="_blank"><i class="bi bi-github"></i></a>
+        <a href="https://ar.linkedin.com/" target="_blank"><i class="bi bi-linkedin"></i></a>
+      </div>
+      
+      <p>AngularJS Tutorial.</p>
+      <p>Copyright 2023 by Lucas. All Rights Reserved.</p>
+      <p>Author: Lucas</p>
+
+    </footer>
+
+  </div>
+
+  <script src="./codigo.js"></script>
+</body>
+</html>

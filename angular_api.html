@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <title>AngularJS API</title>
+</head>
+<body>
+
+  <div class="contenedor-principal">
+    <div class="top-menu">
+      <button class="button-menu">Menu</button>
+      <div class="menu" id="menu">
+        <!-- Los enlaces se agregan mediante codigo.js -->
+      </div>
+    </div>
+
+    <h1>AngularJS API</h1>
+    <p>API stands for <b>A</b>pplication <b>P</b>rogramming <b>I</b>nterface.</p>
+
+    <section id="titulo"><h2>AngularJS Global API</h2>
+      <p>The AngularJS Global API is a set of global JavaScript functions for performing common tasks like:</p>
+      <li>Comparing objects</li>
+      <li>Iterating objects</li>
+      <li>Converting data</li>
+
+      <p>The Global API functions are accessed using the angular object.</p>
+      <p>Below is a list of some common API functions:</p>
+
+      <table class="tabla">
+        <tr>
+          <th>API</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>angular.lowercase()</td>
+          <td>Converts a string to lowercase</td>
+        </tr>
+        <tr>
+          <td>angular.uppercase()</td>
+          <td>Converts a string to uppercase</td>
+        </tr>
+        <tr>
+          <td>angular.isString()</td>
+          <td>Returns true if the reference is a string</td>
+        </tr>
+        <tr>
+          <td>angular.isNumber()</td>
+          <td>Returns true if the reference is a number</td>
+        </tr>
+      </table>
+
+      <h3>angular.lowercase()</h3>
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>div ng-app="myApp" ng-controller="myCtrl">
+    <span><</span>p>{{ x1 }}<span><</span>/p>
+    <span><</span>p>{{ x2 }}<span><</span>/p>
+  <span><</span>/div>
+  
+  <span><</span>script>
+  var app = angular.module('myApp', []);
+  app.controller('myCtrl', function($scope) {
+    $scope.x1 = "JOHN";
+    $scope.x2 = angular.lowercase($scope.x1);
+  });
+  <span><</span>/script>
+        </code></pre>
+      </div>
+      
+      <h3>angular.uppercase()</h3>
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>div ng-app="myApp" ng-controller="myCtrl">
+    <span><</span>p>{{ x1 }}<span><</span>/p>
+    <span><</span>p>{{ x2 }}<span><</span>/p>
+  <span><</span>/div>
+  
+  <span><</span>script>
+  var app = angular.module('myApp', []);
+  app.controller('myCtrl', function($scope) {
+    $scope.x1 = "John";
+    $scope.x2 = angular.uppercase($scope.x1);
+  });
+  <span><</span>/script>
+        </code></pre>
+      </div>
+      
+      <h3>angular.isString()</h3>
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>div ng-app="myApp" ng-controller="myCtrl">
+    <span><</span>p>{{ x1 }}<span><</span>/p>
+    <span><</span>p>{{ x2 }}<span><</span>/p>
+  <span><</span>/div>
+  
+  <span><</span>script>
+  var app = angular.module('myApp', []);
+  app.controller('myCtrl', function($scope) {
+    $scope.x1 = "JOHN";
+    $scope.x2 = angular.isString($scope.x1);
+  });
+  <span><</span>/script>
+        </code></pre>
+      </div>
+      
+      <h3>angular.isNumber()</h3>
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>div ng-app="myApp" ng-controller="myCtrl">
+    <span><</span>p>{{ x1 }}<span><</span>/p>
+    <span><</span>p>{{ x2 }}<span><</span>/p>
+  <span><</span>/div>
+  
+  <span><</span>script>
+  var app = angular.module('myApp', []);
+  app.controller('myCtrl', function($scope) {
+    $scope.x1 = "JOHN";
+    $scope.x2 = angular.isNumber($scope.x1);
+  });
+  <span><</span>/script>
+        </code></pre>
+      </div>
+
+    </section>
+        
+    <hr>
+    <footer>
+      
+      <div class="footer-iconos">
+        <a href="https://twitter.com/" target="_blank"><i class="bi bi-twitter"></i></a>
+        <a href="https://www.instagram.com/" target="_blank"><i class="bi bi-instagram"></i></a>
+        <a href="https://es-es.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a>
+        <a href="https://github.com/" target="_blank"><i class="bi bi-github"></i></a>
+        <a href="https://ar.linkedin.com/" target="_blank"><i class="bi bi-linkedin"></i></a>
+      </div>
+      
+      <p>AngularJS Tutorial.</p>
+      <p>Copyright 2023 by Lucas. All Rights Reserved.</p>
+      <p>Author: Lucas</p>
+
+    </footer>
+
+  </div>
+<script src="./codigo.js"></script>
+</body>
+</html>

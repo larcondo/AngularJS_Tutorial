@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <title>AngularJS Filters</title>
+</head>
+<body>
+
+  <div class="contenedor-principal">
+    <div class="top-menu">
+      <button class="button-menu">Menu</button>
+      <div class="menu" id="menu">
+        <!-- Los enlaces se agregan mediante codigo.js -->
+      </div>
+    </div>
+
+    <h1>AngularJS Filters</h1>
+    <p>Filters can be added in AngularJS to format data.</p>
+    
+    <section id="titulo"><h2>AngularJS Filters</h2>
+      <p>AngularJS provides filters to transform data:</p>
+      <li><code class="res">currency</code> Format a number to a currency format.</li>
+      <li><code class="res">date</code> Format a date to a specified format.</li>
+      <li><code class="res">filter</code> Select a subset of items from an array.</li>
+      <li><code class="res">json</code> Format an object to a JSON string.</li>
+      <li><code class="res">limitTo</code> Limits an array/string, into a specified number of elements/characters.</li>
+      <li><code class="res">lowercase</code> Format a string to lower case.</li>
+      <li><code class="res">number</code> Format a number to a string.</li>
+      <li><code class="res">orderBy</code> Orders an array by an expression.</li>
+      <li><code class="res">uppercase</code> Format a string to upper case.</li>
+    </section>
+    
+    <section id="titulo"><h2>Adding Filters to Expressions</h2>
+      <p>Filters can be added to expressions by using the pipe character <code class="res">|</code>, followed by a filter.</p>
+      <p>Te <code class="res">uppercase</code> filter format strings to upper case:</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>div ng-app="myApp" ng-controller="personCtrl">
+
+  <span><</span>p>The name is {{ lastName | uppercase }}<span><</span>/p>
+
+  <span><</span>/div>
+        </code></pre>
+      </div>
+      <p>The <code class="res">lowercase</code> filter format strings to lower case:</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>div ng-app="myApp" ng-controller="personCtrl">
+
+  <span><</span>p>The name is {{ lastName | lowercase }}<span><</span>/p>
+
+  <span><</span>/div>
+        </code></pre>
+      </div>
+
+    </section>
+    
+    <section id="titulo"><h2>Adding Filters to Directives</h2>
+      <p>Filters are added to directives, like <code class="res">ng-repeat</code>, by using the pipe character <code class="res">|</code>, followed by a filter:</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <p>The <code class="res">orderBy</code> filter sorts an array:</p>
+        <pre><code>
+  <span><</span>div ng-app="myApp" ng-controller="namesCtrl">
+
+  <span><</span>ul>
+    <span><</span>li ng-repeat="x in names | orderBy:'country'">
+      {{ x.name + ', ' + x.country }}
+    <span><</span>/li>
+  <span><</span>/ul>
+
+  <span><</span>/div>
+        </code></pre>
+      </div>
+    </section>
+    
+    <section id="titulo"><h2>The currency Filter</h2>
+      <p>The <code class="res">currency</code> filter formats a number as currency:</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>div ng-app="myApp" ng-controller="costCtrl">
+
+  <span><</span>h1>Price: {{ price | currency }}<span><</span>/h1>
+
+  <span><</span>/div>
+        </code></pre>
+      </div>
+    </section>
+    
+    <section id="titulo"><h2>The filter Filter</h2>
+      <p>The <code class="res">filter</code> filter selects a subset of an array.</p>
+      <p>The <code class="res">filter</code> filter can only be used on arrays and it returns an array containing only the matching items.</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <p>Return the names that contains the letter "i":</p>
+        <pre><code>
+  <span><</span>div ng-app="myApp" ng-controller="namesCtrl">
+
+  <span><</span>ul>
+    <span><</span>li ng-repeat="x in names | filter : 'i'">
+      {{ x }}
+    <span><</span>/li>
+  <span><</span>/ul>
+
+  <span><</span>/div>            
+        </code></pre>
+      </div>
+    </section>
+
+    <section id="titulo"><h2>Filter an Array Based on User Input</h2>
+      <p>By setting the <code class="res">ng-model</code> directive on an input field, we can use the value of the input field as an expression in a filter.</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>div ng-app="myApp" ng-controller="namesCtrl">
+
+  <span><</span>p><span><</span>input type="text" ng-model="test"><span><</span>/p>
+
+  <span><</span>ul>
+    <span><</span>li ng-repeat="x in names | filter : test">
+      {{ x }}
+    <span><</span>/li>
+  <span><</span>/ul>
+
+  <span><</span>/div> 
+        </code></pre>
+      </div>
+    </section>
+    
+    <section id="titulo"><h2>Sort an Array Based on User Input</h2>
+      <p>By adding the <code class="res">ng-click</code> directive on the table headers, we can run a function that changes the sorting order of the array:</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>div ng-app="myApp" ng-controller="namesCtrl">
+
+  <span><</span>table border="1" width="100%">
+    <span><</span>tr>
+      <span><</span>th ng-click="orderByMe('name')">Name<span><</span>/th>
+      <span><</span>th ng-click="orderByMe('country')">Country<span><</span>/th>
+    <span><</span>/tr>
+    <span><</span>tr ng-repeat="x in names | orderBy:myOrderBy">
+      <span><</span>td>{{x.name}}<span><</span>/td>
+      <span><</span>td>{{x.country}}<span><</span>/td>
+    <span><</span>/tr>
+  <span><</span>/table>
+
+  <span><</span>/div>
+
+  <span><</span>script>
+  angular.module('myApp', []).controller('namesCtrl', function($scope) {
+    $scope.names = [
+      {name:'Jani',country:'Norway'},
+      {name:'Carl',country:'Sweden'},
+      {name:'Margareth',country:'England'},
+      {name:'Hege',country:'Norway'},
+      {name:'Joe',country:'Denmark'},
+      {name:'Gustav',country:'Sweden'},
+      {name:'Birgit',country:'Denmark'},
+      {name:'Mary',country:'England'},
+      {name:'Kai',country:'Norway'}
+    ];
+    $scope.orderByMe = function(x) {
+      $scope.myOrderBy = x;
+    }
+  });
+  <span><</span>/script>
+        </code></pre>
+      </div>
+    </section>
+    
+    <section id="titulo"><h2>Custom Filters</h2>
+      <p>You can make your own filters by registering a new filter factory function with your module:</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <p>Make a custom filter called "myFormat":</p>
+        <pre><code>
+  <span><</span>ul ng-app="myApp" ng-controller="namesCtrl">
+    <span><</span>li ng-repeat="x in names">
+      {{x | myFormat}}
+    <span><</span>/li>
+  <span><</span>/ul>
+
+  <span><</span>script>
+  var app = angular.module('myApp', []);
+  app.filter('myFormat', function() {
+    return function(x) {
+      var i, c, txt = "";
+      for (i = 0; i < x.length; i++) {
+        c = x[i];
+        if (i % 2 == 0) {
+          c = c.toUpperCase();
+        }
+        txt += c;
+      }
+      return txt;
+    };
+  });
+  app.controller('namesCtrl', function($scope) {
+    $scope.names = ['Jani', 'Carl', 'Margareth', 'Hege', 'Joe', 'Gustav', 'Birgit', 'Mary', 'Kai'];
+  });
+  <span><</span>/script>
+        </code></pre>
+      </div>
+
+      <p>The <code class="res">myFormat</code> filter will format every other character to uppercase.</p>
+    </section>
+
+    <hr>
+    <footer>
+      
+      <div class="footer-iconos">
+        <a href="https://twitter.com/" target="_blank"><i class="bi bi-twitter"></i></a>
+        <a href="https://www.instagram.com/" target="_blank"><i class="bi bi-instagram"></i></a>
+        <a href="https://es-es.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a>
+        <a href="https://github.com/" target="_blank"><i class="bi bi-github"></i></a>
+        <a href="https://ar.linkedin.com/" target="_blank"><i class="bi bi-linkedin"></i></a>
+      </div>
+      
+      <p>AngularJS Tutorial.</p>
+      <p>Copyright 2023 by Lucas. All Rights Reserved.</p>
+      <p>Author: Lucas</p>
+
+    </footer>
+
+  </div>
+<script src="./codigo.js"></script>
+</body>
+</html>

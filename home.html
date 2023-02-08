@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <title>AngularJS Tutorial</title>
+</head>
+<body>
+
+  <div class="contenedor-principal">
+    <div class="top-menu">
+      <button class="button-menu">Menu</button>
+      <div class="menu" id="menu">
+        <!-- Los enlaces se agregan mediante codigo.js -->
+      </div>
+    </div>
+    
+    <h1>AngularJS Tutorial</h1>
+    <p>AngularJS extends HTML with new attributes.</p>
+    <p>AngularJS is perfect for Single Page Applications (SPAs)</p>
+
+    <section id="titulo1"><h2>AngularJS Example</h2>
+      <pre><code>
+  <span><</span>!DOCTYPE html>
+  <span><</span>html lang="en-US">
+  <span><</span>script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"><span><</span>/script>
+  <span><</span>body>
+
+  <span><</span>div ng-app="">
+    <span><</span>p>Name : <span><</span>input type="text" ng-model="name"><span><</span>/p>
+    <span><</span>h1>Hello {{name}}<span><</span>/h1>
+  <span><</span>/div>
+
+  <span><</span>/body>
+  <span><</span>/html>
+      </code></pre>
+    </section>
+
+    <section id="titulo2"><h2>AngularJS History</h2>
+      <p>AngularJS version 1.0 was released in 2012.</p>
+      <p>Miško Hevery, a Google employee, started to work with AngularJS in 2009.</p>
+      <p>The idea turned out very well, and the project is now officially supported by Google.</p>
+    </section>
+
+    <section id="titulo3"><h2>AngularJS Introduction</h2>
+      <p>AngularJS is a <b>JavaScript framework</b>. It can be added to an HTML page with a <span><</span>script> tag.</p>
+      <p>AngularJS extends HTML attributes with <b>Directives</b> and binds data to HTML with <b>Expressions</b>.</p>
+
+      <h3>AngularJS is a JavaScript Framework</h3>
+      <p>AngularJS is a JavaScript framework written in JavaScript.</p>
+      <p>AngularJS is distributed as a JavaScript file, and can be added to a web page with a script tag:</p>
+
+      <pre><code>
+  <span><</span>script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"><span><</span>/script>
+      </code></pre>
+
+      <h3>AngularJS Extends HTML</h3>
+      <p>AngularJS extends HTML with <b>AngularJS extends HTML with ng-directives.</b>.</p>
+      <p>The <b>ng-app</b> directive defines an AngularJS application.</p>
+      <p>The <b>ng-model</b> directive binds the value of HTML controls (input, select, textarea) to application data.</p>
+      <p>The <b>ng-bind</b> directive binds application data to the HTML view.</p>
+
+      <button class="accordion"><h3>AngularJS Example</h3></button>
+      <div class="panel">
+      <pre><code>
+    <span><</span>!DOCTYPE html>
+    <span><</span>html>
+    <span><</span>script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"><span><</span>/script>
+    <span><</span>body>
+
+    <span><</span>div ng-app="">
+      <span><</span>p>Name: <span><</span>input type="text" ng-model="name"><span><</span>/p>
+      <span><</span>p ng-bind="name"><span><</span>/p>
+    <span><</span>/div>
+
+    <span><</span>/body>
+    <span><</span>/html>
+      </code></pre>
+      </div>
+
+      <p>Example explained:</p>
+      <p>AngularJS starts automatically when the web page has loaded.</p>
+      <p>The <b>ng-app</b> directive tells AngularJS that the <span><</span>div> element is the "owner" of an AngularJS <b>application</b>.</p>
+      <p>The <b>ng-model</b> directive binds the value of the input field to the application variable <b>name</b>.</p>
+      <p>The <b>ng-bind</b> directive binds the content of the <span><</span>p> element to the application variable <b>name</b>.</p>
+
+      <h3>AngularJS Directives</h3>
+      <p>As you have already seen, AngularJS directives are HTML attributes with an <b>ng</b> prefix.</p>
+      <p>The <b>ng-init</b> directive initializes AngularJS application variables.</p>
+      
+      <button class="accordion"><h3>AngularJS Example</h3></button>
+      <div class="panel">
+      <pre><code>
+    <span><</span>div ng-app="" ng-init="firstName='John'">
+
+      <span><</span>p>The name is <span><</span>span ng-bind="firstName"><span><</span>/span><span><</span>/p>
+      
+    <span><</span>/div>
+      </code></pre>
+      </div>
+
+      <p>Alternatively with valid HTML:</p>
+      <button class="accordion"><h3>AngularJS Example</h3></button>
+      <div class="panel">
+      <pre><code>
+    <span><</span>div data-ng-app="" data-ng-init="firstName='John'">
+
+      <span><</span>p>The name is <span><</span>span data-ng-bind="firstName"><span><</span>/span><span><</span>/p>
+      
+    <span><</span>/div>
+      </code></pre>
+      </div>
+
+      <div class="nota">
+        You can use <b>data-ng-</b> instead of <b>ng-</b> if you want to make your page HTML valid.
+      </div>
+
+      <h3>AngularJS Expressions</h3>   <!-- subtitulo -->
+      <p>AngularJS expressions are written inside double braces: <b>{{ expression }}</b>.</p>
+      <p>AngularJS will "output" data exactly where the expression is written:</p>
+
+      <button class="accordion"><h3>AngularJS Example</h3></button>
+      <div class="panel">
+        <pre><code>
+    <span><</span>!DOCTYPE html>
+    <span><</span>html>
+    <span><</span>script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"><span><</span>/script>
+    <span><</span>body>
+
+    <span><</span>div ng-app="">
+      <span><</span>p>My first expression: {{ 5 + 5 }}<span><</span>/p>
+    <span><</span>/div>
+
+    <span><</span>/body>
+    <span><</span>/html>
+        </code></pre>
+      </div>
+
+      <p>AngularJS expressions bind AngularJS data to HTML the same way as the <b>ng-bind</b> directive.</p>
+      <button class="accordion"><h3>AngularJS Example</h3></button>
+      <div class="panel">
+        <pre><code>
+    <span><</span>!DOCTYPE html>
+    <span><</span>html>
+    <span><</span>script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"><span><</span>/script>
+    <span><</span>body>
+
+    <span><</span>div ng-app="">
+      <span><</span>p>Name: <span><</span>input type="text" ng-model="name"><span><</span>/p>
+      <span><</span>p>{{name}}<span><</span>/p>
+    <span><</span>/div>
+
+    <span><</span>/body>
+    <span><</span>/html>
+        </code></pre>
+      </div>
+
+      <h3>AngularJS Applications</h3>   <!-- subtitulo -->
+      <p>AngularJS <b>modules</b> define AngularJS applications.</p>
+      <p>AngularJS <b>controllers</b> control AngularJS applications.</p>
+      <p>The <b>ng-app</b> directive defines the application, the <b>ng-controller</b> directive defines the controller.</p>
+      <button class="accordion"><h3>AngularJS Example</h3></button>
+      <div class="panel">
+        <pre><code>
+    <span><</span>div ng-app="myApp" ng-controller="myCtrl">
+
+      First Name: <span><</span>input type="text" ng-model="firstName"><span><</span>br>
+      Last Name: <span><</span>input type="text" ng-model="lastName"><span><</span>br>
+      <span><</span>br>
+      Full Name: {{firstName + " " + lastName}}
+      
+    <span><</span>/div>
+      
+    <span><</span>script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+      $scope.firstName= "John";
+      $scope.lastName= "Doe";
+    });
+    <span><</span>/script>
+        </code></pre>
+      </div>
+
+      <p>AngularJS modules define applications:</p>
+      <button class="accordion"><h3>AngularJS Module</h3></button>
+      <div class="panel">
+        <pre><code>
+    var app = angular.module('myApp', []);
+        </code></pre>
+      </div>
+
+      <p>AngularJS controllers control applications:</p>
+      <button class="accordion"><h3>AngularJS Controller</h3></button>
+      <div class="panel">
+        <pre><code>
+    app.controller('myCtrl', function($scope) {
+      $scope.firstName= "John";
+      $scope.lastName= "Doe";
+    });
+        </code></pre>
+      </div>
+
+    </section>
+
+    <hr>
+    <footer>
+      
+      <div class="footer-iconos">
+        <a href="https://twitter.com/" target="_blank"><i class="bi bi-twitter"></i></a>
+        <a href="https://www.instagram.com/" target="_blank"><i class="bi bi-instagram"></i></a>
+        <a href="https://es-es.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a>
+        <a href="https://github.com/" target="_blank"><i class="bi bi-github"></i></a>
+        <a href="https://ar.linkedin.com/" target="_blank"><i class="bi bi-linkedin"></i></a>
+      </div>
+      
+      <p>AngularJS Tutorial.</p>
+      <p>Copyright 2023 by Lucas. All Rights Reserved.</p>
+      <p>Author: Lucas</p>
+
+    </footer>
+
+  </div>
+
+  <script src="./codigo.js"></script>
+</body>
+</html>

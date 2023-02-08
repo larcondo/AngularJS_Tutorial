@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <title>AngularJS SQL</title>
+</head>
+<body>
+
+  <div class="contenedor-principal">
+    <div class="top-menu">
+      <button class="button-menu">Menu</button>
+      <div class="menu" id="menu">
+        <!-- Los enlaces se agregan mediante codigo.js -->
+      </div>
+    </div>
+
+    <h1>AngularJS SQL</h1>
+    <p>AngularJS is perfect for displaying data from a Database. Just make sure the data is in JSON format.</p>
+
+    <section id="titulo"><h2>Fetching Data From a PHP Server Running MySQL</h2>
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>div ng-app="myApp" ng-controller="customersCtrl">
+
+  <span><</span>table>
+    <span><</span>tr ng-repeat="x in names">
+      <span><</span>td>{{ x.Name }}<span><</span>/td>
+      <span><</span>td>{{ x.Country }}<span><</span>/td>
+    <span><</span>/tr>
+  <span><</span>/table>
+
+  <span><</span>/div>
+
+  <span><</span>script>
+  var app = angular.module('myApp', []);
+  app.controller('customersCtrl', function($scope, $http) {
+    $http.get("customers_mysql.php")
+    .then(function (response) {$scope.names = response.data.records;});
+  });
+  <span><</span>/script>
+        </code></pre>
+      </div>
+    </section>
+    
+    <section id="titulo"><h2>Fetching Data From an ASP.NET Server Running SQL</h2>
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>div ng-app="myApp" ng-controller="customersCtrl">
+
+  <span><</span>table>
+    <span><</span>tr ng-repeat="x in names">
+      <span><</span>td>{{ x.Name }}<span><</span>/td>
+      <span><</span>td>{{ x.Country }}<span><</span>/td>
+    <span><</span>/tr>
+  <span><</span>/table>
+
+  <span><</span>/div>
+
+  <span><</span>script>
+  var app = angular.module('myApp', []);
+  app.controller('customersCtrl', function($scope, $http) {
+    $http.get("customers_sql.aspx")
+    .then(function (response) {$scope.names = response.data.records;});
+  });
+  <span><</span>/script>
+        </code></pre>
+      </div>
+    </section>
+
+    <section id="titulo"><h2>Server Code Examples</h2>
+      <p>The following section is a listing of the server code used to fetch SQL data.</p>
+      <ol>
+        <li>Using PHP and MySQL. Returning JSON.</li>
+        <li>Using PHP and MS Access. Returning JSON.</li>
+        <li>Using ASP.NET, VB, and MS Access. Returning JSON.</li>
+        <li>Using ASP.NET, Razor, and SQL Lite. Returning JSON.</li>
+      </ol>
+    </section>
+    
+    <section id="titulo"><h2>Cross-Site HTTP Requests</h2>
+      <p>A request for data from a different server (other than the requesting page), are called <b>cross-site</b> HTTP requests.</p>
+      <p>Cross-site requests are common on the web. Many pages load CSS, images, and scripts from different servers.</p>
+      <p>In modern browsers, cross-site HTTP requests <b>from scripts</b> are restricted to <b>same site</b> for security reasons.</p>
+      <p>The following line, in our PHP examples, has been added to allow cross-site access.</p>
+      <pre><code>
+  header("Access-Control-Allow-Origin: *");
+      </code></pre>
+    </section>
+        
+    <section id="titulo"><h2>1. Server Code PHP and MySQL</h2>
+      <button class="accordion"><h3>Code</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>?php
+  header("Access-Control-Allow-Origin: *");
+  header("Content-Type: application/json; charset=UTF-8");
+
+  $conn = new mysqli("myServer", "myUser", "myPassword", "Northwind");
+
+  $result = $conn->query("SELECT CompanyName, City, Country FROM Customers");
+
+  $outp = "";
+  while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
+    if ($outp != "") {$outp .= ",";}
+    $outp .= '{"Name":"'  . $rs["CompanyName"] . '",';
+    $outp .= '"City":"'   . $rs["City"]        . '",';
+    $outp .= '"Country":"'. $rs["Country"]     . '"}';
+  }
+  $outp ='{"records":['.$outp.']}';
+  $conn->close();
+
+  echo($outp);
+  ?>
+        </code></pre>
+      </div>
+    </section>
+
+    <section id="titulo"><h2>2. Server Code PHP and MS Access</h2>
+      <button class="accordion"><h3>Code</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>?php
+  header("Access-Control-Allow-Origin: *");
+  header("Content-Type: application/json; charset=ISO-8859-1");
+
+  $conn = new COM("ADODB.Connection");
+  $conn->open("PROVIDER=Microsoft.Jet.OLEDB.4.0;Data Source=Northwind.mdb");
+
+  $rs = $conn->execute("SELECT CompanyName, City, Country FROM Customers");
+
+  $outp = "";
+  while (!$rs->EOF) {
+    if ($outp != "") {$outp .= ",";}
+    $outp .= '{"Name":"'  . $rs["CompanyName"] . '",';
+    $outp .= '"City":"'   . $rs["City"]        . '",';
+    $outp .= '"Country":"'. $rs["Country"]     . '"}';
+    $rs->MoveNext();
+  }
+  $outp ='{"records":['.$outp.']}';
+
+  $conn->close();
+
+  echo ($outp);
+  ?>
+        </code></pre>
+      </div>
+    </section>
+
+    <section id="titulo"><h2>3. Server Code ASP.NET, VB and MS Access</h2>
+      <button class="accordion"><h3>Code</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>%@ Import Namespace="System.IO"%>
+  <span><</span>%@ Import Namespace="System.Data"%>
+  <span><</span>%@ Import Namespace="System.Data.OleDb"%>
+  <span><</span>%
+  Response.AppendHeader("Access-Control-Allow-Origin", "*")
+  Response.AppendHeader("Content-type", "application/json")
+  Dim conn As OleDbConnection
+  Dim objAdapter As OleDbDataAdapter
+  Dim objTable As DataTable
+  Dim objRow As DataRow
+  Dim objDataSet As New DataSet()
+  Dim outp
+  Dim c
+  conn = New OledbConnection("Provider=Microsoft.Jet.OLEDB.4.0;data source=Northwind.mdb")
+  objAdapter = New OledbDataAdapter("SELECT CompanyName, City, Country FROM Customers", conn)
+  objAdapter.Fill(objDataSet, "myTable")
+  objTable=objDataSet.Tables("myTable")
+
+  outp = ""
+  c = chr(34)
+  for each x in objTable.Rows
+  if outp <span><</span>> "" then outp = outp & ","
+  outp = outp & "{" & c & "Name"    & c & ":" & c & x("CompanyName") & c & ","
+  outp = outp &       c & "City"    & c & ":" & c & x("City")        & c & ","
+  outp = outp &       c & "Country" & c & ":" & c & x("Country")     & c & "}"
+  next
+
+  outp ="{" & c & "records" & c & ":[" & outp & "]}"
+  response.write(outp)
+  conn.close
+  %>
+        </code></pre>
+      </div>
+    </section>
+
+    <section id="titulo"><h2>4. Server Code ASP.NET, Razor C# and SQL Lite</h2>
+      <button class="accordion"><h3>Code</h3></button>
+      <div class="panel">
+        <pre><code>
+  @{
+  Response.AppendHeader("Access-Control-Allow-Origin", "*")
+  Response.AppendHeader("Content-type", "application/json")
+  var db = Database.Open("Northwind");
+  var query = db.Query("SELECT CompanyName, City, Country FROM Customers");
+  var outp =""
+  var c = chr(34)
+  }
+  @foreach(var row in query){
+  if (outp != "") {outp = outp + ","}
+  outp = outp + "{" + c + "Name"    + c + ":" + c + @row.CompanyName + c + ","
+  outp = outp +       c + "City"    + c + ":" + c + @row.City        + c + ","
+  outp = outp +       c + "Country" + c + ":" + c + @row.Country     + c + "}"
+  }
+  outp ="{" + c + "records" + c + ":[" + outp + "]}"
+  @outp
+        </code></pre>
+      </div>
+    </section>
+
+    <hr>
+    <footer>
+      
+      <div class="footer-iconos">
+        <a href="https://twitter.com/" target="_blank"><i class="bi bi-twitter"></i></a>
+        <a href="https://www.instagram.com/" target="_blank"><i class="bi bi-instagram"></i></a>
+        <a href="https://es-es.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a>
+        <a href="https://github.com/" target="_blank"><i class="bi bi-github"></i></a>
+        <a href="https://ar.linkedin.com/" target="_blank"><i class="bi bi-linkedin"></i></a>
+      </div>
+      
+      <p>AngularJS Tutorial.</p>
+      <p>Copyright 2023 by Lucas. All Rights Reserved.</p>
+      <p>Author: Lucas</p>
+
+    </footer>
+
+  </div>
+<script src="./codigo.js"></script>
+</body>
+</html>
