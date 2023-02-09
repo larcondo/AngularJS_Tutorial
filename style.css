@@ -192,6 +192,9 @@ hr{
   z-index: 1;
   background-color: #2a2a2a;
   padding: 10px;
+  max-height: 80vh;
+  overflow-y: auto;
+  scrollbar-color: #2a2a2a;
 }
 
 .menu a{
@@ -258,14 +261,20 @@ td:nth-child(1) {
   cursor: pointer;
 }
 
+.img-ej {
+  display: block;
+  margin: 20px 0px 20px 0px;
+  width: 40%;
+}
+
 @media screen and (max-width: 800px) {
   
   .contenedor-principal{
     width: 90%;
   }
-  .contenedor-principal img{
+  /* .contenedor-principal img{
     max-width: 100%;
-  }
+  } */
 
 
 }

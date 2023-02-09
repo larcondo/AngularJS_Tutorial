@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./imagenes/angularJs_icon.png" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <title>AngularJS Routing</title>
+</head>
+<body>
+
+  <div class="contenedor-principal">
+    <div class="top-menu">
+      <button class="button-menu">Menu</button>
+      <div class="menu" id="menu">
+        <!-- Los enlaces se agregan mediante codigo.js -->
+      </div>
+    </div>
+
+    <h1>AngularJS Routing</h1>
+    <p>The <code class="res">ngRoute</code> module helps your application to become a Single Page Application.</p>
+    
+    <section id="titulo"><h2>What is Routing in AngularJS?</h2>
+      <p>If you want to navigate to different pages in your application, but you also want the application to be a SPA (Single Page Application), with no page reloading, you can use the <code class="res">ngRoute</code> module.</p>
+      <p>The <code class="res">ngRoute</code> module <i>routes</i> your application to different pages without reloading the entire application.</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <p>Navigate to "red.htm", "green.htm" and "blue.htm":</p>
+        <pre><code>
+  <span><</span>body ng-app="myApp">
+
+  <span><</span>p><span><</span>a href="#/!">Main<span><</span>/a><span><</span>/p>
+
+  <span><</span>a href="#!red">Red<span><</span>/a>
+  <span><</span>a href="#!green">Green<span><</span>/a>
+  <span><</span>a href="#!blue">Blue<span><</span>/a>
+
+  <span><</span>div ng-view><span><</span>/div>
+
+  <span><</span>script>
+  var app = angular.module("myApp", ["ngRoute"]);
+  app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+      templateUrl : "main.htm"
+    })
+    .when("/red", {
+      templateUrl : "red.htm"
+    })
+    .when("/green", {
+      templateUrl : "green.htm"
+    })
+    .when("/blue", {
+      templateUrl : "blue.htm"
+    });
+  });
+  <span><</span>/script>
+  <span><</span>/body>
+        </code></pre>
+      </div>
+
+    </section>
+    
+    <section id="titulo"><h2>What do I Need?</h2>
+      <p>To make your applications ready for routing, you must include the AngularJS Route module:</p>
+      <pre><code>
+  <span><</span>script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"><span><</span>/script>
+      </code></pre>
+
+      <p>Then you must add the <code class="res">ngRoute</code> as a dependency in the application module:</p>
+
+      <pre><code>
+  var app = angular.module("myApp", ["ngRoute"]);
+      </code></pre>
+
+      <p>Now your application has access to the route module, which provides the <code class="res">$routeProvider</code>.</p>
+      <p>Use the <code class="res">$routeProvider</code> to configure different routes in your application:</p>
+      <pre><code>
+  app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+      templateUrl : "main.htm"
+    })
+    .when("/red", {
+      templateUrl : "red.htm"
+    })
+    .when("/green", {
+      templateUrl : "green.htm"
+    })
+    .when("/blue", {
+      templateUrl : "blue.htm"
+    });
+  });
+      </code></pre>
+
+    </section>
+    
+    <section id="titulo"><h2>Where Does it Go?</h2>
+      <p>Your application needs a container to put the content provided by the routing.</p>
+      <p>This container is the <code class="res">ng-view</code> directive.</p>
+      <p>There are three different ways to include the <code class="res">ng-view</code> directive in your application:</p>
+
+      <p>First option:</p>
+      <pre><code>
+  <span><</span>div ng-view><span><</span>/div>
+      </code></pre>
+      <p>Second option:</p>
+      <pre><code>
+  <span><</span>ng-view><span><</span>/ng-view>
+      </code></pre>
+      <p>Third option</p>
+      <pre><code>
+  <span><</span>div class="ng-view"><span><</span>/div>
+      </code></pre>
+
+      <p>Applications can only have one <code class="res">ng-view</code> directive and this will be the placeholder for all views provided by the route.</p>
+
+    </section>
+    
+    <section id="titulo"><h2>$routeProvider</h2>
+      <p>With the <code class="res">$routeProvider</code> you can define what page to display when a user clicks a link.</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <p>Define a <code class="res">$routeProvider</code> :</p>
+        <pre><code>
+  var app = angular.module("myApp", ["ngRoute"]);
+  app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+      templateUrl : "main.htm"
+    })
+    .when("/london", {
+      templateUrl : "london.htm"
+    })
+    .when("/paris", {
+      templateUrl : "paris.htm"
+    });
+  });
+        </code></pre>
+      </div>
+      <p>Define the <code class="res">$routeProvider</code> using the <code class="res">config</code> method of your application. Work registered in the <code class="res">config</code> method will be performed when the application is loading.</p>
+    </section>
+    
+    <section id="titulo"><h2>Controllers</h2>
+      <p>With the <code class="res">$routeProvider</code> you can also define a controller for each "view".</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <p>Add controllers:</p>
+        <pre><code>
+  var app = angular.module("myApp", ["ngRoute"]);
+  app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+      templateUrl : "main.htm"
+    })
+    .when("/london", {
+      templateUrl : "london.htm",
+      controller : "londonCtrl"
+    })
+    .when("/paris", {
+      templateUrl : "paris.htm",
+      controller : "parisCtrl"
+    });
+  });
+  app.controller("londonCtrl", function ($scope) {
+    $scope.msg = "I love London";
+  });
+  app.controller("parisCtrl", function ($scope) {
+    $scope.msg = "I love Paris";
+  });
+        </code></pre>
+      </div>
+
+      <p>The "london.htm" and "paris.htm" are normal HTML files, which you can add AngularJS expressions as you would with any other HTML sections of your AngularJS application.</p>
+      <p>The files looks like this:</p>
+      
+      <button class="accordion"><h3>london.htm</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>h1>London<span><</span>/h1>
+  <span><</span>h3>London is the capital city of England.<span><</span>/h3>
+  <span><</span>p>It is the most populous city in the United Kingdom, with a 
+  metropolitan area of over 13 million inhabitants.<span><</span>/p>
+  <span><</span>p>{{msg}}<span><</span>/p>
+        </code></pre>
+      </div>
+      
+      <button class="accordion"><h3>paris.htm</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>h1>Paris<span><</span>/h1>
+  <span><</span>h3>Paris is the capital city of France.<span><</span>/h3>
+  <span><</span>p>The Paris area is one of the largest population centers in Europe, 
+    with more than 12 million inhabitants.<span><</span>/p>
+  <span><</span>p>{{msg}}<span><</span>/p>
+        </code></pre>
+      </div>
+    </section>
+    
+    <section id="titulo"><h2>Template</h2>
+      <p>In the previous examples we have used the <code class="res">templateUrl</code> property in the <code class="res">$routeProvider.when</code> method.</p>
+      <p>You can also use the <code class="res">template</code> property, which allows you to write HTML directly in the property value and not refer to a page.</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <p>Write templates:</p>
+        <pre><code>
+  var app = angular.module("myApp", ["ngRoute"]);
+  app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+      template : "<span><</span>h1>Main<span><</span>/h1><span><</span>p>Click on the links to change this content<span><</span>/p>"
+    })
+    .when("/banana", {
+      template : "<span><</span>h1>Banana<span><</span>/h1><span><</span>p>Bananas contain around 75% water.<span><</span>/p>"
+    })
+    .when("/tomato", {
+      template : "<span><</span>h1>Tomato<span><</span>/h1><span><</span>p>Tomatoes contain around 95% water.<span><</span>/p>"
+    });
+  });
+        </code></pre>
+      </div>
+
+    </section>
+    
+    <section id="titulo"><h2>The otherwise method</h2>
+      <p>In the previous examples we have used the <code class="res">when</code> method of the <code class="res">$routeProvider</code>.</p>
+      <p>You can also use the <code class="res">otherwise</code> method, which is the default route when none of the others get a match.</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <p>If neither the "Banana" nor the "Tomato" link has been clicked, let them know:</p>
+        <pre><code>
+  var app = angular.module("myApp", ["ngRoute"]);
+  app.config(function($routeProvider) {
+    $routeProvider
+    .when("/banana", {
+      template : "<span><</span>h1>Banana<span><</span>/h1><span><</span>p>Bananas contain around 75% water.<span><</span>/p>"
+    })
+    .when("/tomato", {
+      template : "<span><</span>h1>Tomato<span><</span>/h1><span><</span>p>Tomatoes contain around 95% water.<span><</span>/p>"
+    })
+    .otherwise({
+      template : "<span><</span>h1>None<span><</span>/h1><span><</span>p>Nothing has been selected<span><</span>/p>"
+    });
+  });
+        </code></pre>
+      </div>
+    </section>
+
+    <hr>
+    <footer>
+      
+      <div class="footer-iconos">
+        <a href="https://twitter.com/" target="_blank"><i class="bi bi-twitter"></i></a>
+        <a href="https://www.instagram.com/" target="_blank"><i class="bi bi-instagram"></i></a>
+        <a href="https://es-es.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a>
+        <a href="https://github.com/" target="_blank"><i class="bi bi-github"></i></a>
+        <a href="https://ar.linkedin.com/" target="_blank"><i class="bi bi-linkedin"></i></a>
+      </div>
+      
+      <p>AngularJS Tutorial.</p>
+      <p>Copyright 2023 by Lucas. All Rights Reserved.</p>
+      <p>Author: Lucas</p>
+
+    </footer>
+
+  </div>
+<script src="./codigo.js"></script>
+</body>
+</html>

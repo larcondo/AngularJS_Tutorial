@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./imagenes/angularJs_icon.png" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <title>AngularJS Animations</title>
+</head>
+<body>
+
+  <div class="contenedor-principal">
+    <div class="top-menu">
+      <button class="button-menu">Menu</button>
+      <div class="menu" id="menu">
+        <!-- Los enlaces se agregan mediante codigo.js -->
+      </div>
+    </div>
+
+    <h1>AngularJS Animations</h1>
+    <p>AngularJS provides animated transitions, with help from CSS.</p>
+    
+    <section id="titulo"><h2>What is an Animation?</h2>
+      <p>An animation is when the transformation of an HTML element gives you an illusion of motion.</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <p>Check the checkbox to hide the DIV:</p>
+        <pre><code>
+  <span><</span>body ng-app="ngAnimate">
+
+  Hide the DIV: <span><</span>input type="checkbox" ng-model="myCheck">
+
+  <span><</span>div ng-hide="myCheck"><span><</span>/div>
+
+  <span><</span>/body>
+        </code></pre>
+      </div>
+      
+      <div class="nota">
+        Applications should not be filled with animations, but some animations can make the application easier to understand.
+      </div>
+    </section>
+    
+    <section id="titulo"><h2>What do I Need?</h2>
+      <p>To make your applications ready for animations, you must include the AngularJS Animate library:</p>
+      
+      <pre><code>
+  <span><</span>script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"><span><</span>/script>
+      </code></pre>
+      <p>Then you must refer to the <code class="res">ngAnimate</code> module in your application:</p>
+      
+      <pre><code>
+  <span><</span>body ng-app="ngAnimate"><span><</span>/body>
+      </code></pre>
+
+      <p>Or if your application has a name, add <code class="res">ngAnimate</code> as a dependency in your application module:</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <pre><code>
+  <span><</span>body ng-app="myApp">
+
+  <span><</span>h1>Hide the DIV: <span><</span>input type="checkbox" ng-model="myCheck"><span><</span>/h1>
+
+  <span><</span>div ng-hide="myCheck"><span><</span>/div>
+
+  <span><</span>script>
+  var app = angular.module('myApp', ['ngAnimate']);
+  <span><</span>/script>
+        </code></pre>
+      </div>
+
+    </section>
+    
+    <section id="titulo"><h2>What Does ngAnimate Do?</h2>
+      <p>The ngAnimate module adds and removes classes.</p>
+      <p>The ngAnimate module does not animate your HTML elements, but when ngAnimate notice certain events, like hide or show of an HTML element, the element gets some pre-defined classes which can be used to make animations.</p>
+      <p>The directives in AngularJS who add/remove classes are:</p>
+      <li><code class="res">ng-show</code></li>
+      <li><code class="res">ng-hide</code></li>
+      <li><code class="res">ng-class</code></li>
+      <li><code class="res">ng-view</code></li>
+      <li><code class="res">ng-include</code></li>
+      <li><code class="res">ng-repeat</code></li>
+      <li><code class="res">ng-if</code></li>
+      <li><code class="res">ng-switch</code></li>
+
+      <p>The <code class="res">ng-show</code> and <code class="res">ng-hide</code> directives adds or removes a <code class="res">ng-hide</code> class value.</p>
+      <p>The other directives adds a <code class="res">ng-enter</code> class value when they enter the DOM, and a <code class="res">ng-leave</code> attribute when they are removed from the DOM.</p>
+      <p>The <code class="res">ng-repeat</code> directive also adds a <code class="res">ng-move</code> class value when the HTML element changes position.</p>
+      <p>In addition, <i>during</i> the animation, the HTML element will have a set of class values, which will be removed when the animation has finished. Example: the <code class="res">ng-hide</code> directive will add these class values:</p>
+      <li><code class="res">ng-animate</code></li>
+      <li><code class="res">ng-hide-animate</code></li>
+      <li><code class="res">ng-hide-add</code> (if the element will be hidden)</li>
+      <li><code class="res">ng-hide-remove</code> (if the element will be showed)</li>
+      <li><code class="res">ng-hide-add-active</code> (if the element will be hidden)</li>
+      <li><code class="res">ng-hide-remote-active</code> (if the element will be showed)</li>
+
+    </section>
+    
+    <section id="titulo"><h2>Animation Using CSS</h2>
+      <p>We can use CSS transitions or CSS animations to animate HTML elements. This tutorial will show you both.</p>
+    </section>
+    
+    <section id="titulo"><h2>CSS Transitions</h2>
+      <p>CSS transitions allows you to change CSS property values smoothly, from one value to another, over a given duration:</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <p>When the DIV element gets the <code class="res">.ng-hide</code> class, the transition will take 0.5 seconds, and the height will smoothly change from 100px to 0:</p>
+        <pre><code>
+  <span><</span>style>
+  div {
+    transition: all linear 0.5s;
+    background-color: lightblue;
+    height: 100px;
+  }
+
+  .ng-hide {
+    height: 0;
+  }
+  <span><</span>/style>
+        </code></pre>
+      </div>
+    </section>
+    
+    <section id="titulo"><h2>CSS Animations</h2>
+      <p>CSS Animations allows you to change CSS property values smoothly, from one value to another, over a given duration:</p>
+      
+      <button class="accordion"><h3>Example</h3></button>
+      <div class="panel">
+        <p>When the DIV element gets the <code class="res">.ng-hide</code> class, the <code class="res">myChange</code> animation will run, which will smoothly change the height from 100px to 0:</p>
+        <pre><code>
+  <span><</span>
+  style>
+  @keyframes myChange {
+    from {
+      height: 100px;
+    } to {
+      height: 0;
+    }
+  }
+
+  div {
+    height: 100px;
+    background-color: lightblue;
+  }
+
+  div.ng-hide {
+    animation: 0.5s myChange;
+  }
+  <span><</span>/style>
+        </code></pre>
+      </div>
+    </section>
+
+    <hr>
+    <footer>
+      
+      <div class="footer-iconos">
+        <a href="https://twitter.com/" target="_blank"><i class="bi bi-twitter"></i></a>
+        <a href="https://www.instagram.com/" target="_blank"><i class="bi bi-instagram"></i></a>
+        <a href="https://es-es.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a>
+        <a href="https://github.com/" target="_blank"><i class="bi bi-github"></i></a>
+        <a href="https://ar.linkedin.com/" target="_blank"><i class="bi bi-linkedin"></i></a>
+      </div>
+      
+      <p>AngularJS Tutorial.</p>
+      <p>Copyright 2023 by Lucas. All Rights Reserved.</p>
+      <p>Author: Lucas</p>
+
+    </footer>
+
+  </div>
+<script src="./codigo.js"></script>
+</body>
+</html>

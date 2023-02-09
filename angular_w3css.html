@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./imagenes/angularJs_icon.png" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <title>AngularJS w3.css</title>
+</head>
+<body>
+
+  <div class="contenedor-principal">
+    <div class="top-menu">
+      <button class="button-menu">Menu</button>
+      <div class="menu" id="menu">
+        <!-- Los enlaces se agregan mediante codigo.js -->
+      </div>
+    </div>
+
+    <h1>AngularJS and W3.CSS</h1>
+    <p>You can easily use w3.css style sheet together with AngularJS.</p>
+
+    <section id="titulo"><h2>W3.CSS</h2>
+      <p>To include W3.CSS in your AngularJS application, add the following line to the head of your document:</p>
+
+      <pre><code>
+  <span><</span>link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+      </code></pre>
+
+      <p>Below is a complete HTML example, with all AngularJS directives and W3.CSS classes explained.</p>
+
+    </section>
+    
+    <section id="titulo"><h2>HTML Code</h2>
+      <pre><code>
+  <span><</span>!DOCTYPE html>
+  <span><</span>html>
+  <span><</span>link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <span><</span>script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"><span><</span>/script>
+  <span><</span>body ng-app="myApp" ng-controller="userCtrl">
+
+  <span><</span>div class="w3-container">
+
+  <span><</span>h3>Users<span><</span>/h3>
+
+  <span><</span>table class="w3-table w3-bordered w3-striped">
+    <span><</span>tr>
+      <span><</span>th>Edit<span><</span>/th>
+      <span><</span>th>First Name<span><</span>/th>
+      <span><</span>th>Last Name<span><</span>/th>
+    <span><</span>/tr>
+    <span><</span>tr ng-repeat="user in users">
+      <span><</span>td>
+        <span><</span>button class="w3-btn w3-ripple" ng-click="editUser(user.id)">&#9998; Edit<span><</span>/button>
+      <span><</span>/td>
+      <span><</span>td>{{ user.fName }}<span><</span>/td>
+      <span><</span>td>{{ user.lName }}<span><</span>/td>
+    <span><</span>/tr>
+  <span><</span>/table>
+  <span><</span>br>
+  <span><</span>button class="w3-btn w3-green w3-ripple" ng-click="editUser('new')">&#9998; Create New User<span><</span>/button>
+
+  <span><</span>form ng-hide="hideform">
+    <span><</span>h3 ng-show="edit">Create New User:<span><</span>/h3>
+    <span><</span>h3 ng-hide="edit">Edit User:<span><</span>/h3>
+      <span><</span>label>First Name:<span><</span>/label>
+      <span><</span>input class="w3-input w3-border" type="text" ng-model="fName" ng-disabled="!edit" placeholder="First Name">
+    <span><</span>br>
+      <span><</span>label>Last Name:<span><</span>/label>
+      <span><</span>input class="w3-input w3-border" type="text" ng-model="lName" ng-disabled="!edit" placeholder="Last Name">
+    <span><</span>br>
+      <span><</span>label>Password:<span><</span>/label>
+      <span><</span>input class="w3-input w3-border" type="password" ng-model="passw1" placeholder="Password">
+    <span><</span>br>
+      <span><</span>label>Repeat:<span><</span>/label>
+      <span><</span>input class="w3-input w3-border" type="password" ng-model="passw2" placeholder="Repeat Password">
+    <span><</span>br>
+  <span><</span>button class="w3-btn w3-green w3-ripple" ng-disabled="error || incomplete">&#10004; Save Changes<span><</span>/button>
+  <span><</span>/form>
+
+  <span><</span>/div>
+
+  <span><</span>script src= "myUsers.js"><span><</span>/script>
+
+  <span><</span>/body>
+  <span><</span>/html>
+      </code></pre>
+    </section>
+    
+    <section id="titulo"><h2>Directive (Use Above) Explained</h2>
+      <table class="tabla">
+        <tr>
+          <th>AngularJS Directive</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td><span><</span>body ng-app</td>
+          <td>Defines an application for the <span><</span>body> element</td>
+        </tr>
+        <tr>
+          <td><span><</span>body ng-controller</td>
+          <td>Defines a controller for the <span><</span>body> element</td>
+        </tr>
+        <tr>
+          <td><span><</span>tr ng-repeat</td>
+          <td>Repeats the <span><</span>tr> element for each user in users</td>
+        </tr>
+        <tr>
+          <td><span><</span>button ng-click</td>
+          <td>Invoke the function editUser() when the <span><</span>button> element is clicked</td>
+        </tr>
+        <tr>
+          <td><span><</span>h3 ng-show</td>
+          <td>Show the <span><</span>h3>s element if edit = true</td>
+        </tr>
+        <tr>
+          <td><span><</span>h3 ng-hide</td>
+          <td>Hide the form if hideform = true and hide the <span><</span>h3> element if edit = true</td>
+        </tr>
+        <tr>
+          <td><span><</span>input ng-model</td>
+          <td>Bind the <span><</span>input> element to the application</td>
+        </tr>
+        <tr>
+          <td><span><</span>button ng-disabled</td>
+          <td>Disables the <span><</span>button> element if error or incomplete = true</td>
+        </tr>
+      </table>
+    </section>
+    
+    <section id="titulo"><h2>W3.CSS Classes Explained</h2>
+      <table class="tabla">
+        <tr>
+          <th>Element</th>
+          <th>Class</th>
+          <th>Defines</th>
+        </tr>
+        <tr>
+          <td><span><</span>div></td>
+          <td>w3-container</td>
+          <td>A content container</td>
+        </tr>
+        <tr>
+          <td><span><</span>table></td>
+          <td>w3-table</td>
+          <td>A table</td>
+        </tr>
+        <tr>
+          <td><span><</span>table></td>
+          <td>w3-bordered</td>
+          <td>A bordered table</td>
+        </tr>
+        <tr>
+          <td><span><</span>table></td>
+          <td>w3-striped</td>
+          <td>A striped table</td>
+        </tr>
+        <tr>
+          <td><span><</span>button></td>
+          <td>w3-btn</td>
+          <td>A button</td>
+        </tr>
+        <tr>
+          <td><span><</span>button></td>
+          <td>w3-green</td>
+          <td>A green button</td>
+        </tr>
+        <tr>
+          <td><span><</span>button></td>
+          <td>w3-ripple</td>
+          <td>A ripple effect when you click the button</td>
+        </tr>
+        <tr>
+          <td><span><</span>input></td>
+          <td>w3-input</td>
+          <td>An input field</td>
+        </tr>
+        <tr>
+          <td><span><</span>input></td>
+          <td>w3-border</td>
+          <td>A border on the input field</td>
+        </tr>
+      </table>
+    </section>
+    
+    <section id="titulo"><h2>JavaScript Code</h2>
+      <!-- code -->
+      <pre><code>
+  angular.module('myApp', []).controller('userCtrl', function($scope) {
+  $scope.fName = '';
+  $scope.lName = '';
+  $scope.passw1 = '';
+  $scope.passw2 = '';
+  $scope.users = [
+  {id:1, fName:'Hege', lName:"Pege" },
+  {id:2, fName:'Kim',  lName:"Pim" },
+  {id:3, fName:'Sal',  lName:"Smith" },
+  {id:4, fName:'Jack', lName:"Jones" },
+  {id:5, fName:'John', lName:"Doe" },
+  {id:6, fName:'Peter',lName:"Pan" }
+  ];
+  $scope.edit = true;
+  $scope.error = false;
+  $scope.incomplete = false;
+  $scope.hideform = true;
+  $scope.editUser = function(id) {
+    $scope.hideform = false;
+    if (id == 'new') {
+      $scope.edit = true;
+      $scope.incomplete = true;
+      $scope.fName = '';
+      $scope.lName = '';
+      } else {
+      $scope.edit = false;
+      $scope.fName = $scope.users[id-1].fName;
+      $scope.lName = $scope.users[id-1].lName;
+    }
+  };
+
+  $scope.$watch('passw1',function() {$scope.test();});
+  $scope.$watch('passw2',function() {$scope.test();});
+  $scope.$watch('fName', function() {$scope.test();});
+  $scope.$watch('lName', function() {$scope.test();});
+
+  $scope.test = function() {
+    if ($scope.passw1 !== $scope.passw2) {
+      $scope.error = true;
+      } else {
+      $scope.error = false;
+    }
+    $scope.incomplete = false;
+    if ($scope.edit && (!$scope.fName.length ||
+    !$scope.lName.length ||
+    !$scope.passw1.length || !$scope.passw2.length)) {
+        $scope.incomplete = true;
+    }
+  };
+
+  });
+      </code></pre>
+    </section>
+    
+    <section id="titulo"><h2>JavaScript Code Explained</h2>
+      <table class="tabla">
+        <tr>
+          <th>Scope Properties</th>
+          <th>Used for</th>
+        </tr>
+        <tr>
+          <td>$scope.fName</td>
+          <td>Model variable (user first name)</td>
+        </tr>
+        <tr>
+          <td>$scope.lName</td>
+          <td>Model variable (user last name)</td>
+        </tr>
+        <tr>
+          <td>$scope.passw1</td>
+          <td>Model variable (user password 1)</td>
+        </tr>
+        <tr>
+          <td>$scope.passw2</td>
+          <td>Model variable (user password 2)</td>
+        </tr>
+        <tr>
+          <td>$scope.users</td>
+          <td>Model variable (array of users)</td>
+        </tr>
+        <tr>
+          <td>$scope.edit</td>
+          <td>Set to true when user clicks on 'Create user'</td>
+        </tr>
+        <tr>
+          <td>$scope.hideform</td>
+          <td>Set to false when user clicks on 'Edit' or 'Create user'.</td>
+        </tr>
+        <tr>
+          <td>$scope.error</td>
+          <td>Set to true if passw1 not equal passw2</td>
+        </tr>
+        <tr>
+          <td>$scope.incomplete</td>
+          <td>Set to true if any field is empty (length = 0)</td>
+        </tr>
+        <tr>
+          <td>$scope.editUser</td>
+          <td>Sets model variables</td>
+        </tr>
+        <tr>
+          <td>$scope.$watch</td>
+          <td>Watches model variables</td>
+        </tr>
+        <tr>
+          <td>$scope.test</td>
+          <td>Tests model variables for errors and incompleteness</td>
+        </tr>
+      </table>
+    </section>
+    
+    <hr>
+    <footer>
+      
+      <div class="footer-iconos">
+        <a href="https://twitter.com/" target="_blank"><i class="bi bi-twitter"></i></a>
+        <a href="https://www.instagram.com/" target="_blank"><i class="bi bi-instagram"></i></a>
+        <a href="https://es-es.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a>
+        <a href="https://github.com/" target="_blank"><i class="bi bi-github"></i></a>
+        <a href="https://ar.linkedin.com/" target="_blank"><i class="bi bi-linkedin"></i></a>
+      </div>
+      
+      <p>AngularJS Tutorial.</p>
+      <p>Copyright 2023 by Lucas. All Rights Reserved.</p>
+      <p>Author: Lucas</p>
+
+    </footer>
+
+  </div>
+<script src="./codigo.js"></script>
+</body>
+</html>

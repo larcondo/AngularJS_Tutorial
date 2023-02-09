@@ -17,12 +17,12 @@ const paginas = [
   {href: "angular_events.html", texto: "AngularJS Events"},
   {href: "angular_forms.html", texto: "AngularJS Forms"},
   {href: "angular_validation.html", texto: "AngularJS Validation"},
-  {href: "angular_api.html", texto: "AngularJS API"}
-  // {href: "angular_.html", texto: "AngularJS W3.CSS"},
-  // {href: "angular_.html", texto: "AngularJS Includes"},
-  // {href: "angular_.html", texto: "AngularJS Animations"},
-  // {href: "angular_.html", texto: "AngularJS Routing"},
-  // {href: "angular_.html", texto: "AngularJS Application"}
+  {href: "angular_api.html", texto: "AngularJS API"},
+  {href: "angular_w3css.html", texto: "AngularJS W3.CSS"},
+  {href: "angular_includes.html", texto: "AngularJS Includes"},
+  {href: "angular_animations.html", texto: "AngularJS Animations"},
+  {href: "angular_routing.html", texto: "AngularJS Routing"},
+  {href: "angular_application.html", texto: "AngularJS Application"}
 ];
 
 const menuList = document.getElementById("menu");
