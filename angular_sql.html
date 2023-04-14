@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" integrity="sha512-vswe+cgvic/XBoF1OcM/TeJ2FW0OofqAVdCZiEYkd6dwGXthvkSFWOoGGJgS2CW70VK5dQM5Oh+7ne47s74VTg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Estilos -->
     <link rel="stylesheet" href="style.css">
 
@@ -38,7 +40,7 @@
     <section id="titulo"><h2>Fetching Data From a PHP Server Running MySQL</h2>
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
-        <pre><code>
+        <pre><code class="language-html">
   <span><</span>div ng-app="myApp" ng-controller="customersCtrl">
 
   <span><</span>table>
@@ -64,7 +66,7 @@
     <section id="titulo"><h2>Fetching Data From an ASP.NET Server Running SQL</h2>
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
-        <pre><code>
+        <pre><code class="language-html">
   <span><</span>div ng-app="myApp" ng-controller="customersCtrl">
 
   <span><</span>table>
@@ -102,7 +104,7 @@
       <p>Cross-site requests are common on the web. Many pages load CSS, images, and scripts from different servers.</p>
       <p>In modern browsers, cross-site HTTP requests <b>from scripts</b> are restricted to <b>same site</b> for security reasons.</p>
       <p>The following line, in our PHP examples, has been added to allow cross-site access.</p>
-      <pre><code>
+      <pre><code class="language-php">
   header("Access-Control-Allow-Origin: *");
       </code></pre>
     </section>
@@ -110,7 +112,7 @@
     <section id="titulo"><h2>1. Server Code PHP and MySQL</h2>
       <button class="accordion"><h3>Code</h3></button>
       <div class="panel">
-        <pre><code>
+        <pre><code class="language-php">
   <span><</span>?php
   header("Access-Control-Allow-Origin: *");
   header("Content-Type: application/json; charset=UTF-8");
@@ -138,7 +140,7 @@
     <section id="titulo"><h2>2. Server Code PHP and MS Access</h2>
       <button class="accordion"><h3>Code</h3></button>
       <div class="panel">
-        <pre><code>
+        <pre><code class="language-php">
   <span><</span>?php
   header("Access-Control-Allow-Origin: *");
   header("Content-Type: application/json; charset=ISO-8859-1");
@@ -169,7 +171,7 @@
     <section id="titulo"><h2>3. Server Code ASP.NET, VB and MS Access</h2>
       <button class="accordion"><h3>Code</h3></button>
       <div class="panel">
-        <pre><code>
+        <pre><code class="language-vb">
   <span><</span>%@ Import Namespace="System.IO"%>
   <span><</span>%@ Import Namespace="System.Data"%>
   <span><</span>%@ Import Namespace="System.Data.OleDb"%>
@@ -208,7 +210,7 @@
     <section id="titulo"><h2>4. Server Code ASP.NET, Razor C# and SQL Lite</h2>
       <button class="accordion"><h3>Code</h3></button>
       <div class="panel">
-        <pre><code>
+        <pre><code class="language-csharp">
   @{
   Response.AppendHeader("Access-Control-Allow-Origin", "*")
   Response.AppendHeader("Content-type", "application/json")
@@ -247,6 +249,8 @@
     </footer>
 
   </div>
-<script src="./codigo.js"></script>
+  <script src="./codigo.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

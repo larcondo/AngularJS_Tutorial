@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" integrity="sha512-vswe+cgvic/XBoF1OcM/TeJ2FW0OofqAVdCZiEYkd6dwGXthvkSFWOoGGJgS2CW70VK5dQM5Oh+7ne47s74VTg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Estilos -->
     <link rel="stylesheet" href="style.css">
 
@@ -46,7 +48,7 @@
     <section id="titulo"><h2>Data-Binding</h2>
       <p>Input controls provides data-binding by using the <code class="res">ng-model</code> directive.</p>
 
-      <pre><code>
+      <pre><code class="language-html">
   <span><</span>input type="text" ng-model="firstname">
       </code></pre>
 
@@ -56,7 +58,7 @@
       
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
-        <pre><code>
+        <pre><code class="language-html">
   <span><</span>script>
   var app = angular.module('myApp', []);
   app.controller('formCtrl', function($scope) {
@@ -69,7 +71,7 @@
       
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
-        <pre><code>
+        <pre><code class="language-html">
   <span><</span>form>
     First Name: <span><</span>input type="text" ng-model="firstname">
   <span><</span>/form>
@@ -85,7 +87,7 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <p>Show the header if the checkbox is checked:</p>
-        <pre><code>
+        <pre><code class="language-html">
   <span><</span>form>
     Check to show a header:
     <span><</span>input type="checkbox" ng-model="myVar">
@@ -103,7 +105,7 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <p>Display some text, based on the value of the selected radio button:</p>
-        <pre><code>
+        <pre><code class="language-html">
   <span><</span>form>
     Pick a topic:
     <span><</span>input type="radio" ng-model="myVar" value="dogs">Dogs
@@ -122,7 +124,7 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <p>Display some text, based on the value of the selected option:</p>
-        <pre><code>
+        <pre><code class="language-html">
   <span><</span>form>
     Select a topic:
     <span><</span>select ng-model="myVar">
@@ -146,7 +148,7 @@
       
       <button class="accordion"><h3>Code</h3></button>
       <div class="panel">
-        <pre><code>
+        <pre><code class="language-html">
   <span><</span>div ng-app="myApp" ng-controller="formCtrl">
     <span><</span>form novalidate>
       First Name:<span><</span>br>
@@ -206,6 +208,8 @@
     </footer>
 
   </div>
-<script src="./codigo.js"></script>
+  <script src="./codigo.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

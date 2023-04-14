@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" integrity="sha512-vswe+cgvic/XBoF1OcM/TeJ2FW0OofqAVdCZiEYkd6dwGXthvkSFWOoGGJgS2CW70VK5dQM5Oh+7ne47s74VTg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Estilos -->
     <link rel="stylesheet" href="style.css">
 
@@ -50,7 +52,7 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <p>The input field is required:</p>
-        <pre><code>
+        <pre><code class="language-html">
   <span><</span>form name="myForm">
     <span><</span>input name="myInput" ng-model="myInput" required>
   <span><</span>/form>
@@ -67,7 +69,7 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <p>The input field has to be an e-mail:</p>
-        <pre><code>
+        <pre><code class="language-html">
   <span><</span>form name="myForm">
     <span><</span>input name="myInput" ng-model="myInput" type="email">
   <span><</span>/form>
@@ -103,7 +105,7 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <p>Show an error message if the field has been touched AND is empty:</p>
-        <pre><code>
+        <pre><code class="language-html">
   <span><</span>input name="myName" ng-model="myName" required>
   <span><</span>span ng-show="myForm.myName.$touched && myForm.myName.$invalid">
     The name is required.
@@ -139,7 +141,7 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <p>Apply styles, using standard CSS:</p>
-        <pre><code>
+        <pre><code class="language-html">
   <span><</span>style>
   input.ng-invalid {
     background-color: pink;
@@ -155,7 +157,7 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <p>Apply styles for unmodified (pristine) forms, and for modified forms:</p>
-        <pre><code>
+        <pre><code class="language-html">
   <span><</span>style>
   form.ng-pristine {
     background-color: lightblue;
@@ -176,7 +178,7 @@
       <div class="panel">
         <p>Create your own directive, containing a custom validation function, and refer to it by using <code class="res">my-directive</code>.</p>
         <p>The field will only be valid if the value contains the character "e":</p>
-        <pre><code>
+        <pre><code class="language-html">
   <span><</span>form name="myForm">
   <span><</span>input name="myInput" ng-model="myInput" required my-directive>
   <span><</span>/form>
@@ -218,7 +220,7 @@
       
       <button class="accordion"><h3>Code</h3></button>
       <div class="panel">
-        <pre><code>
+        <pre><code class="language-html">
   <span><</span>!DOCTYPE html>
   <span><</span>html>
   <span><</span>script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"><span><</span>/script>
@@ -291,6 +293,8 @@
     </footer>
 
   </div>
-<script src="./codigo.js"></script>
+  <script src="./codigo.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>

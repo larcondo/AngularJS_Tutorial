@@ -267,6 +267,11 @@ td:nth-child(1) {
   width: 40%;
 }
 
+pre[class*=language-] {
+  padding: 0;
+  font-size: 0.85rem;
+}
+
 @media screen and (max-width: 800px) {
   
   .contenedor-principal{
