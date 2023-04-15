@@ -280,6 +280,9 @@ pre[class*=language-] {
   /* .contenedor-principal img{
     max-width: 100%;
   } */
-
+  pre[class*=language-] {
+    padding: 0;
+    font-size: 0.7rem;
+  }
 
 }
