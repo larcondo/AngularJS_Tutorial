@@ -49,17 +49,17 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>!DOCTYPE html>
-  <span><</span>html>
-  <span><</span>script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"><span><</span>/script>
-  <span><</span>body>
+  &lt;!DOCTYPE html>
+  &lt;html>
+  &lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">&lt;/script>
+  &lt;body>
 
-  <span><</span>div ng-app="">
-    <span><</span>p>My first expression: {{ 5 + 5 }}<span><</span>/p>
-  <span><</span>/div>
+  &lt;div ng-app="">
+    &lt;p>My first expression: {{ 5 + 5 }}&lt;/p>
+  &lt;/div>
 
-  <span><</span>/body>
-  <span><</span>/html>
+  &lt;/body>
+  &lt;/html>
         </code></pre>
       </div>
 
@@ -68,17 +68,17 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>!DOCTYPE html>
-  <span><</span>html>
-  <span><</span>script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"><span><</span>/script>
-  <span><</span>body>
+  &lt;!DOCTYPE html>
+  &lt;html>
+  &lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">&lt;/script>
+  &lt;body>
 
-  <span><</span>div>
-    <span><</span>p>My first expression: {{ 5 + 5 }}<span><</span>/p>
-  <span><</span>/div>
+  &lt;div>
+    &lt;p>My first expression: {{ 5 + 5 }}&lt;/p>
+  &lt;/div>
 
-  <span><</span>/body>
-  <span><</span>/html>
+  &lt;/body>
+  &lt;/html>
         </code></pre>
       </div>
 
@@ -87,9 +87,9 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>div ng-app="" ng-init="myCol='lightblue'">
-    <span><</span>input style="background-color:{{myCol}}" ng-model="myCol">
-  <span><</span>/div>
+  &lt;div ng-app="" ng-init="myCol='lightblue'">
+    &lt;input style="background-color:{{myCol}}" ng-model="myCol">
+  &lt;/div>
         </code></pre>
       </div>
 
@@ -100,9 +100,9 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>div ng-app="" ng-init="quantity=1;cost=5">
-    <span><</span>p>Total in dollar: {{ quantity * cost }}<span><</span>/p>
-  <span><</span>/div>
+  &lt;div ng-app="" ng-init="quantity=1;cost=5">
+    &lt;p>Total in dollar: {{ quantity * cost }}&lt;/p>
+  &lt;/div>
         </code></pre>
       </div>
 
@@ -110,9 +110,9 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>div ng-app="" ng-init="quantity=1;cost=5">
-    <span><</span>p>Total in dollar: <span><</span>span ng-bind="quantity * cost"></span><span><</span>/p>
-  <span><</span>/div>
+  &lt;div ng-app="" ng-init="quantity=1;cost=5">
+    &lt;p>Total in dollar: &lt;span ng-bind="quantity * cost">&lt;/span>&lt;/p>
+  &lt;/div>
         </code></pre>
       </div>
 
@@ -127,15 +127,15 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>div ng-app="" ng-init="firstName='John';lastName='Doe'">
-    <span><</span>p>The name is {{ firstName + " " + lastName }}<span><</span>/p>
-  <span><</span>/div>
+  &lt;div ng-app="" ng-init="firstName='John';lastName='Doe'">
+    &lt;p>The name is {{ firstName + " " + lastName }}&lt;/p>
+  &lt;/div>
         </code></pre>
         <p>Same example using <code class="res">ng-bind</code> :</p>
         <pre><code class="language-html">
-  <span><</span>div ng-app="" ng-init="firstName='John';lastName='Doe'">
-    <span><</span>p>The name is <span><</span>span ng-bind="firstName + ' ' + lastName"><span><</span>/span><span><</span>/p>
-  <span><</span>/div>
+  &lt;div ng-app="" ng-init="firstName='John';lastName='Doe'">
+    &lt;p>The name is &lt;span ng-bind="firstName + ' ' + lastName">&lt;/span>&lt;/p>
+  &lt;/div>
         </code></pre>
       </div>
     </section>
@@ -145,15 +145,15 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>div ng-app="" ng-init="person={firstName:'John',lastName:'Doe'}">
-    <span><</span>p>The name is {{ person.lastName }}<span><</span>/p>
-  <span><</span>/div>        
+  &lt;div ng-app="" ng-init="person={firstName:'John',lastName:'Doe'}">
+    &lt;p>The name is {{ person.lastName }}&lt;/p>
+  &lt;/div>        
         </code></pre>
         <p>Same example using <code class="res">ng-bind</code>:</p>
         <pre><code class="language-html">
-  <span><</span>div ng-app="" ng-init="person={firstName:'John',lastName:'Doe'}">
-    <span><</span>p>The name is <span><</span>span ng-bind="person.lastName"><span><</span>/span><span><</span>/p>
-  <span><</span>/div>
+  &lt;div ng-app="" ng-init="person={firstName:'John',lastName:'Doe'}">
+    &lt;p>The name is &lt;span ng-bind="person.lastName">&lt;/span>&lt;/p>
+  &lt;/div>
         </code></pre>
       </div>
     </section>
@@ -163,15 +163,15 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>div ng-app="" ng-init="points=[1,15,19,2,40]">
-    <span><</span>p>The third result is {{ points[2] }}<span><</span>/p>
-  <span><</span>/div>
+  &lt;div ng-app="" ng-init="points=[1,15,19,2,40]">
+    &lt;p>The third result is {{ points[2] }}&lt;/p>
+  &lt;/div>
         </code></pre>
         <p>Same example using <code class="res">ng-bind</code>:</p>
         <pre><code class="language-html">
-  <span><</span>div ng-app="" ng-init="points=[1,15,19,2,40]">
-    <span><</span>p>The third result is <span><</span>span ng-bind="points[2]"><span><</span>/span><span><</span>/p>
-  <span><</span>/div>
+  &lt;div ng-app="" ng-init="points=[1,15,19,2,40]">
+    &lt;p>The third result is &lt;span ng-bind="points[2]">&lt;/span>&lt;/p>
+  &lt;/div>
         </code></pre>
       </div>
     </section>

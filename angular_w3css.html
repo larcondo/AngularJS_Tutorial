@@ -41,7 +41,7 @@
       <p>To include W3.CSS in your AngularJS application, add the following line to the head of your document:</p>
 
       <pre><code class="language-html">
-  <span><</span>link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  &lt;link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
       </code></pre>
 
       <p>Below is a complete HTML example, with all AngularJS directives and W3.CSS classes explained.</p>
@@ -50,57 +50,57 @@
     
     <section id="titulo"><h2>HTML Code</h2>
       <pre><code class="language-html">
-  <span><</span>!DOCTYPE html>
-  <span><</span>html>
-  <span><</span>link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <span><</span>script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"><span><</span>/script>
-  <span><</span>body ng-app="myApp" ng-controller="userCtrl">
+  &lt;!DOCTYPE html>
+  &lt;html>
+  &lt;link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  &lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">&lt;/script>
+  &lt;body ng-app="myApp" ng-controller="userCtrl">
 
-  <span><</span>div class="w3-container">
+  &lt;div class="w3-container">
 
-  <span><</span>h3>Users<span><</span>/h3>
+  &lt;h3>Users&lt;/h3>
 
-  <span><</span>table class="w3-table w3-bordered w3-striped">
-    <span><</span>tr>
-      <span><</span>th>Edit<span><</span>/th>
-      <span><</span>th>First Name<span><</span>/th>
-      <span><</span>th>Last Name<span><</span>/th>
-    <span><</span>/tr>
-    <span><</span>tr ng-repeat="user in users">
-      <span><</span>td>
-        <span><</span>button class="w3-btn w3-ripple" ng-click="editUser(user.id)">&#9998; Edit<span><</span>/button>
-      <span><</span>/td>
-      <span><</span>td>{{ user.fName }}<span><</span>/td>
-      <span><</span>td>{{ user.lName }}<span><</span>/td>
-    <span><</span>/tr>
-  <span><</span>/table>
-  <span><</span>br>
-  <span><</span>button class="w3-btn w3-green w3-ripple" ng-click="editUser('new')">&#9998; Create New User<span><</span>/button>
+  &lt;table class="w3-table w3-bordered w3-striped">
+    &lt;tr>
+      &lt;th>Edit&lt;/th>
+      &lt;th>First Name&lt;/th>
+      &lt;th>Last Name&lt;/th>
+    &lt;/tr>
+    &lt;tr ng-repeat="user in users">
+      &lt;td>
+        &lt;button class="w3-btn w3-ripple" ng-click="editUser(user.id)">&#9998; Edit&lt;/button>
+      &lt;/td>
+      &lt;td>{{ user.fName }}&lt;/td>
+      &lt;td>{{ user.lName }}&lt;/td>
+    &lt;/tr>
+  &lt;/table>
+  &lt;br>
+  &lt;button class="w3-btn w3-green w3-ripple" ng-click="editUser('new')">&#9998; Create New User&lt;/button>
 
-  <span><</span>form ng-hide="hideform">
-    <span><</span>h3 ng-show="edit">Create New User:<span><</span>/h3>
-    <span><</span>h3 ng-hide="edit">Edit User:<span><</span>/h3>
-      <span><</span>label>First Name:<span><</span>/label>
-      <span><</span>input class="w3-input w3-border" type="text" ng-model="fName" ng-disabled="!edit" placeholder="First Name">
-    <span><</span>br>
-      <span><</span>label>Last Name:<span><</span>/label>
-      <span><</span>input class="w3-input w3-border" type="text" ng-model="lName" ng-disabled="!edit" placeholder="Last Name">
-    <span><</span>br>
-      <span><</span>label>Password:<span><</span>/label>
-      <span><</span>input class="w3-input w3-border" type="password" ng-model="passw1" placeholder="Password">
-    <span><</span>br>
-      <span><</span>label>Repeat:<span><</span>/label>
-      <span><</span>input class="w3-input w3-border" type="password" ng-model="passw2" placeholder="Repeat Password">
-    <span><</span>br>
-  <span><</span>button class="w3-btn w3-green w3-ripple" ng-disabled="error || incomplete">&#10004; Save Changes<span><</span>/button>
-  <span><</span>/form>
+  &lt;form ng-hide="hideform">
+    &lt;h3 ng-show="edit">Create New User:&lt;/h3>
+    &lt;h3 ng-hide="edit">Edit User:&lt;/h3>
+      &lt;label>First Name:&lt;/label>
+      &lt;input class="w3-input w3-border" type="text" ng-model="fName" ng-disabled="!edit" placeholder="First Name">
+    &lt;br>
+      &lt;label>Last Name:&lt;/label>
+      &lt;input class="w3-input w3-border" type="text" ng-model="lName" ng-disabled="!edit" placeholder="Last Name">
+    &lt;br>
+      &lt;label>Password:&lt;/label>
+      &lt;input class="w3-input w3-border" type="password" ng-model="passw1" placeholder="Password">
+    &lt;br>
+      &lt;label>Repeat:&lt;/label>
+      &lt;input class="w3-input w3-border" type="password" ng-model="passw2" placeholder="Repeat Password">
+    &lt;br>
+  &lt;button class="w3-btn w3-green w3-ripple" ng-disabled="error || incomplete">&#10004; Save Changes&lt;/button>
+  &lt;/form>
 
-  <span><</span>/div>
+  &lt;/div>
 
-  <span><</span>script src= "myUsers.js"><span><</span>/script>
+  &lt;script src= "myUsers.js">&lt;/script>
 
-  <span><</span>/body>
-  <span><</span>/html>
+  &lt;/body>
+  &lt;/html>
       </code></pre>
     </section>
     
@@ -111,36 +111,36 @@
           <th>Description</th>
         </tr>
         <tr>
-          <td><span><</span>body ng-app</td>
-          <td>Defines an application for the <span><</span>body> element</td>
+          <td>&lt;body ng-app</td>
+          <td>Defines an application for the &lt;body> element</td>
         </tr>
         <tr>
-          <td><span><</span>body ng-controller</td>
-          <td>Defines a controller for the <span><</span>body> element</td>
+          <td>&lt;body ng-controller</td>
+          <td>Defines a controller for the &lt;body> element</td>
         </tr>
         <tr>
-          <td><span><</span>tr ng-repeat</td>
-          <td>Repeats the <span><</span>tr> element for each user in users</td>
+          <td>&lt;tr ng-repeat</td>
+          <td>Repeats the &lt;tr> element for each user in users</td>
         </tr>
         <tr>
-          <td><span><</span>button ng-click</td>
-          <td>Invoke the function editUser() when the <span><</span>button> element is clicked</td>
+          <td>&lt;button ng-click</td>
+          <td>Invoke the function editUser() when the &lt;button> element is clicked</td>
         </tr>
         <tr>
-          <td><span><</span>h3 ng-show</td>
-          <td>Show the <span><</span>h3>s element if edit = true</td>
+          <td>&lt;h3 ng-show</td>
+          <td>Show the &lt;h3>s element if edit = true</td>
         </tr>
         <tr>
-          <td><span><</span>h3 ng-hide</td>
-          <td>Hide the form if hideform = true and hide the <span><</span>h3> element if edit = true</td>
+          <td>&lt;h3 ng-hide</td>
+          <td>Hide the form if hideform = true and hide the &lt;h3> element if edit = true</td>
         </tr>
         <tr>
-          <td><span><</span>input ng-model</td>
-          <td>Bind the <span><</span>input> element to the application</td>
+          <td>&lt;input ng-model</td>
+          <td>Bind the &lt;input> element to the application</td>
         </tr>
         <tr>
-          <td><span><</span>button ng-disabled</td>
-          <td>Disables the <span><</span>button> element if error or incomplete = true</td>
+          <td>&lt;button ng-disabled</td>
+          <td>Disables the &lt;button> element if error or incomplete = true</td>
         </tr>
       </table>
     </section>
@@ -153,47 +153,47 @@
           <th>Defines</th>
         </tr>
         <tr>
-          <td><span><</span>div></td>
+          <td>&lt;div></td>
           <td>w3-container</td>
           <td>A content container</td>
         </tr>
         <tr>
-          <td><span><</span>table></td>
+          <td>&lt;table></td>
           <td>w3-table</td>
           <td>A table</td>
         </tr>
         <tr>
-          <td><span><</span>table></td>
+          <td>&lt;table></td>
           <td>w3-bordered</td>
           <td>A bordered table</td>
         </tr>
         <tr>
-          <td><span><</span>table></td>
+          <td>&lt;table></td>
           <td>w3-striped</td>
           <td>A striped table</td>
         </tr>
         <tr>
-          <td><span><</span>button></td>
+          <td>&lt;button></td>
           <td>w3-btn</td>
           <td>A button</td>
         </tr>
         <tr>
-          <td><span><</span>button></td>
+          <td>&lt;button></td>
           <td>w3-green</td>
           <td>A green button</td>
         </tr>
         <tr>
-          <td><span><</span>button></td>
+          <td>&lt;button></td>
           <td>w3-ripple</td>
           <td>A ripple effect when you click the button</td>
         </tr>
         <tr>
-          <td><span><</span>input></td>
+          <td>&lt;input></td>
           <td>w3-input</td>
           <td>An input field</td>
         </tr>
         <tr>
-          <td><span><</span>input></td>
+          <td>&lt;input></td>
           <td>w3-border</td>
           <td>A border on the input field</td>
         </tr>

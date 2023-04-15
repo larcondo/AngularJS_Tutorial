@@ -45,17 +45,17 @@
       <div class="panel">
         <p>Navigate to "red.htm", "green.htm" and "blue.htm":</p>
         <pre><code class="language-html">
-  <span><</span>body ng-app="myApp">
+  &lt;body ng-app="myApp">
 
-  <span><</span>p><span><</span>a href="#/!">Main<span><</span>/a><span><</span>/p>
+  &lt;p>&lt;a href="#/!">Main&lt;/a>&lt;/p>
 
-  <span><</span>a href="#!red">Red<span><</span>/a>
-  <span><</span>a href="#!green">Green<span><</span>/a>
-  <span><</span>a href="#!blue">Blue<span><</span>/a>
+  &lt;a href="#!red">Red&lt;/a>
+  &lt;a href="#!green">Green&lt;/a>
+  &lt;a href="#!blue">Blue&lt;/a>
 
-  <span><</span>div ng-view><span><</span>/div>
+  &lt;div ng-view>&lt;/div>
 
-  <span><</span>script>
+  &lt;script>
   var app = angular.module("myApp", ["ngRoute"]);
   app.config(function($routeProvider) {
     $routeProvider
@@ -72,8 +72,8 @@
       templateUrl : "blue.htm"
     });
   });
-  <span><</span>/script>
-  <span><</span>/body>
+  &lt;/script>
+  &lt;/body>
         </code></pre>
       </div>
 
@@ -82,7 +82,7 @@
     <section id="titulo"><h2>What do I Need?</h2>
       <p>To make your applications ready for routing, you must include the AngularJS Route module:</p>
       <pre><code class="language-html">
-  <span><</span>script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"><span><</span>/script>
+  &lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js">&lt;/script>
       </code></pre>
 
       <p>Then you must add the <code class="res">ngRoute</code> as a dependency in the application module:</p>
@@ -120,15 +120,15 @@
 
       <p>First option:</p>
       <pre><code class="language-html">
-  <span><</span>div ng-view><span><</span>/div>
+  &lt;div ng-view>&lt;/div>
       </code></pre>
       <p>Second option:</p>
       <pre><code class="language-html">
-  <span><</span>ng-view><span><</span>/ng-view>
+  &lt;ng-view>&lt;/ng-view>
       </code></pre>
       <p>Third option</p>
       <pre><code class="language-html">
-  <span><</span>div class="ng-view"><span><</span>/div>
+  &lt;div class="ng-view">&lt;/div>
       </code></pre>
 
       <p>Applications can only have one <code class="res">ng-view</code> directive and this will be the placeholder for all views provided by the route.</p>
@@ -197,22 +197,22 @@
       <button class="accordion"><h3>london.htm</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>h1>London<span><</span>/h1>
-  <span><</span>h3>London is the capital city of England.<span><</span>/h3>
-  <span><</span>p>It is the most populous city in the United Kingdom, with a 
-  metropolitan area of over 13 million inhabitants.<span><</span>/p>
-  <span><</span>p>{{msg}}<span><</span>/p>
+  &lt;h1>London&lt;/h1>
+  &lt;h3>London is the capital city of England.&lt;/h3>
+  &lt;p>It is the most populous city in the United Kingdom, with a 
+  metropolitan area of over 13 million inhabitants.&lt;/p>
+  &lt;p>{{msg}}&lt;/p>
         </code></pre>
       </div>
       
       <button class="accordion"><h3>paris.htm</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>h1>Paris<span><</span>/h1>
-  <span><</span>h3>Paris is the capital city of France.<span><</span>/h3>
-  <span><</span>p>The Paris area is one of the largest population centers in Europe, 
-    with more than 12 million inhabitants.<span><</span>/p>
-  <span><</span>p>{{msg}}<span><</span>/p>
+  &lt;h1>Paris&lt;/h1>
+  &lt;h3>Paris is the capital city of France.&lt;/h3>
+  &lt;p>The Paris area is one of the largest population centers in Europe, 
+    with more than 12 million inhabitants.&lt;/p>
+  &lt;p>{{msg}}&lt;/p>
         </code></pre>
       </div>
     </section>
@@ -229,13 +229,13 @@
   app.config(function($routeProvider) {
     $routeProvider
     .when("/", {
-      template : "<span><</span>h1>Main<span><</span>/h1><span><</span>p>Click on the links to change this content<span><</span>/p>"
+      template : "&lt;h1>Main&lt;/h1>&lt;p>Click on the links to change this content&lt;/p>"
     })
     .when("/banana", {
-      template : "<span><</span>h1>Banana<span><</span>/h1><span><</span>p>Bananas contain around 75% water.<span><</span>/p>"
+      template : "&lt;h1>Banana&lt;/h1>&lt;p>Bananas contain around 75% water.&lt;/p>"
     })
     .when("/tomato", {
-      template : "<span><</span>h1>Tomato<span><</span>/h1><span><</span>p>Tomatoes contain around 95% water.<span><</span>/p>"
+      template : "&lt;h1>Tomato&lt;/h1>&lt;p>Tomatoes contain around 95% water.&lt;/p>"
     });
   });
         </code></pre>
@@ -255,13 +255,13 @@
   app.config(function($routeProvider) {
     $routeProvider
     .when("/banana", {
-      template : "<span><</span>h1>Banana<span><</span>/h1><span><</span>p>Bananas contain around 75% water.<span><</span>/p>"
+      template : "&lt;h1>Banana&lt;/h1>&lt;p>Bananas contain around 75% water.&lt;/p>"
     })
     .when("/tomato", {
-      template : "<span><</span>h1>Tomato<span><</span>/h1><span><</span>p>Tomatoes contain around 95% water.<span><</span>/p>"
+      template : "&lt;h1>Tomato&lt;/h1>&lt;p>Tomatoes contain around 95% water.&lt;/p>"
     })
     .otherwise({
-      template : "<span><</span>h1>None<span><</span>/h1><span><</span>p>Nothing has been selected<span><</span>/p>"
+      template : "&lt;h1>None&lt;/h1>&lt;p>Nothing has been selected&lt;/p>"
     });
   });
         </code></pre>

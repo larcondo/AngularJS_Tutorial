@@ -52,18 +52,18 @@
       <div class="panel">
         <p>So far we have made an HTML list based on the items of an array:</p>
         <pre><code class="language-html">
-  <span><</span>script>
+  &lt;script>
   var app = angular.module("myShoppingList", []);
   app.controller("myCtrl", function($scope) {
     $scope.products = ["Milk", "Bread", "Cheese"];
   });
-  <span><</span>/script>
+  &lt;/script>
 
-  <span><</span>div ng-app="myShoppingList" ng-controller="myCtrl">
-    <span><</span>ul>
-      <span><</span>li ng-repeat="x in products">{{x}}<span><</span>/li>
-    <span><</span>/ul>
-  <span><</span>/div>
+  &lt;div ng-app="myShoppingList" ng-controller="myCtrl">
+    &lt;ul>
+      &lt;li ng-repeat="x in products">{{x}}&lt;/li>
+    &lt;/ul>
+  &lt;/div>
         </code></pre>
       </div>
 
@@ -76,7 +76,7 @@
       <div class="panel">
         <p>Now we can add items to our shopping list:</p>
         <pre><code class="language-html">
-  <span><</span>script>
+  &lt;script>
   var app = angular.module("myShoppingList", []);
   app.controller("myCtrl", function($scope) {
     $scope.products = ["Milk", "Bread", "Cheese"];
@@ -84,28 +84,28 @@
       <b>$scope.products.push($scope.addMe);</b>
     <b>}</b>
   });
-  <span><</span>/script>
+  &lt;/script>
 
-  <span><</span>div ng-app="myShoppingList" ng-controller="myCtrl">
-    <span><</span>ul>
-      <span><</span>li ng-repeat="x in products">{{x}}<span><</span>/li>
-    <span><</span>/ul>
-    <b><span><</span>input ng-model="addMe"></b>
-    <b><span><</span>button ng-click="addItem()">Add<span><</span>/button></b>
-  <span><</span>/div>
+  &lt;div ng-app="myShoppingList" ng-controller="myCtrl">
+    &lt;ul>
+      &lt;li ng-repeat="x in products">{{x}}&lt;/li>
+    &lt;/ul>
+    <b>&lt;input ng-model="addMe"></b>
+    <b>&lt;button ng-click="addItem()">Add&lt;/button></b>
+  &lt;/div>
         </code></pre>
       </div>
 
       <h3>Step 3. Removing Items:</h3>
       <p>We also want to be able to remove items from the shopping list.</p>
       <p>In the controller, make a function named <code class="res">removeItem</code>, which takes the index of the item you want to remove, as a parameter.</p>
-      <p>In the HTML, make a <code class="res"><span><</span>span></code> element for each item and give them an <code class="res">ng-click</code> directive which calls the <code class="res">removeItem</code> function with the current <code class="res">$index</code>.</p>
+      <p>In the HTML, make a <code class="res">&lt;span></code> element for each item and give them an <code class="res">ng-click</code> directive which calls the <code class="res">removeItem</code> function with the current <code class="res">$index</code>.</p>
       
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <p>Now we can remove items from our shopping list:</p>
         <pre><code class="language-html">
-  <span><</span>script>
+  &lt;script>
   var app = angular.module("myShoppingList", []);
   app.controller("myCtrl", function($scope) {
     $scope.products = ["Milk", "Bread", "Cheese"];
@@ -116,17 +116,17 @@
       $scope.products.splice(x, 1);
     }</b>
   });
-  <span><</span>/script>
+  &lt;/script>
 
-  <span><</span>div ng-app="myShoppingList" ng-controller="myCtrl">
-    <span><</span>ul>
-      <span><</span>li ng-repeat="x in products">
-        {{x}}<b><span><</span>span ng-click="removeItem($index)">&<span>times</span>;<span><</span>/span></b>
-      <span><</span>/li>
-    <span><</span>/ul>
-    <span><</span>input ng-model="addMe">
-    <span><</span>button ng-click="addItem()">Add<span><</span>/button>
-  <span><</span>/div>
+  &lt;div ng-app="myShoppingList" ng-controller="myCtrl">
+    &lt;ul>
+      &lt;li ng-repeat="x in products">
+        {{x}}<b>&lt;span ng-click="removeItem($index)">&<span>times</span>;&lt;/span></b>
+      &lt;/li>
+    &lt;/ul>
+    &lt;input ng-model="addMe">
+    &lt;button ng-click="addItem()">Add&lt;/button>
+  &lt;/div>
         </code></pre>
       </div>
 
@@ -139,7 +139,7 @@
       <div class="panel">
         <p>A shopping list, with the posibility to write error messages:</p>
         <pre><code class="language-html">
-  <span><</span>script>
+  &lt;script>
   var app = angular.module("myShoppingList", []);
   app.controller("myCtrl", function($scope) {
     $scope.products = ["Milk", "Bread", "Cheese"];
@@ -157,18 +157,18 @@
       $scope.products.splice(x, 1);
     }
   });
-  <span><</span>/script>
+  &lt;/script>
 
-  <span><</span>div ng-app="myShoppingList" ng-controller="myCtrl">
-    <span><</span>ul>
-      <span><</span>li ng-repeat="x in products">
-        {{x}}<span><</span>span ng-click="removeItem($index)">&<span>times</span>;<span><</span>/span>
-      <span><</span>/li>
-    <span><</span>/ul>
-    <span><</span>input ng-model="addMe">
-    <span><</span>button ng-click="addItem()">Add<span><</span>/button>
-    <b><span><</span>p>{{errortext}}<span><</span>/p></b>
-  <span><</span>/div>
+  &lt;div ng-app="myShoppingList" ng-controller="myCtrl">
+    &lt;ul>
+      &lt;li ng-repeat="x in products">
+        {{x}}&lt;span ng-click="removeItem($index)">&<span>times</span>;&lt;/span>
+      &lt;/li>
+    &lt;/ul>
+    &lt;input ng-model="addMe">
+    &lt;button ng-click="addItem()">Add&lt;/button>
+    <b>&lt;p>{{errortext}}&lt;/p></b>
+  &lt;/div>
         </code></pre>
       </div>
 
@@ -179,7 +179,7 @@
       <div class="panel">
         <p>Style your application using the W3.CSS stylesheet:</p>
         <pre><code class="language-html">
-  <span><</span>link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  &lt;link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         </code></pre>
       </div>
 

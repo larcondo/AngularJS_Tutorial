@@ -43,19 +43,19 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>div ng-app="myApp" ng-controller="myCtrl">
+  &lt;div ng-app="myApp" ng-controller="myCtrl">
 
-  <span><</span>select ng-model="selectedName" ng-options="x for x in names">
-  <span><</span>/select>
+  &lt;select ng-model="selectedName" ng-options="x for x in names">
+  &lt;/select>
 
-  <span><</span>/div>
+  &lt;/div>
 
-  <span><</span>script>
+  &lt;script>
   var app = angular.module('myApp', []);
   app.controller('myCtrl', function($scope) {
     $scope.names = ["Emil", "Tobias", "Linus"];
   });
-  <span><</span>/script>
+  &lt;/script>
         </code></pre>
       </div>
     </section>
@@ -66,9 +66,9 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>select>
-    <span><</span>option ng-repeat="x in names">{{x}}<span><</span>/option>
-  <span><</span>/select>
+  &lt;select>
+    &lt;option ng-repeat="x in names">{{x}}&lt;/option>
+  &lt;/select>
         </code></pre>
       </div>
       <p>Because the <code class="res">ng-repeat</code> directive repeats a block of HTML code for each item in an array, it can be used to create options in a dropdown list, but the <code class="res">ng-options</code> directive was made especially for filling a dropdown list with options.</p>
@@ -90,11 +90,11 @@
       <div class="panel">
         <p>Using <code class="res">ng-repeat</code>:</p>
         <pre><code class="language-html">
-  <span><</span>select ng-model="selectedCar">
-    <span><</span>option ng-repeat="x in cars" value="{{x.model}}">{{x.model}}<span><</span>/option>
-  <span><</span>/select>
+  &lt;select ng-model="selectedCar">
+    &lt;option ng-repeat="x in cars" value="{{x.model}}">{{x.model}}&lt;/option>
+  &lt;/select>
 
-  <span><</span>h1>You selected: {{selectedCar}}<span><</span>/h1>
+  &lt;h1>You selected: {{selectedCar}}&lt;/h1>
         </code></pre>
       </div>
       <p>When using the value as an object, use <code class="res">ng-value</code> insead of <code class="res">value</code>:</p>
@@ -103,11 +103,11 @@
       <div class="panel">
         <p>Using <code class="res">ng-repeat</code> as an object:</p>
         <pre><code class="language-html">
-  <span><</span>select ng-model="selectedCar">
-    <span><</span>option ng-repeat="x in cars" ng-value="{{x}}">{{x.model}}<span><</span>/option>
-  <span><</span>/select>
+  &lt;select ng-model="selectedCar">
+    &lt;option ng-repeat="x in cars" ng-value="{{x}}">{{x.model}}&lt;/option>
+  &lt;/select>
   
-  <span><</span>h1>You selected a {{selectedCar.color}} {{selectedCar.model}}<span><</span>/h1>
+  &lt;h1>You selected a {{selectedCar.color}} {{selectedCar.model}}&lt;/h1>
         </code></pre>
       </div>
 
@@ -115,11 +115,11 @@
       <div class="panel">
         <p>Using <code class="res">ng-options</code>:</p>
         <pre><code class="language-html">
-  <span><</span>select ng-model="selectedCar" ng-options="x.model for x in cars">
-  <span><</span>/select>
+  &lt;select ng-model="selectedCar" ng-options="x.model for x in cars">
+  &lt;/select>
   
-  <span><</span>h1>You selected: {{selectedCar.model}}<span><</span>/h1>
-  <span><</span>p>Its color is: {{selectedCar.color}}<span><</span>/p>
+  &lt;h1>You selected: {{selectedCar.model}}&lt;/h1>
+  &lt;p>Its color is: {{selectedCar.color}}&lt;/p>
         </code></pre>
       </div>
       <p>When the selected value is an object, it can hold more information, and your application can be more flexible.</p>
@@ -144,10 +144,10 @@
       <div class="panel">
         <p>Using an object as the data source, <code class="res">x</code> represents the key, and <code class="res">y</code> represents the value:</p>
         <pre><code class="language-html">
-  <span><</span>select ng-model="selectedCar" ng-options="x for (x, y) in cars">
-  <span><</span>/select>
+  &lt;select ng-model="selectedCar" ng-options="x for (x, y) in cars">
+  &lt;/select>
   
-  <span><</span>h1>You selected: {{selectedCar}}<span><</span>/h1>
+  &lt;h1>You selected: {{selectedCar}}&lt;/h1>
         </code></pre>
       </div>
       <p>The selected value will always be the <b>value</b> in a key-<b>value</b> pair.</p>
@@ -169,8 +169,8 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>select ng-model="selectedCar" ng-options="y.brand for (x, y) in cars">
-  <span><</span>/select>
+  &lt;select ng-model="selectedCar" ng-options="y.brand for (x, y) in cars">
+  &lt;/select>
         </code></pre>
       </div>
     </section>

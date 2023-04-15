@@ -46,27 +46,27 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>div ng-app="myApp" ng-controller="myCtrl">
+  &lt;div ng-app="myApp" ng-controller="myCtrl">
 
-  First Name: <span><</span>input type="text" ng-model="firstName"><span><</span>br>
-  Last Name: <span><</span>input type="text" ng-model="lastName"><span><</span>br>
-  <span><</span>br>
+  First Name: &lt;input type="text" ng-model="firstName">&lt;br>
+  Last Name: &lt;input type="text" ng-model="lastName">&lt;br>
+  &lt;br>
   Full Name: {{firstName + " " + lastName}}
 
-  <span><</span>/div>
+  &lt;/div>
 
-  <span><</span>script>
+  &lt;script>
   var app = angular.module('myApp', []);
   app.controller('myCtrl', function($scope) {
     $scope.firstName = "John";
     $scope.lastName = "Doe";
   });
-  <span><</span>/script> 
+  &lt;/script> 
         </code></pre>
       </div>
 
       <p>Application explained:</p>
-      <p>The AngularJS application is defined by <b>ng-app="myApp"</b>. The application runs inside the <span><</span>div>.</p>
+      <p>The AngularJS application is defined by <b>ng-app="myApp"</b>. The application runs inside the &lt;div>.</p>
       <p>The <b>ng-controller="myCtrl"</b> attribute is an AngularJS directive. It defines a controller.</p>
       <p>The <b>myCtrl</b> function is a JavaScript function.</p>
       <p>AngularJS will invoke the controller with a <b>$scope</b> object.</p>
@@ -82,16 +82,16 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>div ng-app="myApp" ng-controller="personCtrl">
+  &lt;div ng-app="myApp" ng-controller="personCtrl">
 
-  First Name: <span><</span>input type="text" ng-model="firstName"><span><</span>br>
-  Last Name: <span><</span>input type="text" ng-model="lastName"><span><</span>br>
-  <span><</span>br>
+  First Name: &lt;input type="text" ng-model="firstName">&lt;br>
+  Last Name: &lt;input type="text" ng-model="lastName">&lt;br>
+  &lt;br>
   Full Name: {{fullName()}}
 
-  <span><</span>/div>
+  &lt;/div>
 
-  <span><</span>script>
+  &lt;script>
   var app = angular.module('myApp', []);
   app.controller('personCtrl', function($scope) {
     $scope.firstName = "John";
@@ -100,7 +100,7 @@
       return $scope.firstName + " " + $scope.lastName;
     };
   });
-  <span><</span>/script>
+  &lt;/script>
         </code></pre>
       </div>
 
@@ -108,21 +108,21 @@
     
     <section id="titulo"><h2>Controllers In External Files</h2>
       <p>In larger applications, it is common to store controllers in external files.</p>
-      <p>Just copy the code between the <span><</span>script> tags into an external file named <u>personController.js</u>:</p>
+      <p>Just copy the code between the &lt;script> tags into an external file named <u>personController.js</u>:</p>
       
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>div ng-app="myApp" ng-controller="personCtrl">
+  &lt;div ng-app="myApp" ng-controller="personCtrl">
 
-  First Name: <span><</span>input type="text" ng-model="firstName"><span><</span>br>
-  Last Name: <span><</span>input type="text" ng-model="lastName"><span><</span>br>
-  <span><</span>br>
+  First Name: &lt;input type="text" ng-model="firstName">&lt;br>
+  Last Name: &lt;input type="text" ng-model="lastName">&lt;br>
+  &lt;br>
   Full Name: {{fullName()}}
 
-  <span><</span>/div>
+  &lt;/div>
 
-  <span><</span>script src="personController.js"><span><</span>/script>
+  &lt;script src="personController.js">&lt;/script>
         </code></pre>
       </div>
     </section>
@@ -148,17 +148,17 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>div ng-app="myApp" ng-controller="namesCtrl">
+  &lt;div ng-app="myApp" ng-controller="namesCtrl">
 
-  <span><</span>ul>
-    <span><</span>li ng-repeat="x in names">
+  &lt;ul>
+    &lt;li ng-repeat="x in names">
       {{ x.name + ', ' + x.country }}
-    <span><</span>/li>
-  <span><</span>/ul>
+    &lt;/li>
+  &lt;/ul>
 
-  <span><</span>/div>
+  &lt;/div>
 
-  <span><</span>script src="namesController.js"><span><</span>/script>
+  &lt;script src="namesController.js">&lt;/script>
         </code></pre>
       </div>
 

@@ -53,12 +53,12 @@
       <div class="panel">
         <p>The input field is required:</p>
         <pre><code class="language-html">
-  <span><</span>form name="myForm">
-    <span><</span>input name="myInput" ng-model="myInput" required>
-  <span><</span>/form>
+  &lt;form name="myForm">
+    &lt;input name="myInput" ng-model="myInput" required>
+  &lt;/form>
   
-  <span><</span>p>The input's valid state is:<span><</span>/p>
-  <span><</span>h1>{{myForm.myInput.$valid}}<span><</span>/h1>
+  &lt;p>The input's valid state is:&lt;/p>
+  &lt;h1>{{myForm.myInput.$valid}}&lt;/h1>
         </code></pre>
       </div>
     </section>
@@ -70,12 +70,12 @@
       <div class="panel">
         <p>The input field has to be an e-mail:</p>
         <pre><code class="language-html">
-  <span><</span>form name="myForm">
-    <span><</span>input name="myInput" ng-model="myInput" type="email">
-  <span><</span>/form>
+  &lt;form name="myForm">
+    &lt;input name="myInput" ng-model="myInput" type="email">
+  &lt;/form>
   
-  <span><</span>p>The input's valid state is:<span><</span>/p>
-  <span><</span>h1>{{myForm.myInput.$valid}}<span><</span>/h1>
+  &lt;p>The input's valid state is:&lt;/p>
+  &lt;h1>{{myForm.myInput.$valid}}&lt;/h1>
         </code></pre>
       </div>
     </section>
@@ -106,10 +106,10 @@
       <div class="panel">
         <p>Show an error message if the field has been touched AND is empty:</p>
         <pre><code class="language-html">
-  <span><</span>input name="myName" ng-model="myName" required>
-  <span><</span>span ng-show="myForm.myName.$touched && myForm.myName.$invalid">
+  &lt;input name="myName" ng-model="myName" required>
+  &lt;span ng-show="myForm.myName.$touched && myForm.myName.$invalid">
     The name is required.
-  <span><</span>/span>
+  &lt;/span>
         </code></pre>
       </div>
 
@@ -142,14 +142,14 @@
       <div class="panel">
         <p>Apply styles, using standard CSS:</p>
         <pre><code class="language-html">
-  <span><</span>style>
+  &lt;style>
   input.ng-invalid {
     background-color: pink;
   }
   input.ng-valid {
     background-color: lightgreen;
   }
-  <span><</span>/style>
+  &lt;/style>
         </code></pre>
       </div>
       <p>Forms can also be styled:</p>
@@ -158,14 +158,14 @@
       <div class="panel">
         <p>Apply styles for unmodified (pristine) forms, and for modified forms:</p>
         <pre><code class="language-html">
-  <span><</span>style>
+  &lt;style>
   form.ng-pristine {
     background-color: lightblue;
   }
   form.ng-dirty {
     background-color: pink;
   }
-  <span><</span>/style>
+  &lt;/style>
         </code></pre>
       </div>
 
@@ -179,11 +179,11 @@
         <p>Create your own directive, containing a custom validation function, and refer to it by using <code class="res">my-directive</code>.</p>
         <p>The field will only be valid if the value contains the character "e":</p>
         <pre><code class="language-html">
-  <span><</span>form name="myForm">
-  <span><</span>input name="myInput" ng-model="myInput" required my-directive>
-  <span><</span>/form>
+  &lt;form name="myForm">
+  &lt;input name="myInput" ng-model="myInput" required my-directive>
+  &lt;/form>
 
-  <span><</span>script>
+  &lt;script>
   var app = angular.module('myApp', []);
   app.directive('myDirective', function() {
     return {
@@ -201,7 +201,7 @@
       }
     };
   });
-  <span><</span>/script>
+  &lt;/script>
         </code></pre>
       </div>
 
@@ -221,48 +221,48 @@
       <button class="accordion"><h3>Code</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>!DOCTYPE html>
-  <span><</span>html>
-  <span><</span>script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"><span><</span>/script>
-  <span><</span>body>
+  &lt;!DOCTYPE html>
+  &lt;html>
+  &lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">&lt;/script>
+  &lt;body>
 
-  <span><</span>h2>Validation Example<span><</span>/h2>
+  &lt;h2>Validation Example&lt;/h2>
 
-  <span><</span>form  ng-app="myApp"  ng-controller="validateCtrl" name="myForm" novalidate>
+  &lt;form  ng-app="myApp"  ng-controller="validateCtrl" name="myForm" novalidate>
 
-  <span><</span>p>Username:<span><</span>br>
-    <span><</span>input type="text" name="user" ng-model="user" required>
-    <span><</span>span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
-    <span><</span>span ng-show="myForm.user.$error.required">Username is required.<span><</span>/span>
-    <span><</span>/span>
-  <span><</span>/p>
+  &lt;p>Username:&lt;br>
+    &lt;input type="text" name="user" ng-model="user" required>
+    &lt;span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+    &lt;span ng-show="myForm.user.$error.required">Username is required.&lt;/span>
+    &lt;/span>
+  &lt;/p>
 
-  <span><</span>p>Email:<span><</span>br>
-    <span><</span>input type="email" name="email" ng-model="email" required>
-    <span><</span>span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
-    <span><</span>span ng-show="myForm.email.$error.required">Email is required.<span><</span>/span>
-    <span><</span>span ng-show="myForm.email.$error.email">Invalid email address.<span><</span>/span>
-    <span><</span>/span>
-  <span><</span>/p>
+  &lt;p>Email:&lt;br>
+    &lt;input type="email" name="email" ng-model="email" required>
+    &lt;span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+    &lt;span ng-show="myForm.email.$error.required">Email is required.&lt;/span>
+    &lt;span ng-show="myForm.email.$error.email">Invalid email address.&lt;/span>
+    &lt;/span>
+  &lt;/p>
 
-  <span><</span>p>
-    <span><</span>input type="submit"
+  &lt;p>
+    &lt;input type="submit"
     ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||
     myForm.email.$dirty && myForm.email.$invalid">
-  <span><</span>/p>
+  &lt;/p>
 
-  <span><</span>/form>
+  &lt;/form>
 
-  <span><</span>script>
+  &lt;script>
   var app = angular.module('myApp', []);
   app.controller('validateCtrl', function($scope) {
     $scope.user = 'John Doe';
     $scope.email = 'john.doe@gmail.com';
   });
-  <span><</span>/script>
+  &lt;/script>
 
-  <span><</span>/body>
-  <span><</span>/html>
+  &lt;/body>
+  &lt;/html>
         </code></pre>
       </div>
       <div class="nota">

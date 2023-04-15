@@ -49,7 +49,7 @@
       <p>Input controls provides data-binding by using the <code class="res">ng-model</code> directive.</p>
 
       <pre><code class="language-html">
-  <span><</span>input type="text" ng-model="firstname">
+  &lt;input type="text" ng-model="firstname">
       </code></pre>
 
       <p>The application does now have a property named <code class="res">firstname</code>.</p>
@@ -59,12 +59,12 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>script>
+  &lt;script>
   var app = angular.module('myApp', []);
   app.controller('formCtrl', function($scope) {
     $scope.firstname = "John";
   });
-  <span><</span>/script>
+  &lt;/script>
         </code></pre>
       </div>
       <p>It can also be referred to elsewhere in the application:</p>
@@ -72,11 +72,11 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>form>
-    First Name: <span><</span>input type="text" ng-model="firstname">
-  <span><</span>/form>
+  &lt;form>
+    First Name: &lt;input type="text" ng-model="firstname">
+  &lt;/form>
 
-  <span><</span>h1>You entered: {{firstname}}<span><</span>/h1>
+  &lt;h1>You entered: {{firstname}}&lt;/h1>
         </code></pre>
       </div>
     </section>
@@ -88,12 +88,12 @@
       <div class="panel">
         <p>Show the header if the checkbox is checked:</p>
         <pre><code class="language-html">
-  <span><</span>form>
+  &lt;form>
     Check to show a header:
-    <span><</span>input type="checkbox" ng-model="myVar">
-  <span><</span>/form>
+    &lt;input type="checkbox" ng-model="myVar">
+  &lt;/form>
   
-  <span><</span>h1 ng-show="myVar">My Header<span><</span>/h1>
+  &lt;h1 ng-show="myVar">My Header&lt;/h1>
         </code></pre>
       </div>
     </section>
@@ -106,12 +106,12 @@
       <div class="panel">
         <p>Display some text, based on the value of the selected radio button:</p>
         <pre><code class="language-html">
-  <span><</span>form>
+  &lt;form>
     Pick a topic:
-    <span><</span>input type="radio" ng-model="myVar" value="dogs">Dogs
-    <span><</span>input type="radio" ng-model="myVar" value="tuts">Tutorials
-    <span><</span>input type="radio" ng-model="myVar" value="cars">Cars
-  <span><</span>/form>
+    &lt;input type="radio" ng-model="myVar" value="dogs">Dogs
+    &lt;input type="radio" ng-model="myVar" value="tuts">Tutorials
+    &lt;input type="radio" ng-model="myVar" value="cars">Cars
+  &lt;/form>
         </code></pre>
       </div>
       <p>The value of myVar will be either <code class="res">dogs</code>, <code class="res">tuts</code> or <code class="res">cars</code>.</p>
@@ -125,15 +125,15 @@
       <div class="panel">
         <p>Display some text, based on the value of the selected option:</p>
         <pre><code class="language-html">
-  <span><</span>form>
+  &lt;form>
     Select a topic:
-    <span><</span>select ng-model="myVar">
-      <span><</span>option value="">
-      <span><</span>option value="dogs">Dogs
-      <span><</span>option value="tuts">Tutorials
-      <span><</span>option value="cars">Cars
-    <span><</span>/select>
-  <span><</span>/form>
+    &lt;select ng-model="myVar">
+      &lt;option value="">
+      &lt;option value="dogs">Dogs
+      &lt;option value="tuts">Tutorials
+      &lt;option value="cars">Cars
+    &lt;/select>
+  &lt;/form>
         </code></pre>
       </div>
       <p>The value of myVar will be either <code class="res">dogs</code>, <code class="res">tuts</code> or <code class="res">cars</code>.</p>
@@ -149,20 +149,20 @@
       <button class="accordion"><h3>Code</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>div ng-app="myApp" ng-controller="formCtrl">
-    <span><</span>form novalidate>
-      First Name:<span><</span>br>
-      <span><</span>input type="text" ng-model="user.firstName"><br>
-      Last Name:<span><</span>br>
-      <span><</span>input type="text" ng-model="user.lastName">
-      <span><</span>br><span><</span>br>
-      <span><</span>button ng-click="reset()">RESET<span><</span>/button>
-    <span><</span>/form>
-    <span><</span>p>form = {{user}}<span><</span>/p>
-    <span><</span>p>master = {{master}}<span><</span>/p>
-  <span><</span>/div>
+  &lt;div ng-app="myApp" ng-controller="formCtrl">
+    &lt;form novalidate>
+      First Name:&lt;br>
+      &lt;input type="text" ng-model="user.firstName"><br>
+      Last Name:&lt;br>
+      &lt;input type="text" ng-model="user.lastName">
+      &lt;br>&lt;br>
+      &lt;button ng-click="reset()">RESET&lt;/button>
+    &lt;/form>
+    &lt;p>form = {{user}}&lt;/p>
+    &lt;p>master = {{master}}&lt;/p>
+  &lt;/div>
 
-  <span><</span>script>
+  &lt;script>
   var app = angular.module('myApp', []);
   app.controller('formCtrl', function($scope) {
     $scope.master = {firstName: "John", lastName: "Doe"};
@@ -171,7 +171,7 @@
     };
     $scope.reset();
   });
-  <span><</span>/script>
+  &lt;/script>
         </code></pre>
       </div>
 

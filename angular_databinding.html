@@ -60,7 +60,7 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>p ng-bind="firstname"><span><</span>/p>
+  &lt;p ng-bind="firstname">&lt;/p>
         </code></pre>
       </div>
 
@@ -69,7 +69,7 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>p>First name: {{firstname}}<span><</span>/p>
+  &lt;p>First name: {{firstname}}&lt;/p>
         </code></pre>
       </div>
 
@@ -82,7 +82,7 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>input ng-model="firstname">
+  &lt;input ng-model="firstname">
         </code></pre>
       </div>
 
@@ -98,18 +98,18 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>div ng-app="myApp" ng-controller="myCtrl">
-    Name: <span><</span>input ng-model="firstname">
-    <span><</span>h1>{{firstname}}<span><</span>/h1>
-  <span><</span>/div>
+  &lt;div ng-app="myApp" ng-controller="myCtrl">
+    Name: &lt;input ng-model="firstname">
+    &lt;h1>{{firstname}}&lt;/h1>
+  &lt;/div>
 
-  <span><</span>script>
+  &lt;script>
   var app = angular.module('myApp', []);
   app.controller('myCtrl', function($scope) {
     $scope.firstname = "John";
     $scope.lastname = "Doe";
   });
-  <span><</span>/script>
+  &lt;/script>
         </code></pre>
       </div>
 
@@ -124,11 +124,11 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>div ng-app="myApp" ng-controller="myCtrl">
-    <span><</span>h1 ng-click="changeName()">{{firstname}}<span><</span>/h1>
-  <span><</span>/div>
+  &lt;div ng-app="myApp" ng-controller="myCtrl">
+    &lt;h1 ng-click="changeName()">{{firstname}}&lt;/h1>
+  &lt;/div>
 
-  <span><</span>script>
+  &lt;script>
   var app = angular.module('myApp', []);
   app.controller('myCtrl', function($scope) {
     $scope.firstname = "John";
@@ -136,7 +136,7 @@
       $scope.firstname = "Nelly";
     }
   });
-  <span><</span>/script>
+  &lt;/script>
         </code></pre>
       </div>
 

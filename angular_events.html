@@ -82,19 +82,19 @@
       <div class="panel">
         <p>Increase the count variable when the mouse moves over the H1 element:</p>
         <pre><code class="language-html">
-  <span><</span>div ng-app="myApp" ng-controller="myCtrl">
+  &lt;div ng-app="myApp" ng-controller="myCtrl">
 
-  <span><</span>h1 ng-mousemove="count = count + 1">Mouse over me!<span><</span>/h1>
+  &lt;h1 ng-mousemove="count = count + 1">Mouse over me!&lt;/h1>
 
-  <span><</span>h2>{{ count }}<span><</span>/h2>
+  &lt;h2>{{ count }}&lt;/h2>
 
-  <span><</span>/div>
-  <span><</span>script>
+  &lt;/div>
+  &lt;script>
   var app = angular.module('myApp', []);
   app.controller('myCtrl', function($scope) {
     $scope.count = 0;
   });
-  <span><</span>/script>  
+  &lt;/script>  
         </code></pre>
       </div>
     </section>
@@ -105,19 +105,19 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>div ng-app="myApp" ng-controller="myCtrl">
+  &lt;div ng-app="myApp" ng-controller="myCtrl">
 
-  <span><</span>button ng-click="count = count + 1">Click me!<span><</span>/button>
+  &lt;button ng-click="count = count + 1">Click me!&lt;/button>
 
-  <span><</span>p>{{ count }}<span><</span>/p>
+  &lt;p>{{ count }}&lt;/p>
 
-  <span><</span>/div>
-  <span><</span>script>
+  &lt;/div>
+  &lt;script>
   var app = angular.module('myApp', []);
   app.controller('myCtrl', function($scope) {
     $scope.count = 0;
   });
-  <span><</span>/script>
+  &lt;/script>
         </code></pre>
       </div>
       <p>You can also refer to a function:</p>
@@ -125,14 +125,14 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>div ng-app="myApp" ng-controller="myCtrl">
+  &lt;div ng-app="myApp" ng-controller="myCtrl">
 
-  <span><</span>button ng-click="myFunction()">Click me!<span><</span>/button>
+  &lt;button ng-click="myFunction()">Click me!&lt;/button>
 
-  <span><</span>p>{{ count }}<span><</span>/p>
+  &lt;p>{{ count }}&lt;/p>
 
-  <span><</span>/div>
-  <span><</span>script>
+  &lt;/div>
+  &lt;script>
   var app = angular.module('myApp', []);
   app.controller('myCtrl', function($scope) {
     $scope.count = 0;
@@ -140,7 +140,7 @@
       $scope.count++;
     }
   });
-  <span><</span>/script>
+  &lt;/script>
         </code></pre>
       </div>
     </section>
@@ -151,19 +151,19 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>div ng-app="myApp" ng-controller="myCtrl">
+  &lt;div ng-app="myApp" ng-controller="myCtrl">
 
-  <span><</span>button ng-click="myFunc()">Click Me!<span><</span>/button>
+  &lt;button ng-click="myFunc()">Click Me!&lt;/button>
 
-  <span><</span>div ng-show="showMe">
-    <span><</span>h1>Menu:<span><</span>/h1>
-    <span><</span>div>Pizza<span><</span>/div>
-    <span><</span>div>Pasta<span><</span>/div>
-    <span><</span>div>Pesce<span><</span>/div>
-  <span><</span>/div>
+  &lt;div ng-show="showMe">
+    &lt;h1>Menu:&lt;/h1>
+    &lt;div>Pizza&lt;/div>
+    &lt;div>Pasta&lt;/div>
+    &lt;div>Pesce&lt;/div>
+  &lt;/div>
 
-  <span><</span>/div>
-  <span><</span>script>
+  &lt;/div>
+  &lt;script>
   var app = angular.module('myApp', []);
   app.controller('myCtrl', function($scope) {
     $scope.showMe = false;
@@ -171,7 +171,7 @@
       $scope.showMe = !$scope.showMe;
     }
   });
-  <span><</span>/script>
+  &lt;/script>
         </code></pre>
       </div>
       <p>The <code class="res">showMe</code> variable starts out as the Boolean value <code class="res">false</code>.</p>
@@ -185,14 +185,14 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>div ng-app="myApp" ng-controller="myCtrl">
+  &lt;div ng-app="myApp" ng-controller="myCtrl">
 
-  <span><</span>h1 ng-mousemove="myFunc($event)">Mouse Over Me!<span><</span>/h1>
+  &lt;h1 ng-mousemove="myFunc($event)">Mouse Over Me!&lt;/h1>
 
-  <span><</span>p>Coordinates: {{x + ', ' + y}}<span><</span>/p>
+  &lt;p>Coordinates: {{x + ', ' + y}}&lt;/p>
 
-  <span><</span>/div>
-  <span><</span>script>
+  &lt;/div>
+  &lt;script>
   var app = angular.module('myApp', []);
   app.controller('myCtrl', function($scope) {
     $scope.myFunc = function(myE) {
@@ -200,7 +200,7 @@
       $scope.y = myE.clientY;
     }
   });
-  <span><</span>/script>
+  &lt;/script>
         </code></pre>
       </div>
     </section>

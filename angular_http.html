@@ -44,14 +44,14 @@
       <div class="panel">
         <p>Make a simple request to the server, and display the result in a header:</p>
         <pre><code class="language-html">
-  <span><</span>div ng-app="myApp" ng-controller="myCtrl">
+  &lt;div ng-app="myApp" ng-controller="myCtrl">
 
-  <span><</span>p>Today's welcome message is:<span><</span>/p>
-  <span><</span>h1>{{myWelcome}}<span><</span>/h1>
+  &lt;p>Today's welcome message is:&lt;/p>
+  &lt;h1>{{myWelcome}}&lt;/h1>
 
-  <span><</span>/div>
+  &lt;/div>
 
-  <span><</span>script>
+  &lt;script>
   var app = angular.module('myApp', []);
   app.controller('myCtrl', function($scope, $http) {
     $http.get("welcome.htm")
@@ -59,7 +59,7 @@
       $scope.myWelcome = response.data;
     });
   });
-  <span><</span>/script>
+  &lt;/script>
         </code></pre>
       </div>
     </section>
@@ -146,24 +146,24 @@
       <div class="panel">
         <p>The <code class="res">ng-repeat</code> directive is perfect for looping through an array:</p>
         <pre><code class="language-html">
-  <span><</span>div ng-app="myApp" ng-controller="customersCtrl">
+  &lt;div ng-app="myApp" ng-controller="customersCtrl">
 
-  <span><</span>ul>
-    <span><</span>li ng-repeat="x in myData">
+  &lt;ul>
+    &lt;li ng-repeat="x in myData">
       {{ x.Name + ', ' + x.Country }}
-    <span><</span>/li>
-  <span><</span>/ul>
+    &lt;/li>
+  &lt;/ul>
 
-  <span><</span>/div>
+  &lt;/div>
 
-  <span><</span>script>
+  &lt;script>
   var app = angular.module('myApp', []);
   app.controller('customersCtrl', function($scope, $http) {
     $http.get("customers.php").then(function(response) {
       $scope.myData = response.data.records;
     });
   });
-  <span><</span>/script>
+  &lt;/script>
         </code></pre>
       </div>
       <p>Application explained:</p>

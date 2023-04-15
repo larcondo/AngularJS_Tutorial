@@ -44,13 +44,13 @@
       <p>A module is created by using the AngularJS function <code class="res">angular.module</code></p>
       
       <pre><code class="language-html">
-  <span><</span>div ng-app="myApp">...<span><</span>/div>
+  &lt;div ng-app="myApp">...&lt;/div>
 
-  <span><</span>script>
+  &lt;script>
   
   var app = angular.module("myApp", []);
   
-  <span><</span>/script>
+  &lt;/script>
       </code></pre>
 
       <p>The "myApp" parameter refers to an HTML element in which the application will run.</p>
@@ -63,11 +63,11 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-    <span><</span>div ng-app="myApp" ng-controller="myCtrl">
+    &lt;div ng-app="myApp" ng-controller="myCtrl">
     {{ firstName + " " + lastName }}
-    <span><</span>/div>
+    &lt;/div>
     
-    <span><</span>script>
+    &lt;script>
     
     var app = angular.module("myApp", []);
     
@@ -76,7 +76,7 @@
       $scope.lastName = "Doe";
     });
     
-    <span><</span>/script>
+    &lt;/script>
         </code></pre>
       </div>
     </section>
@@ -89,9 +89,9 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>div ng-app="myApp" w3-test-directive><span><</span>/div>
+  &lt;div ng-app="myApp" w3-test-directive>&lt;/div>
 
-  <span><</span>script>
+  &lt;script>
     var app = angular.module("myApp", []);
 
     app.directive("w3TestDirective", function() {
@@ -99,7 +99,7 @@
         template : "I was made in a directive constructor!"
       };
     });
-  <span><</span>/script>
+  &lt;/script>
         </code></pre>
       </div>
 
@@ -112,20 +112,20 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>!DOCTYPE html>
-  <span><</span>html>
-  <span><</span>script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"><span><</span>/script>
-  <span><</span>body>
+  &lt;!DOCTYPE html>
+  &lt;html>
+  &lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">&lt;/script>
+  &lt;body>
 
-  <span><</span>div ng-app="myApp" ng-controller="myCtrl">
+  &lt;div ng-app="myApp" ng-controller="myCtrl">
   {{ firstName + " " + lastName }}
-  <span><</span>/div>
+  &lt;/div>
 
-  <span><</span>script src="myApp.js"><span><</span>/script>
-  <span><</span>script src="myCtrl.js"><span><</span>/script>
+  &lt;script src="myApp.js">&lt;/script>
+  &lt;script src="myCtrl.js">&lt;/script>
 
-  <span><</span>/body>
-  <span><</span>/html>
+  &lt;/body>
+  &lt;/html>
         </code></pre>
 
         <p><code class="res">myApp.js</code></p>
@@ -155,31 +155,31 @@
     </section>
 
     <section id="titulo"><h2>When to Load the Library</h2>
-      <p>While it is common in HTML applications to place scripts at the end of the <code class="res"><span><</span>body></code> element, it is recommended that you load the AngularJS library either in the <code class="res"><span><</span>head></code> or at the start of the <code class="res"><span><</span>body></code>.</p>
+      <p>While it is common in HTML applications to place scripts at the end of the <code class="res">&lt;body></code> element, it is recommended that you load the AngularJS library either in the <code class="res">&lt;head></code> or at the start of the <code class="res">&lt;body></code>.</p>
       <p>This is because calls to <code class="res">angular.module</code> can only be compiled after the library has been loaded.</p>
 
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>!DOCTYPE html>
-  <span><</span>html>
-  <span><</span>body>
-  <span><</span>script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"><span><</span>/script>
+  &lt;!DOCTYPE html>
+  &lt;html>
+  &lt;body>
+  &lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">&lt;/script>
 
-  <span><</span>div ng-app="myApp" ng-controller="myCtrl">
+  &lt;div ng-app="myApp" ng-controller="myCtrl">
   {{ firstName + " " + lastName }}
-  <span><</span>/div>
+  &lt;/div>
 
-  <span><</span>script>
+  &lt;script>
   var app = angular.module("myApp", []);
   app.controller("myCtrl", function($scope) {
     $scope.firstName = "John";
     $scope.lastName = "Doe";
   });
-  <span><</span>/script>
+  &lt;/script>
 
-  <span><</span>/body>
-  <span><</span>/html>
+  &lt;/body>
+  &lt;/html>
         </code></pre>
       </div>
 

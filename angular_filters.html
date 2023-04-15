@@ -57,11 +57,11 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>div ng-app="myApp" ng-controller="personCtrl">
+  &lt;div ng-app="myApp" ng-controller="personCtrl">
 
-  <span><</span>p>The name is {{ lastName | uppercase }}<span><</span>/p>
+  &lt;p>The name is {{ lastName | uppercase }}&lt;/p>
 
-  <span><</span>/div>
+  &lt;/div>
         </code></pre>
       </div>
       <p>The <code class="res">lowercase</code> filter format strings to lower case:</p>
@@ -69,11 +69,11 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>div ng-app="myApp" ng-controller="personCtrl">
+  &lt;div ng-app="myApp" ng-controller="personCtrl">
 
-  <span><</span>p>The name is {{ lastName | lowercase }}<span><</span>/p>
+  &lt;p>The name is {{ lastName | lowercase }}&lt;/p>
 
-  <span><</span>/div>
+  &lt;/div>
         </code></pre>
       </div>
 
@@ -86,15 +86,15 @@
       <div class="panel">
         <p>The <code class="res">orderBy</code> filter sorts an array:</p>
         <pre><code class="language-html">
-  <span><</span>div ng-app="myApp" ng-controller="namesCtrl">
+  &lt;div ng-app="myApp" ng-controller="namesCtrl">
 
-  <span><</span>ul>
-    <span><</span>li ng-repeat="x in names | orderBy:'country'">
+  &lt;ul>
+    &lt;li ng-repeat="x in names | orderBy:'country'">
       {{ x.name + ', ' + x.country }}
-    <span><</span>/li>
-  <span><</span>/ul>
+    &lt;/li>
+  &lt;/ul>
 
-  <span><</span>/div>
+  &lt;/div>
         </code></pre>
       </div>
     </section>
@@ -105,11 +105,11 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>div ng-app="myApp" ng-controller="costCtrl">
+  &lt;div ng-app="myApp" ng-controller="costCtrl">
 
-  <span><</span>h1>Price: {{ price | currency }}<span><</span>/h1>
+  &lt;h1>Price: {{ price | currency }}&lt;/h1>
 
-  <span><</span>/div>
+  &lt;/div>
         </code></pre>
       </div>
     </section>
@@ -122,15 +122,15 @@
       <div class="panel">
         <p>Return the names that contains the letter "i":</p>
         <pre><code class="language-html">
-  <span><</span>div ng-app="myApp" ng-controller="namesCtrl">
+  &lt;div ng-app="myApp" ng-controller="namesCtrl">
 
-  <span><</span>ul>
-    <span><</span>li ng-repeat="x in names | filter : 'i'">
+  &lt;ul>
+    &lt;li ng-repeat="x in names | filter : 'i'">
       {{ x }}
-    <span><</span>/li>
-  <span><</span>/ul>
+    &lt;/li>
+  &lt;/ul>
 
-  <span><</span>/div>            
+  &lt;/div>            
         </code></pre>
       </div>
     </section>
@@ -141,17 +141,17 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>div ng-app="myApp" ng-controller="namesCtrl">
+  &lt;div ng-app="myApp" ng-controller="namesCtrl">
 
-  <span><</span>p><span><</span>input type="text" ng-model="test"><span><</span>/p>
+  &lt;p>&lt;input type="text" ng-model="test">&lt;/p>
 
-  <span><</span>ul>
-    <span><</span>li ng-repeat="x in names | filter : test">
+  &lt;ul>
+    &lt;li ng-repeat="x in names | filter : test">
       {{ x }}
-    <span><</span>/li>
-  <span><</span>/ul>
+    &lt;/li>
+  &lt;/ul>
 
-  <span><</span>/div> 
+  &lt;/div> 
         </code></pre>
       </div>
     </section>
@@ -162,22 +162,22 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>div ng-app="myApp" ng-controller="namesCtrl">
+  &lt;div ng-app="myApp" ng-controller="namesCtrl">
 
-  <span><</span>table border="1" width="100%">
-    <span><</span>tr>
-      <span><</span>th ng-click="orderByMe('name')">Name<span><</span>/th>
-      <span><</span>th ng-click="orderByMe('country')">Country<span><</span>/th>
-    <span><</span>/tr>
-    <span><</span>tr ng-repeat="x in names | orderBy:myOrderBy">
-      <span><</span>td>{{x.name}}<span><</span>/td>
-      <span><</span>td>{{x.country}}<span><</span>/td>
-    <span><</span>/tr>
-  <span><</span>/table>
+  &lt;table border="1" width="100%">
+    &lt;tr>
+      &lt;th ng-click="orderByMe('name')">Name&lt;/th>
+      &lt;th ng-click="orderByMe('country')">Country&lt;/th>
+    &lt;/tr>
+    &lt;tr ng-repeat="x in names | orderBy:myOrderBy">
+      &lt;td>{{x.name}}&lt;/td>
+      &lt;td>{{x.country}}&lt;/td>
+    &lt;/tr>
+  &lt;/table>
 
-  <span><</span>/div>
+  &lt;/div>
 
-  <span><</span>script>
+  &lt;script>
   angular.module('myApp', []).controller('namesCtrl', function($scope) {
     $scope.names = [
       {name:'Jani',country:'Norway'},
@@ -194,7 +194,7 @@
       $scope.myOrderBy = x;
     }
   });
-  <span><</span>/script>
+  &lt;/script>
         </code></pre>
       </div>
     </section>
@@ -206,13 +206,13 @@
       <div class="panel">
         <p>Make a custom filter called "myFormat":</p>
         <pre><code class="language-html">
-  <span><</span>ul ng-app="myApp" ng-controller="namesCtrl">
-    <span><</span>li ng-repeat="x in names">
+  &lt;ul ng-app="myApp" ng-controller="namesCtrl">
+    &lt;li ng-repeat="x in names">
       {{x | myFormat}}
-    <span><</span>/li>
-  <span><</span>/ul>
+    &lt;/li>
+  &lt;/ul>
 
-  <span><</span>script>
+  &lt;script>
   var app = angular.module('myApp', []);
   app.filter('myFormat', function() {
     return function(x) {
@@ -230,7 +230,7 @@
   app.controller('namesCtrl', function($scope) {
     $scope.names = ['Jani', 'Carl', 'Margareth', 'Hege', 'Joe', 'Gustav', 'Birgit', 'Mary', 'Kai'];
   });
-  <span><</span>/script>
+  &lt;/script>
         </code></pre>
       </div>
 

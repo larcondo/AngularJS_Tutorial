@@ -46,19 +46,19 @@
       <div class="panel">
         <p>Properties made in the controller, can be referred to in the view:</p>
         <pre><code class="language-html">
-  <span><</span>div ng-app="myApp" ng-controller="myCtrl">
+  &lt;div ng-app="myApp" ng-controller="myCtrl">
 
-  <span><</span>h1>{{carname}}<span><</span>/h1>
+  &lt;h1>{{carname}}&lt;/h1>
 
-  <span><</span>/div>
+  &lt;/div>
 
-  <span><</span>script>
+  &lt;script>
   var app = angular.module('myApp', []);
 
   app.controller('myCtrl', function($scope) {
     $scope.carname = "Volvo";
   });
-  <span><</span>/script>
+  &lt;/script>
         </code></pre>
       </div>
 
@@ -78,21 +78,21 @@
       <div class="panel">
         <p>If you make changes in the view, the model and the controller will be updated:</p>
         <pre><code class="language-html">
-  <span><</span>div ng-app="myApp" ng-controller="myCtrl">
+  &lt;div ng-app="myApp" ng-controller="myCtrl">
 
-  <span><</span>input ng-model="name">
+  &lt;input ng-model="name">
 
-  <span><</span>h1>My name is {{name}}<span><</span>/h1>
+  &lt;h1>My name is {{name}}&lt;/h1>
 
-  <span><</span>/div>
+  &lt;/div>
 
-  <span><</span>script>
+  &lt;script>
   var app = angular.module('myApp', []);
 
   app.controller('myCtrl', function($scope) {
     $scope.name = "John Doe";
   });
-  <span><</span>/script>
+  &lt;/script>
         </code></pre>
       </div>
 
@@ -106,25 +106,25 @@
       <div class="panel">
         <p>When dealing with the <code class="res">ng-repeat</code> directive, each repetition has access to the current repetition object:</p>
         <pre><code class="language-html">
-  <span><</span>div ng-app="myApp" ng-controller="myCtrl">
+  &lt;div ng-app="myApp" ng-controller="myCtrl">
 
-  <span><</span>ul>
-    <span><</span>li ng-repeat="x in names">{{x}}<span><</span>/li>
-  <span><</span>/ul>
+  &lt;ul>
+    &lt;li ng-repeat="x in names">{{x}}&lt;/li>
+  &lt;/ul>
 
-  <span><</span>/div>
+  &lt;/div>
 
-  <span><</span>script>
+  &lt;script>
   var app = angular.module('myApp', []);
 
   app.controller('myCtrl', function($scope) {
     $scope.names = ["Emil", "Tobias", "Linus"];
   });
-  <span><</span>/script>  
+  &lt;/script>  
         </code></pre>
       </div>
       
-      <p>Each <code class="res"><span><</span>li></code> element has access to the current repetition object, in this case a string, which is referred to by using <code class="res">x</code>.</p>
+      <p>Each <code class="res">&lt;li></code> element has access to the current repetition object, in this case a string, which is referred to by using <code class="res">x</code>.</p>
 
     </section>
 
@@ -137,20 +137,20 @@
       <div class="panel">
         <p>A variable named "color" exists in both the controller's scope and in the rootScope:</p>
         <pre><code class="language-html">
-  <span><</span>body ng-app="myApp">
+  &lt;body ng-app="myApp">
 
-  <span><</span>p>The rootScope's favorite color:<span><</span>/p>
-  <span><</span>h1>{{color}}<span><</span>/h1>
+  &lt;p>The rootScope's favorite color:&lt;/p>
+  &lt;h1>{{color}}&lt;/h1>
 
-  <span><</span>div ng-controller="myCtrl">
-    <span><</span>p>The scope of the controller's favorite color:<span><</span>/p>
-    <span><</span>h1>{{color}}<span><</span>/h1>
-  <span><</span>/div>
+  &lt;div ng-controller="myCtrl">
+    &lt;p>The scope of the controller's favorite color:&lt;/p>
+    &lt;h1>{{color}}&lt;/h1>
+  &lt;/div>
 
-  <span><</span>p>The rootScope's favorite color is still:<span><</span>/p>
-  <span><</span>h1>{{color}}<span><</span>/h1>
+  &lt;p>The rootScope's favorite color is still:&lt;/p>
+  &lt;h1>{{color}}&lt;/h1>
 
-  <span><</span>script>
+  &lt;script>
   var app = angular.module('myApp', []);
   app.run(function($rootScope) {
     $rootScope.color = 'blue';
@@ -158,8 +158,8 @@
   app.controller('myCtrl', function($scope) {
     $scope.color = "red";
   });
-  <span><</span>/script>
-  <span><</span>/body>
+  &lt;/script>
+  &lt;/body>
         </code></pre>
       </div>
     </section>

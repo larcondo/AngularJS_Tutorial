@@ -43,16 +43,16 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>div ng-app="myApp" ng-controller="myCtrl">
-    Name: <span><</span>input ng-model="name">
-  <span><</span>/div>
+  &lt;div ng-app="myApp" ng-controller="myCtrl">
+    Name: &lt;input ng-model="name">
+  &lt;/div>
   
-  <span><</span>script>
+  &lt;script>
   var app = angular.module('myApp', []);
   app.controller('myCtrl', function($scope) {
     $scope.name = "John Doe";
   });
-  <span><</span>/script>
+  &lt;/script>
         </code></pre>
       </div>
 
@@ -64,10 +64,10 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>div ng-app="myApp" ng-controller="myCtrl">
-    Name: <span><</span>input ng-model="name">
-    <span><</span>h1>You entered: {{name}}<span><</span>/h1>
-  <span><</span>/div>
+  &lt;div ng-app="myApp" ng-controller="myCtrl">
+    Name: &lt;input ng-model="name">
+    &lt;h1>You entered: {{name}}&lt;/h1>
+  &lt;/div>
         </code></pre>
       </div>
     </section>
@@ -78,11 +78,11 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>form ng-app="" name="myForm">
+  &lt;form ng-app="" name="myForm">
     Email:
-    <span><</span>input type="email" name="myAddress" ng-model="text">
-    <span><</span>span ng-show="myForm.myAddress.$error.email">Not a valid e-mail address<span><</span>/span>
-  <span><</span>/form>  
+    &lt;input type="email" name="myAddress" ng-model="text">
+    &lt;span ng-show="myForm.myAddress.$error.email">Not a valid e-mail address&lt;/span>
+  &lt;/form>  
         </code></pre>
       </div>
 
@@ -97,14 +97,14 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>form ng-app="" name="myForm" ng-init="myText = 'post@myweb.com'">
+  &lt;form ng-app="" name="myForm" ng-init="myText = 'post@myweb.com'">
     Email:
-    <span><</span>input type="email" name="myAddress" ng-model="myText" required>
-    <span><</span>h1>Status<span><</span>/h1>
+    &lt;input type="email" name="myAddress" ng-model="myText" required>
+    &lt;h1>Status&lt;/h1>
     {{myForm.myAddress.$valid}}
     {{myForm.myAddress.$dirty}}
     {{myForm.myAddress.$touched}}
-  <span><</span>/form> 
+  &lt;/form> 
         </code></pre>
       </div>
 
@@ -116,18 +116,18 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>style>
+  &lt;style>
   input.ng-invalid {
     background-color: lightblue;
   }
-  <span><</span>/style>
-  <span><</span>body>
+  &lt;/style>
+  &lt;body>
   
-  <span><</span>form ng-app="" name="myForm">
+  &lt;form ng-app="" name="myForm">
     Enter your name:
-    <span><</span>input name="myName" ng-model="myText" required>
-  <span><</span>/form>
-  <span><</span>/body>
+    &lt;input name="myName" ng-model="myText" required>
+  &lt;/form>
+  &lt;/body>
         </code></pre>
       </div>
 

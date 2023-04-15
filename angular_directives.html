@@ -48,16 +48,16 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>div ng-app="" ng-init="firstName='John'">
+  &lt;div ng-app="" ng-init="firstName='John'">
 
-    <span><</span>p>Name: <span><</span>input type="text" ng-model="firstName"><span><</span>/p>
-    <span><</span>p>You wrote: {{ firstName }}<span><</span>/p>
+    &lt;p>Name: &lt;input type="text" ng-model="firstName">&lt;/p>
+    &lt;p>You wrote: {{ firstName }}&lt;/p>
     
-  <span><</span>/div> 
+  &lt;/div> 
         </code></pre>
       </div>
 
-      <p>The <code class="res">ng-app</code> directive also tells AngularJS that the <span><</span>div> element is the "owner" of the AngualrJS application.</p>
+      <p>The <code class="res">ng-app</code> directive also tells AngularJS that the &lt;div> element is the "owner" of the AngualrJS application.</p>
       
     </section>
      
@@ -70,14 +70,14 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>div ng-app="" ng-init="quantity=1;price=5">
+  &lt;div ng-app="" ng-init="quantity=1;price=5">
 
-    Quantity: <span><</span>input type="number" ng-model="quantity">
-    Costs:    <span><</span>input type="number" ng-model="price">
+    Quantity: &lt;input type="number" ng-model="quantity">
+    Costs:    &lt;input type="number" ng-model="price">
     
     Total in dollar: {{ quantity * price }}
     
-  <span><</span>/div>
+  &lt;/div>
         </code></pre>
       </div>
 
@@ -93,13 +93,13 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>div ng-app="" ng-init="names=['Jani','Hege','Kai']">
-    <span><</span>ul>
-      <span><</span>li ng-repeat="x in names">
+  &lt;div ng-app="" ng-init="names=['Jani','Hege','Kai']">
+    &lt;ul>
+      &lt;li ng-repeat="x in names">
         {{ x }}
-      <span><</span>/li>
-    <span><</span>/ul>
-  <span><</span>/div>
+      &lt;/li>
+    &lt;/ul>
+  &lt;/div>
         </code></pre>
       </div>
 
@@ -109,18 +109,18 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>div ng-app="" ng-init="names=[
+  &lt;div ng-app="" ng-init="names=[
   {name:'Jani',country:'Norway'},
   {name:'Hege',country:'Sweden'},
   {name:'Kai',country:'Denmark'}]">
   
-  <span><</span>ul>
-    <span><</span>li ng-repeat="x in names">
+  &lt;ul>
+    &lt;li ng-repeat="x in names">
       {{ x.name + ', ' + x.country }}
-    <span><</span>/li>
-  <span><</span>/ul>
+    &lt;/li>
+  &lt;/ul>
   
-  <span><</span>/div> 
+  &lt;/div> 
         </code></pre>
       </div>
 
@@ -160,20 +160,20 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>body ng-app="myApp">
+  &lt;body ng-app="myApp">
 
-    <span><</span>w3-test-directive><span><</span>/w3-test-directive>
+    &lt;w3-test-directive>&lt;/w3-test-directive>
     
-    <span><</span>script>
+    &lt;script>
     var app = angular.module("myApp", []);
     app.directive("w3TestDirective", function() {
       return {
-        template : "<span><</span>h1>Made by a directive!<span><</span>/h1>"
+        template : "&lt;h1>Made by a directive!&lt;/h1>"
       };
     });
-    <span><</span>/script>
+    &lt;/script>
     
-  <span><</span>/body>
+  &lt;/body>
         </code></pre>
       </div>
 
@@ -189,25 +189,25 @@
       <div class="panel">
         <p>Element name</p>
         <pre><code class="language-html">
-  <span><</span>w3-test-directive><span><</span>/w3-test-directive>
+  &lt;w3-test-directive>&lt;/w3-test-directive>
         </code></pre>
         <div class="enlace""><a href="https://www.w3schools.com/angular/tryit.asp?filename=try_ng_directive_element" target="_blank">Click here to full example</a></div>
 
         <p>Attribute</p>
         <pre><code class="language-html">
-  <span><</span>div w3-test-directive><span><</span>/div>
+  &lt;div w3-test-directive>&lt;/div>
         </code></pre>
         <div class="enlace"><a href="https://www.w3schools.com/angular/tryit.asp?filename=try_ng_directive_attribute" target="_blank">Click here to full example</a></div>
         
         <p>Class</p>
         <pre><code class="language-html">
-  <span><</span>div class="w3-test-directive"><span><</span>/div>
+  &lt;div class="w3-test-directive">&lt;/div>
         </code></pre>
         <div class="enlace"><a href="https://www.w3schools.com/angular/tryit.asp?filename=try_ng_directive_class" target="_blank">Click here to full example</a></div>
         
         <p>Comment</p>
         <pre><code class="language-html">
-  <span><</span>!-- directive: w3-test-directive -->
+  &lt;!-- directive: w3-test-directive -->
         </code></pre>
         <div class="enlace"><a href="https://www.w3schools.com/angular/tryit.asp?filename=try_ng_directive_comment" target="_blank">Click here to full example</a></div>
 
@@ -226,7 +226,7 @@
   app.directive("w3TestDirective", function() {
     return {
       restrict : "A",
-      template : "<span><</span>h1>Made by a directive!<span><</span>/h1>"
+      template : "&lt;h1>Made by a directive!&lt;/h1>"
     };
   });          
         </code></pre>

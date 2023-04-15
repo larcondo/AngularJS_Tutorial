@@ -43,11 +43,11 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>body ng-app="">
+  &lt;body ng-app="">
 
-  <span><</span>div ng-include="'myFile.htm'"><span><</span>/div>
+  &lt;div ng-include="'myFile.htm'">&lt;/div>
 
-  <span><</span>/body>
+  &lt;/body>
         </code></pre>
       </div>
     </section>
@@ -58,12 +58,12 @@
       <button class="accordion"><h3>myTable.htm</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>table>
-    <span><</span>tr ng-repeat="x in names">
-      <span><</span>td>{{ x.Name }}<span><</span>/td>
-      <span><</span>td>{{ x.Country }}<span><</span>/td>
-    <span><</span>/tr>
-  <span><</span>/table>
+  &lt;table>
+    &lt;tr ng-repeat="x in names">
+      &lt;td>{{ x.Name }}&lt;/td>
+      &lt;td>{{ x.Country }}&lt;/td>
+    &lt;/tr>
+  &lt;/table>
         </code></pre>
       </div>
       <p>Include the file "myTable.htm" in your web page and all AngularJS code will be executed, even the code inside the included file:</p>
@@ -71,20 +71,20 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>body>
+  &lt;body>
 
-  <span><</span>div ng-app="myApp" ng-controller="customersCtrl">
-    <span><</span>div ng-include="'myTable.htm'"><span><</span>/div>
-  <span><</span>/div>
+  &lt;div ng-app="myApp" ng-controller="customersCtrl">
+    &lt;div ng-include="'myTable.htm'">&lt;/div>
+  &lt;/div>
 
-  <span><</span>script>
+  &lt;script>
   var app = angular.module('myApp', []);
   app.controller('customersCtrl', function($scope, $http) {
     $http.get("customers.php").then(function (response) {
       $scope.names = response.data.records;
     });
   });
-  <span><</span>/script>
+  &lt;/script>
         </code></pre>
       </div>
     </section>
@@ -96,20 +96,20 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>body ng-app="myApp">
+  &lt;body ng-app="myApp">
 
-  <span><</span>div ng-include="'https://tryit.w3schools.com/angular_include.php'"><span><</span>/div>
+  &lt;div ng-include="'https://tryit.w3schools.com/angular_include.php'">&lt;/div>
 
-  <span><</span>script>
+  &lt;script>
   var app = angular.module('myApp', [])
   app.config(function($sceDelegateProvider) {
     $sceDelegateProvider.resourceUrlWhitelist([
       'https://tryit.w3schools.com/**'
     ]);
   });
-  <span><</span>/script>
+  &lt;/script>
 
-  <span><</span>/body>
+  &lt;/body>
         </code></pre>
       </div>
       <div class="nota">Be sure that the server on the destination allows cross domain file access.</div>

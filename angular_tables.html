@@ -43,24 +43,24 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>div ng-app="myApp" ng-controller="customersCtrl">
+  &lt;div ng-app="myApp" ng-controller="customersCtrl">
 
-  <span><</span>table>
-    <span><</span>tr ng-repeat="x in names">
-      <span><</span>td>{{ x.Name }}<span><</span>/td>
-      <span><</span>td>{{ x.Country }}<span><</span>/td>
-    <span><</span>/tr>
-  <span><</span>/table>
+  &lt;table>
+    &lt;tr ng-repeat="x in names">
+      &lt;td>{{ x.Name }}&lt;/td>
+      &lt;td>{{ x.Country }}&lt;/td>
+    &lt;/tr>
+  &lt;/table>
 
-  <span><</span>/div>
+  &lt;/div>
 
-  <span><</span>script>
+  &lt;script>
   var app = angular.module('myApp', []);
   app.controller('customersCtrl', function($scope, $http) {
     $http.get("customers.php")
     .then(function (response) {$scope.names = response.data.records;});
   });
-  <span><</span>/script>
+  &lt;/script>
         </code></pre>
       </div>
     </section>
@@ -71,7 +71,7 @@
       <button class="accordion"><h3>CSS Style</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>style>
+  &lt;style>
   table, th , td {
     border: 1px solid grey;
     border-collapse: collapse;
@@ -85,7 +85,7 @@
   table tr:nth-child(even) {
     background-color: #ffffff;
   }
-  <span><</span>/style>
+  &lt;/style>
         </code></pre>
       </div>
     </section>
@@ -96,12 +96,12 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>table>
-    <span><</span>tr ng-repeat="x in names | orderBy : 'Country'">
-      <span><</span>td>{{ x.Name }}<span><</span>/td>
-      <span><</span>td>{{ x.Country }}<span><</span>/td>
-    <span><</span>/tr>
-  <span><</span>/table>
+  &lt;table>
+    &lt;tr ng-repeat="x in names | orderBy : 'Country'">
+      &lt;td>{{ x.Name }}&lt;/td>
+      &lt;td>{{ x.Country }}&lt;/td>
+    &lt;/tr>
+  &lt;/table>
         </code></pre>
       </div>
     </section>
@@ -112,29 +112,29 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>table>
-    <span><</span>tr ng-repeat="x in names">
-      <span><</span>td>{{ x.Name }}<span><</span>/td>
-      <span><</span>td>{{ x.Country | uppercase }}<span><</span>/td>
-    <span><</span>/tr>
-  <span><</span>/table>
+  &lt;table>
+    &lt;tr ng-repeat="x in names">
+      &lt;td>{{ x.Name }}&lt;/td>
+      &lt;td>{{ x.Country | uppercase }}&lt;/td>
+    &lt;/tr>
+  &lt;/table>
         </code></pre>
       </div>
     </section>
     
     <section id="titulo"><h2>Display the Table Index ($index)</h2>
-      <p>To display the table index, add a <span><</span>td> with <b>$index</b>:</p>
+      <p>To display the table index, add a &lt;td> with <b>$index</b>:</p>
       
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>table>
-    <span><</span>tr ng-repeat="x in names">
-      <span><</span>td>{{ $index + 1 }}<span><</span>/td>
-      <span><</span>td>{{ x.Name }}<span><</span>/td>
-      <span><</span>td>{{ x.Country }}<span><</span>/td>
-    <span><</span>/tr>
-  <span><</span>/table>
+  &lt;table>
+    &lt;tr ng-repeat="x in names">
+      &lt;td>{{ $index + 1 }}&lt;/td>
+      &lt;td>{{ x.Name }}&lt;/td>
+      &lt;td>{{ x.Country }}&lt;/td>
+    &lt;/tr>
+  &lt;/table>
         </code></pre>
       </div>
     </section>
@@ -143,14 +143,14 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>table>
-    <span><</span>tr ng-repeat="x in names">
-      <span><</span>td ng-if="$odd" style="background-color:#f1f1f1">{{ x.Name }}<span><</span>/td>
-      <span><</span>td ng-if="$even">{{ x.Name }}<span><</span>/td>
-      <span><</span>td ng-if="$odd" style="background-color:#f1f1f1">{{ x.Country }}<span><</span>/td>
-      <span><</span>td ng-if="$even">{{ x.Country }}<span><</span>/td>
-    <span><</span>/tr>
-  <span><</span>/table>
+  &lt;table>
+    &lt;tr ng-repeat="x in names">
+      &lt;td ng-if="$odd" style="background-color:#f1f1f1">{{ x.Name }}&lt;/td>
+      &lt;td ng-if="$even">{{ x.Name }}&lt;/td>
+      &lt;td ng-if="$odd" style="background-color:#f1f1f1">{{ x.Country }}&lt;/td>
+      &lt;td ng-if="$even">{{ x.Country }}&lt;/td>
+    &lt;/tr>
+  &lt;/table>
         </code></pre>
       </div>
     </section>

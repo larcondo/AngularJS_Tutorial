@@ -44,13 +44,13 @@
       <div class="panel">
         <p>Check the checkbox to hide the DIV:</p>
         <pre><code class="language-html">
-  <span><</span>body ng-app="ngAnimate">
+  &lt;body ng-app="ngAnimate">
 
-  Hide the DIV: <span><</span>input type="checkbox" ng-model="myCheck">
+  Hide the DIV: &lt;input type="checkbox" ng-model="myCheck">
 
-  <span><</span>div ng-hide="myCheck"><span><</span>/div>
+  &lt;div ng-hide="myCheck">&lt;/div>
 
-  <span><</span>/body>
+  &lt;/body>
         </code></pre>
       </div>
       
@@ -63,12 +63,12 @@
       <p>To make your applications ready for animations, you must include the AngularJS Animate library:</p>
       
       <pre><code class="language-html">
-  <span><</span>script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"><span><</span>/script>
+  &lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js">&lt;/script>
       </code></pre>
       <p>Then you must refer to the <code class="res">ngAnimate</code> module in your application:</p>
       
       <pre><code class="language-html">
-  <span><</span>body ng-app="ngAnimate"><span><</span>/body>
+  &lt;body ng-app="ngAnimate">&lt;/body>
       </code></pre>
 
       <p>Or if your application has a name, add <code class="res">ngAnimate</code> as a dependency in your application module:</p>
@@ -76,15 +76,15 @@
       <button class="accordion"><h3>Example</h3></button>
       <div class="panel">
         <pre><code class="language-html">
-  <span><</span>body ng-app="myApp">
+  &lt;body ng-app="myApp">
 
-  <span><</span>h1>Hide the DIV: <span><</span>input type="checkbox" ng-model="myCheck"><span><</span>/h1>
+  &lt;h1>Hide the DIV: &lt;input type="checkbox" ng-model="myCheck">&lt;/h1>
 
-  <span><</span>div ng-hide="myCheck"><span><</span>/div>
+  &lt;div ng-hide="myCheck">&lt;/div>
 
-  <span><</span>script>
+  &lt;script>
   var app = angular.module('myApp', ['ngAnimate']);
-  <span><</span>/script>
+  &lt;/script>
         </code></pre>
       </div>
 
@@ -127,7 +127,7 @@
       <div class="panel">
         <p>When the DIV element gets the <code class="res">.ng-hide</code> class, the transition will take 0.5 seconds, and the height will smoothly change from 100px to 0:</p>
         <pre><code class="language-html">
-  <span><</span>style>
+  &lt;style>
   div {
     transition: all linear 0.5s;
     background-color: lightblue;
@@ -137,7 +137,7 @@
   .ng-hide {
     height: 0;
   }
-  <span><</span>/style>
+  &lt;/style>
         </code></pre>
       </div>
     </section>
@@ -149,7 +149,7 @@
       <div class="panel">
         <p>When the DIV element gets the <code class="res">.ng-hide</code> class, the <code class="res">myChange</code> animation will run, which will smoothly change the height from 100px to 0:</p>
         <pre><code class="language-html">
-  <span><</span>style>
+  &lt;style>
   @keyframes myChange {
     from {
       height: 100px;
@@ -166,7 +166,7 @@
   div.ng-hide {
     animation: 0.5s myChange;
   }
-  <span><</span>/style>
+  &lt;/style>
         </code></pre>
       </div>
     </section>
